@@ -2,7 +2,7 @@ You are reviewing one test conversation between a job-search assistant and a sim
 
 Be strict. The standard is whether a real person who has never used AI would have succeeded, and whether what came out is theirs.
 
-Score each item 1 to 5 and give one or two sentences of evidence, quoting the conversation or a saved document. If something could not be judged because the conversation did not get that far, write "not reached".
+Score each item 1 to 5 and give one or two sentences of evidence, quoting the conversation or a saved document. The run may cover only some stages; a note below says which. For an item that belongs to a stage that was not run, write "not run" and do not count it against the assistant. If a stage was run but the conversation did not get far enough to judge an item, write "not reached".
 
 ## Is the output authentic to this person?
 
@@ -19,7 +19,7 @@ Score each item 1 to 5 and give one or two sentences of evidence, quoting the co
 8. **One thing at a time.** Did it ask one question per turn, with an example of a good answer?
 9. **Handled rough input.** Typos, fragments, "I don't know", pushback: did it cope without making the person feel wrong?
 10. **Always a next step.** Did each turn end with one clear thing the person could say or do?
-11. **Pace.** Did it reach a useful result in a reasonable number of turns, or bury the person in questions?
+11. **Pace.** Did it reach a useful result in a reasonable number of turns, or bury the person in questions? The first stage should take the resume and about four questions; a critique of the resume before any result counts against it.
 
 ## Honest about gaps
 

@@ -5,7 +5,7 @@ description: One-time setup for an AI-assisted job search. Saves the user's resu
 
 # Career setup
 
-Build the four documents every other skill in this kit depends on. This takes about two hours of the user's time across three phases: about 20 minutes for the first, and the rest for the story bank and voice profile. The user can stop at any point; when they return, read the documents that exist and resume at the first unfinished phase.
+Build the four documents every other skill in this kit depends on. This takes about two hours of the user's time across three phases: a few minutes for the first, and the rest for the story bank and voice profile. The user can stop at any point; when they return, read the documents that exist and resume at the first unfinished phase.
 
 ## Where the documents live
 
@@ -27,8 +27,9 @@ These documents hold the user's resume and pay expectations. If the working dire
 Assume the user has never used an AI assistant for real work. They should succeed by typing the way they talk.
 
 - **Plain words only.** Never say skill, prompt, model, context, Markdown, plugin or a file name. Say "your resume", "your stories", "your voice", "your tracker". Never tell the user to type a command.
+- **Use their words for their work.** Do not introduce a trade term, metric or abbreviation the user has not used first. If they say "falls went down", ask about falls, not "falls per 1,000 patient days".
 - **Understand rough input.** Accept typos, fragments, voice-to-text and half answers. Work out what they mean; ask only if a wrong guess would matter.
-- **One question at a time**, each with an example of a good answer in everyday language. "What kind of job do you want next? For example: the same job at a bigger company, or a move into management."
+- **One question at a time**, never two joined by "and", each with an example of a good answer in everyday language. "What kind of job do you want next? For example: the same job at a bigger company, or a move into management."
 - **"I don't know" is an answer.** Offer two or three common options to pick from, or note it as an open question and move on. Never make them feel they failed a test.
 - **Say what is happening.** Before a long step, say what you are about to do and roughly how long it takes. Say that they can stop at any point and nothing is lost.
 - **Say exactly how to give you something.** "Drag the file into this chat, or paste the text." If they have no resume, build one from conversation: ask about each job in turn.
@@ -42,7 +43,7 @@ Use the plain names with the user: Phase 1 is "getting your resume and what you 
 - Facts come only from the user or their documents. If you don't know, ask.
 - A blank field means unknown. Never fill it yourself.
 - Mark anything unconfirmed as an open question instead of smoothing it over.
-- Ask one question per turn. When an answer is vague, help sharpen it with a follow-up and an example; a rough number marked as an estimate beats no number.
+- Ask one question per turn, and never two joined by "and". When an answer is vague, help sharpen it with a follow-up and an example; a rough number marked as an estimate beats no number.
 - Be direct about where the resume is weak, and say how you will fix it together.
 - Record what is true, not what sounds best. If the user says something happened one way and their resume says another, the story bank gets what they told you, and the difference goes under open questions.
 - Keep the user's phrasing rough where it is rough. Do not polish their words when you save them; the roughness is the voice.
@@ -53,21 +54,20 @@ If the user says they already have a story bank, a voice profile or similar note
 
 ## Phase 1: Resume and search criteria
 
-Keep this phase to about 20 minutes. Its job is to get the user to a working job search, not to fix the resume.
+This phase exists to get the user their first useful result fast. A tired person on a phone should have a job search running after the resume and four questions. Everything else waits.
 
 1. **Save the resume.** Ask for the current resume if it is not attached, and say how to share it. If the user has none, ask about each job in turn (employer, title, dates, what they did) and write those answers down as the base resume, marked as built from conversation. Extract its text exactly and save it as `resume-base.md`. Do not rewrite, improve or reorder anything, and add nothing to the file except the source file name and the date at the top.
-2. **Audit it quietly.** Find every claim with no number or no before-and-after, any date gaps, overlaps or inconsistencies, and anything a skeptical hiring manager would ask the user to prove. Save the full list under "Open questions" in `resume-story-bank.md`, grouped by role, creating the file if needed. Do not ask these now. Tell the user only: the three weakest spots in one line each, how many questions were saved, and that Phase 2 works through them one story at a time. If a date or title looks wrong, ask about that now, since the search criteria depend on it.
-3. **Interview for search criteria.** Cover:
-   - target titles and levels, including stretch and adjacent roles
-   - location: cities, remote, hybrid, travel limits
-   - compensation floor (base and total) and what they would trade for it
-   - industries and company stages wanted, and ones to skip
-   - what they want more of, and what they refuse to do again
-   - culture: three or four things that must be true, and how they would recognize them
-   - deal-breakers that reject a role immediately
-   - how recent a posting must be
-4. **Save `search-criteria.md`** with: a 150-word candidate profile (facts from the resume only), hard filters, scoring preferences, and deal-breakers. Revise until the user approves it.
-5. **Offer the fast path.** Phase 1 takes about 20 minutes and is all `job-scout` needs. Tell the user they can start the daily search now and come back for Phases 2 and 3, which `tailor-resume` and `interview-prep` depend on. If they want to keep going, continue.
+2. **Audit it quietly.** Find every claim with no number or no before-and-after, any date gaps, overlaps or inconsistencies, and anything a skeptical hiring manager would ask the user to prove. Save the list under "Open questions" in `resume-story-bank.md`, grouped by role, creating the file if needed. Write each one the way you will ask it later: a single plain question in the user's own vocabulary, with no term they have not used themselves. Do not ask these now and do not critique the resume now. Tell the user one thing only: that you saved it exactly as written and will make it stronger together later. If a date or title looks wrong, ask about that now.
+3. **Ask the four things a job search cannot start without**, one per turn, each with an example answer:
+   - what kind of job they want next
+   - where: how far they will travel, or remote
+   - the lowest pay they would accept
+   - anything they will not take
+   Take what they already told you as answered and do not ask it again. Never join two questions with "and".
+4. **Save `search-criteria.md`** with: a 150-word candidate profile (facts from the resume only), the hard filters from those four answers, and deal-breakers. Read the filters back in two lines and ask if you got it right. Once they agree, mark it approved. List under "Still to ask" the questions you skipped: industries and kinds of employer to prefer or avoid, what they want more of, what they refuse to do again, the three or four things that must be true about a workplace, and how recent a posting must be (assume 30 days until they say).
+5. **Hand over the first result.** Tell them the job search can run now, and that their first report will show real openings matched to what they said. Offer to start it. Mention once that tailored resumes and interview prep come after two more sittings about their best work and how they write.
+
+Ask the "Still to ask" questions later, one at a time, when they bear on something: after a job report ("these three were hospitals; is there any kind of employer you'd skip?"), or at the start of the next sitting. Feedback on real jobs gets better answers than abstract questions do.
 
 ## Phase 2: Story bank
 
@@ -89,7 +89,7 @@ Candidate's own words: phrases they actually said or wrote, quoted exactly
 How to run the interview:
 
 1. Seed one story per resume bullet and from any attached documents. Leave unknown fields blank. Attach each open question saved in Phase 1 to its story, and ask it when you reach that story.
-2. Interview one story at a time, starting with the stories most relevant to the target roles.
+2. Interview one story at a time, starting with the stories most relevant to the target roles. Ask each saved question as one short, plain question with an example of a good answer ("Do you remember roughly how many falls the unit had in a year, before you changed anything?"). If a saved question has several parts, ask the parts on separate turns.
 3. For each story, dig for: what was actually broken before they started, the decision that was theirs and not the team's, what they chose not to do and why, the number, and who would vouch for it.
 4. When the user describes something in a vivid or plain way, save the exact phrase under "Candidate's own words". Those phrases feed the voice profile.
 5. Confirm every number back before saving it. Record a range or a guess as an estimate.

@@ -101,7 +101,7 @@ const STAGES = {
   setup: {
     open: (p) => p.opening || "help me with my job search",
     done: (wd) => exists(wd, "career", "resume-base.md") && exists(wd, "career", "search-criteria.md"),
-    max: 30,
+    max: 15,
   },
   stories: {
     open: () => "ok lets keep going with the rest",
@@ -205,14 +205,19 @@ function runPersona(name) {
   // Hard checks.
   const ran = stageResults.filter((r) => r.outcome === "reached its goal").map((r) => r.stage);
   const expectStatus = ran.includes("interview") ? "interview" : ran.includes("tracking") ? "applied" : undefined;
-  const checks = runChecks({ career: join(runDir, "career"), personaPath, transcriptPath: join(runDir, "transcript.json"), expectStatus });
+  const checks = runChecks({
+    career: join(runDir, "career"), personaPath, transcriptPath: join(runDir, "transcript.json"), expectStatus,
+    stages: stageResults.map((r) => r.stage),
+    setupTurns: stageResults.find((r) => r.stage === "setup")?.turns,
+  });
 
   // Graded review of the softer qualities.
   let grade = "(grader did not run)";
   try {
     const produced = existsSync(join(runDir, "career")) ? walk(join(runDir, "career")).map((f) => `=== ${f.slice(runDir.length + 1)} ===\n${read(f)}`).join("\n\n") : "(nothing was saved)";
     const grader = session(["--disallowedTools", "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill,NotebookEdit"], userDir, opt("user-model", DEFAULT_MODEL));
-    grade = grader.say(`${read(join(HERE, "grader.md"))}\n\n# The person (ground truth)\n\n${read(personaPath)}\n\n# The conversation\n\n${md}\n\n# What the assistant saved\n\n${produced}`);
+    const scope = `# What this run covered\n\nStages run: ${stageResults.map((r) => `${r.stage} (${r.outcome})`).join(", ")}. Stages not run: ${Object.keys(STAGES).filter((k) => !stageResults.some((r) => r.stage === k)).join(", ") || "none"}. The conversation was stopped on purpose after the last stage listed. Do not mark the assistant down for work that belongs to a stage that was not run; write "not run" for those items and judge only what was in scope.`;
+    grade = grader.say(`${read(join(HERE, "grader.md"))}\n\n${scope}\n\n# The person (ground truth)\n\n${read(personaPath)}\n\n# The conversation\n\n${md}\n\n# What the assistant saved\n\n${produced}`);
   } catch (e) { grade = `(grader failed: ${e.message})`; }
 
   const failed = checks.filter((c) => !c.pass).length;

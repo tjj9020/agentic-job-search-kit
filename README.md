@@ -26,9 +26,9 @@ Ask it to make something sound bigger than it was, and it will say no and look f
 >
 > **You:** *(drops in resume)*
 >
-> **It:** Got it, saved exactly as written. Three things a hiring manager would push on: your biggest result has no number, your job titles change without explanation in 2022, and the summary could describe anyone. We'll fix those later. Now, what kind of job do you want next? For example: "the same job at a bigger company" or "I want to move into management."
+> **It:** Got it, saved exactly as written. We'll make it stronger together later. First, four quick questions so I can start looking for jobs. What kind of job do you want next? For example: "the same job at a bigger company" or "I want to move into management."
 
-It keeps going like that. After about 20 minutes it knows enough to start sending you a job report each morning.
+It keeps going like that. After your resume and four questions it knows enough to start sending you a job report each morning.
 
 Want to see finished results first? The [worked example](examples/README.md) shows a made-up candidate's job report, tailored resume and interview brief.
 
@@ -101,7 +101,7 @@ The first time, it will:
 
 1. Ask for your resume. Drag it in, paste it, or just describe your work if you don't have one.
 2. Ask what you want: what kind of job, where, the least you'd accept in pay, and anything you won't do.
-3. Offer to send you a job report every morning. You are about 20 minutes in at this point.
+3. Offer to send you a job report every morning. You are a few minutes in at this point.
 
 Over the next sitting or two it asks about your best work and reads a few things you wrote yourself (emails, reports, anything written without AI help). That is how it learns to write a resume that sounds like you. You can stop any time and nothing is lost.
 

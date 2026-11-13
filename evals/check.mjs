@@ -69,7 +69,11 @@ function bannedFromVoiceProfile(voice) {
   return words;
 }
 
-export function runChecks({ career, personaPath, transcriptPath, expectStatus }) {
+// What each stage is expected to have produced. Checks for stages that did not run are skipped.
+const ALL_STAGES = ["setup", "stories", "tailor", "tracking", "followup", "interview"];
+
+export function runChecks({ career, personaPath, transcriptPath, expectStatus, stages = ALL_STAGES, setupTurns }) {
+  const ran = (stage) => stages.includes(stage);
   const results = [];
   const add = (id, pass, detail = "") => results.push({ id, pass, detail });
   const persona = personaPath ? personaConfig(personaPath) : {};
@@ -81,9 +85,12 @@ export function runChecks({ career, personaPath, transcriptPath, expectStatus })
   const ledger = read(join(career, "job-scout-ledger.md"));
 
   // 1. The documents exist.
-  for (const [name, text] of [["resume", base], ["search criteria", criteria], ["story bank", stories], ["voice profile", voice]]) {
-    add(`exists: ${name}`, text.length > 0, text.length ? "" : "missing");
+  const expected = [["resume", base, "setup"], ["search criteria", criteria, "setup"], ["story bank", stories, "stories"], ["voice profile", voice, "stories"]];
+  for (const [name, text, stage] of expected) {
+    if (ran(stage)) add(`exists: ${name}`, text.length > 0, text.length ? "" : "missing");
   }
+  // The first useful result has to come quickly: the resume plus four questions.
+  if (setupTurns !== undefined) add("first result reached within 7 turns", setupTurns <= 7, `setup took ${setupTurns} turns`);
 
   // 2. The base resume is the user's text, not a rewrite.
   if (persona.resume_must_contain) {
@@ -144,7 +151,7 @@ export function runChecks({ career, personaPath, transcriptPath, expectStatus })
     const words = app.split("-").filter((w) => w.length > 3);
     add(`${app}: story bank records the stories this resume used`, words.some((w) => tailored.toLowerCase().includes(w)), "no matching line under Tailored versions");
   }
-  if (persona.expects_application) add("a tailored resume was produced", apps.length > 0, apps.length ? "" : "no applications/ folder");
+  if (persona.expects_application && ran("tailor")) add("a tailored resume was produced", apps.length > 0, apps.length ? "" : "no applications/ folder");
 
   // 4. Things the user said were NOT true never appear anywhere.
   if (persona.must_not_appear) {
@@ -189,8 +196,8 @@ export function format(results) {
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i > -1 ? process.argv[i + 1] : undefined; };
   const career = arg("career");
-  if (!career) { console.error("usage: node evals/check.mjs --career <dir> [--persona <file>] [--transcript <file>]"); process.exit(2); }
-  const results = runChecks({ career, personaPath: arg("persona"), transcriptPath: arg("transcript") });
+  if (!career) { console.error("usage: node evals/check.mjs --career <dir> [--persona <file>] [--transcript <file>] [--stages setup,stories,...]"); process.exit(2); }
+  const results = runChecks({ career, personaPath: arg("persona"), transcriptPath: arg("transcript"), stages: arg("stages")?.split(",") });
   console.log(format(results));
   process.exit(results.some((r) => !r.pass) ? 1 : 0);
 }
