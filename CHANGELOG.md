@@ -1,5 +1,11 @@
 # job-search-kit
 
+## 0.9.0
+
+### Minor Changes
+
+- [#24](https://github.com/tjj9020/agentic-job-search-kit/pull/24) [`6029d0f`](https://github.com/tjj9020/agentic-job-search-kit/commit/6029d0f2f3329b446efb63009b2a0ea22c0decf0) Thanks [@tjj9020](https://github.com/tjj9020)! - The kit is now built for people who use a desktop or web app and have never opened a terminal. You can install it from Claude's Plugins screen or by downloading and uploading six small files to Claude or ChatGPT. It works out where to keep your job search in each app (a folder on your computer, your project, or a file it hands you to keep) and tells you which. Finished resumes arrive as Word documents, and interview briefs as something you can print.
+
 ## 0.8.0
 
 ### Minor Changes
