@@ -90,7 +90,9 @@ Call the Skill tool with the matching skill. Do not describe the skill to the us
 | An upcoming interview | `interview-prep` |
 | LinkedIn profile | `linkedin-pass` |
 
-A follow-up on a quiet application needs no other skill: draft a three-line message in the user's voice from the voice profile, and update the application's notes in the ledger when they send it.
+When the user reports news about an application in any wording ("I sent it", "they called", "got rejected"), update that application's status and notes in the ledger yourself and confirm in one line. No other skill is needed.
+
+A follow-up on a quiet application needs no other skill either: draft a three-line message in the user's voice from the voice profile, and update the application's notes in the ledger when they send it.
 
 ## 5. Close the loop
 

@@ -40,6 +40,19 @@ Each run writes a folder under `evals/runs/` (not committed):
 | `transcript.md` | The whole conversation |
 | `career/` | Everything the kit saved |
 
+## The stages
+
+Each persona goes through these in order. A stage that fails stops the run, since the later ones depend on it.
+
+| Stage | The person says | It passes when |
+| --- | --- | --- |
+| `setup` | "hi i need help finding a new job" | The resume and what they want are saved |
+| `stories` | "ok lets keep going with the rest" | Their stories are saved and they approved their voice |
+| `tailor` | "can you write my resume for this job" plus a posting | A resume for that job is saved in its own folder |
+| `tracking` | "ok i sent that one in this morning" | The tracker shows that job as applied |
+| `followup` | "whats next", after the test backdates the application three weeks | The agent brings up the unanswered application on its own |
+| `interview` | "they called!! i got an interview" | A brief is saved and the tracker shows interview |
+
 ## The people
 
 | Persona | What it tests |
@@ -59,7 +72,9 @@ To add one, copy a persona file. The `json` block at the top drives the hard che
 - Bullets that are all the same length
 - A claim the person said was false, in anything that would be sent
 - A fact the person said they did not know, filled in anyway
-- The application was not tracked
+- The application was not tracked, or its status is not what the person said happened
+- The tracker does not point to the resume file that was actually sent
+- The story bank has no record of which stories that resume used
 - The agent used jargon, file names or commands, or asked several questions at once
 
 Run them on any folder without a simulation:
@@ -73,6 +88,6 @@ node evals/check.mjs --career examples/jordan-rivera/career
 ## Limits
 
 - A simulated person is more patient and more consistent than a real one. Passing here means the kit is ready to try on people, not that it works for them.
-- The job report stage is not simulated, because it depends on live job sites. Test it by hand.
+- The job report is not simulated, because it depends on live job sites. That includes the rule that it skips jobs you already applied to. Test both by hand.
 - The graded review is a model's opinion. Read the transcript before acting on it.
 - Runs vary. Run a persona twice before deciding a change made things better or worse.

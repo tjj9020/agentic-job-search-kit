@@ -15,7 +15,7 @@
 //   node evals/run.mjs all --user-model haiku
 //
 // Options:
-//   --stages a,b,c     setup, stories, tailor, interview (default: all four)
+//   --stages a,b,c     setup, stories, tailor, tracking, followup, interview (default: all)
 //   --agent-model m    model for the agent under test
 //   --user-model m     model for the simulated user and the grader
 //   --max-turns n      cap per stage (default varies by stage)
@@ -28,7 +28,7 @@ import { cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, 
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { format, personaConfig, runChecks } from "./check.mjs";
+import { applications, format, personaConfig, runChecks } from "./check.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = resolve(HERE, "..");
@@ -39,7 +39,7 @@ const VALUE_OPTS = new Set(["--stages", "--agent-model", "--user-model", "--max-
 const target = argv.find((a, i) => !a.startsWith("--") && !VALUE_OPTS.has(argv[i - 1]));
 
 if (!target) {
-  console.error("usage: node evals/run.mjs <persona|all> [--stages setup,stories,tailor,interview] [--agent-model m] [--user-model m]");
+  console.error("usage: node evals/run.mjs <persona|all> [--stages setup,stories,tailor,tracking,followup,interview] [--agent-model m] [--user-model m]");
   console.error("personas: " + readdirSync(join(HERE, "personas")).map((f) => f.replace(/\.md$/, "")).join(", "));
   process.exit(2);
 }
@@ -111,9 +111,30 @@ const STAGES = {
     done: (wd) => appFile(wd, "resume.md"),
     max: 25,
   },
+  // The user reports, in their own words, that they sent the resume.
+  tracking: {
+    open: () => "ok i sent that one in this morning",
+    done: (wd) => applications(read(join(wd, "career", "job-scout-ledger.md"))).some((a) => a.status === "applied"),
+    max: 4,
+  },
+  // Three weeks pass with no reply. Asked what's next, the kit should bring it up itself.
+  followup: {
+    before: (wd) => {
+      const p = join(wd, "career", "job-scout-ledger.md");
+      const old = new Date(Date.now() - 21 * 864e5).toISOString().slice(0, 10);
+      // Backdate the application, and any dates in its notes, by three weeks.
+      const lines = read(p).split("\n").map((l) => (/\|\s*applied\s*\|/i.test(l)
+        ? [old, ...l.split("|").slice(1)].join("|").replace(/\d{4}-\d{2}-\d{2}/g, old)
+        : l));
+      writeFileSync(p, lines.join("\n"));
+    },
+    open: () => "whats next",
+    expectReply: /follow.?up|haven'?t heard|no reply|no response|quiet|check in|nudge|three weeks|21 days|weeks ago/i,
+    max: 1,
+  },
   interview: {
-    open: () => "i got an interview for that job, its on thursday. help",
-    done: (wd) => appFile(wd, "brief.md"),
+    open: () => "they called!! i got an interview for that job, its on thursday. help",
+    done: (wd) => appFile(wd, "brief.md") && applications(read(join(wd, "career", "job-scout-ledger.md"))).some((a) => a.status === "interview"),
     max: 25,
   },
 };
@@ -124,7 +145,7 @@ function runPersona(name) {
   const personaPath = join(HERE, "personas", `${name}.md`);
   if (!existsSync(personaPath)) throw new Error(`no persona named ${name}`);
   const persona = personaConfig(personaPath);
-  const stages = opt("stages", "setup,stories,tailor,interview").split(",");
+  const stages = opt("stages", "setup,stories,tailor,tracking,followup,interview").split(",");
   const work = mkdtempSync(join(tmpdir(), `jsk-${name}-`));
   const userDir = mkdtempSync(join(tmpdir(), `jsk-user-`));
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
@@ -155,18 +176,20 @@ function runPersona(name) {
     const stage = STAGES[stageName];
     if (!stage) throw new Error(`unknown stage ${stageName}`);
     const max = Number(opt("max-turns", stage.max));
+    if (stage.before) stage.before(work);
     let message = stage.open(persona);
-    let turns = 0, grace = 2, outcome = "ran out of turns";
+    let turns = 0, grace = stage.max <= 4 ? 0 : 2, outcome = "ran out of turns";
     while (turns < max) {
       log("user", stageName, message);
       const reply = agent.say(message);
       log("agent", stageName, reply);
       turns++;
-      if (stage.done(work) && grace-- <= 0) { outcome = "reached its goal"; break; }
+      if (stage.expectReply) { outcome = stage.expectReply.test(reply) ? "reached its goal" : "the agent did not bring it up"; break; }
+      if (stage.done?.(work) && grace-- <= 0) { outcome = "reached its goal"; break; }
       message = user.say(reply);
-      if (message.includes(DONE)) { outcome = stage.done(work) ? "reached its goal" : "user thought it was finished, but the goal was not met"; break; }
+      if (message.includes(DONE)) { outcome = stage.done?.(work) ? "reached its goal" : "user thought it was finished, but the goal was not met"; break; }
     }
-    if (outcome === "ran out of turns" && stage.done(work)) outcome = "reached its goal";
+    if (outcome === "ran out of turns" && stage.done?.(work)) outcome = "reached its goal";
     stageResults.push({ stage: stageName, turns, outcome });
     console.log(`\n== ${stageName}: ${outcome} after ${turns} turns`);
     if (outcome !== "reached its goal") break; // later stages depend on this one
@@ -178,7 +201,9 @@ function runPersona(name) {
   writeFileSync(join(runDir, "transcript.md"), md);
 
   // Hard checks.
-  const checks = runChecks({ career: join(runDir, "career"), personaPath, transcriptPath: join(runDir, "transcript.json") });
+  const ran = stageResults.filter((r) => r.outcome === "reached its goal").map((r) => r.stage);
+  const expectStatus = ran.includes("interview") ? "interview" : ran.includes("tracking") ? "applied" : undefined;
+  const checks = runChecks({ career: join(runDir, "career"), personaPath, transcriptPath: join(runDir, "transcript.json"), expectStatus });
 
   // Graded review of the softer qualities.
   let grade = "(grader did not run)";

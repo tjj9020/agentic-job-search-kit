@@ -38,6 +38,18 @@ export function numbers(text) {
   }));
 }
 
+const STATUSES = ["drafted", "applied", "screen", "interview", "offer", "rejected", "withdrawn"];
+
+/** The lines under "## Applications": date | company | title | URL | status | resume file | notes */
+export function applications(ledger) {
+  const section = (ledger.split(/^## Applications/m)[1] || "").split(/^## /m)[0];
+  return section.split("\n")
+    .filter((l) => l.includes("|") && !/^\s*(Format|Status)\b/.test(l))
+    .map((l) => l.split("|").map((c) => c.trim()))
+    .filter((c) => c.length >= 6)
+    .map(([date, company, title, url, status, resume, notes = ""]) => ({ date, company, title, url, status: status.toLowerCase(), resume, notes }));
+}
+
 /** Parse the ```json block at the top of a persona file. */
 export function personaConfig(path) {
   const m = read(path).match(/```json\n([\s\S]*?)\n```/);
@@ -57,7 +69,7 @@ function bannedFromVoiceProfile(voice) {
   return words;
 }
 
-export function runChecks({ career, personaPath, transcriptPath }) {
+export function runChecks({ career, personaPath, transcriptPath, expectStatus }) {
   const results = [];
   const add = (id, pass, detail = "") => results.push({ id, pass, detail });
   const persona = personaPath ? personaConfig(personaPath) : {};
@@ -117,8 +129,20 @@ export function runChecks({ career, personaPath, transcriptPath }) {
       add(`${app}: bullets vary in length`, spread >= 8, `word counts: ${bullets.join(", ")}`);
     }
 
-    // The application was tracked.
-    add(`${app}: application logged in the tracker`, /## Applications[\s\S]*\|/.test(ledger) && ledger.split("## Applications")[1]?.split("\n## ")[0].split("\n").some((l) => l.includes("|") && !/^Format|^Status/.test(l.trim())), "");
+    // The application was tracked, and the tracker points at the resume that was used.
+    const line = applications(ledger).find((a) => a.resume.includes(app));
+    add(`${app}: application logged in the tracker`, Boolean(line), line ? "" : "no Applications line names this job's resume");
+    if (line) {
+      add(`${app}: tracker status is a known value`, STATUSES.includes(line.status), `status is "${line.status}"`);
+      const path = line.resume.replace(/^career\//, "");
+      add(`${app}: tracker points to the resume that was sent`, existsSync(join(career, path)), `"${line.resume}" does not exist`);
+      add(`${app}: tracker line has a company, a title and a date`, Boolean(line.date && line.company && line.title), JSON.stringify(line));
+      if (expectStatus) add(`${app}: status follows what the user said happened`, line.status === expectStatus, `expected "${expectStatus}", found "${line.status}"`);
+    }
+    // The story bank records which stories this resume used.
+    const tailored = stories.split(/^## Tailored versions/m)[1] || "";
+    const words = app.split("-").filter((w) => w.length > 3);
+    add(`${app}: story bank records the stories this resume used`, words.some((w) => tailored.toLowerCase().includes(w)), "no matching line under Tailored versions");
   }
   if (persona.expects_application) add("a tailored resume was produced", apps.length > 0, apps.length ? "" : "no applications/ folder");
 

@@ -47,7 +47,7 @@ Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-v
 
    Both follow the voice profile and use only facts from the story bank. No "I am excited to apply". Apply the anyone test here too: a note that could be sent to any company is not worth sending. Save it as `note.md` beside the resume.
 
-8. **Track it.** Add a line for this role under "Applications" in `career/job-scout-ledger.md` with status "drafted": date | company | title | URL | status | resume file | notes. Create the ledger or the section if it does not exist. When the user says they applied, heard back, or withdrew, update the status (applied, screen, interview, offer, rejected, withdrawn). `job-scout` skips every role listed there.
+8. **Track it.** Add a line for this role under "Applications" in `career/job-scout-ledger.md` with status "drafted": date | company | title | URL | status | resume file | notes. The resume file is the path of the resume you just saved, such as `applications/<company>-<role>/resume.md`, so there is always a record of which version went to which employer. Create the ledger or the section if it does not exist. When the user says they applied, heard back, or withdrew, in any wording ("sent it", "they called me", "didn't get it"), update the status (applied, screen, interview, offer, rejected, withdrawn) and add the date to the notes. If the user later asks for changes to a resume they already sent, save the new version beside the old one and say which one the tracker points to. `job-scout` skips every role listed there.
 
 9. **Learn.**
    - Add a line under "Tailored versions" in the story bank: date, company, role, stories used.
