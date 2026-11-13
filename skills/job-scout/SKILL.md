@@ -33,6 +33,10 @@ If the ledger exists but has no "Applications" section, add one above "Evaluated
 
 When the user says something like "skip sales jobs", "more remote roles" or "I applied to that one", write it into the ledger yourself: preferences under "Feedback from me", applications under "Applications". Confirm in one line. Never ask the user to edit the ledger.
 
+## After the first report
+
+If `search-criteria.md` has a "Still to ask" list, ask one of those questions after showing a report, tied to what was in it. Save the answer to the criteria and remove the question from the list.
+
 ## Scheduling
 
 If the tool has scheduled tasks, offer to run this every morning at a time the user chooses. A scheduled run usually starts with no memory of earlier chats, so its instructions must stand alone: embed the user's 150-word candidate profile, hard filters and scoring preferences from `search-criteria.md` directly in them, along with the steps below. Show the user the instructions and the defaults before creating the task, then run it once as a test.

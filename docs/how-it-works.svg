@@ -22,7 +22,7 @@
   <rect x="40" y="132" width="280" height="300" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
   <text x="60" y="164" font-size="15" font-weight="700" fill="#0969da">“Help me with my job search”</text>
   <text x="60" y="186" font-size="12" fill="#59636e">About 2 hours in total, a little at a time.</text>
-  <text x="60" y="203" font-size="12" fill="#59636e">Your first job report comes after 20 minutes.</text>
+  <text x="60" y="203" font-size="12" fill="#59636e">Your first job report comes after 4 questions.</text>
   <line x1="60" y1="220" x2="300" y2="220" stroke="#d0d7de"/>
   <g>
     <circle cx="70" cy="250" r="5" fill="#0969da"/>

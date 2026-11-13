@@ -49,7 +49,7 @@ Each persona goes through these in order. A stage that fails stops the run, sinc
 
 | Stage | The person says | It passes when |
 | --- | --- | --- |
-| `setup` | "hi i need help finding a new job" | The resume and what they want are saved |
+| `setup` | "hi i need help finding a new job" | The resume and what they want are saved, within 7 turns |
 | `stories` | "ok lets keep going with the rest" | Their stories are saved and they approved their voice |
 | `tailor` | "can you write my resume for this job" plus a posting | A resume for that job is saved in its own folder |
 | `tracking` | "ok i sent that one in this morning" | The tracker shows that job as applied |
@@ -79,6 +79,9 @@ To add one, copy a persona file. The `json` block at the top drives the hard che
 - The tracker does not point to the resume file that was actually sent
 - The story bank has no record of which stories that resume used
 - The agent used jargon, file names or commands, or asked several questions at once
+- The first stage took more than 7 turns to reach a working job search
+
+Checks for stages you did not run are skipped, so `--stages setup` reports only on setup.
 
 Run them on any folder without a simulation:
 
