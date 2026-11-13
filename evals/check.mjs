@@ -90,7 +90,7 @@ export function runChecks({ career, personaPath, transcriptPath, expectStatus, s
     if (ran(stage)) add(`exists: ${name}`, text.length > 0, text.length ? "" : "missing");
   }
   // The first useful result has to come quickly: the resume plus four questions.
-  if (setupTurns !== undefined) add("first result reached within 7 turns", setupTurns <= 7, `setup took ${setupTurns} turns`);
+  if (setupTurns !== undefined) add("first result reached within 7 turns", setupTurns <= 7, `the goal was met at turn ${setupTurns}`);
 
   // 2. The base resume is the user's text, not a rewrite.
   if (persona.resume_must_contain) {
@@ -207,6 +207,12 @@ export function runChecks({ career, personaPath, transcriptPath, expectStatus, s
         li.slice(0, 3).some((t) => /browser/i.test(t.text) && /paste|copy/i.test(t.text)),
         "none of the first three LinkedIn turns explained how changes would reach the profile");
     }
+    const fixes = [];
+    for (const t of turns) {
+      const m = t.text.match(/\b(approve|allow|enable|turn on|grant|configure)\b[^.?!\n]{0,60}\b(prompt|permission|access|search|searching|tool|setting|settings)\b|\bpermissions?\b|\bsettings\b/i);
+      if (m) fixes.push(`turn ${t.n}: "${m[0].trim()}"`);
+    }
+    add("agent never asked the user to change a setting or grant a permission", fixes.length === 0, fixes.slice(0, 5).join("; "));
     add("agent used plain words (no jargon, file names or commands)", jargon.length === 0, jargon.slice(0, 8).join("; "));
     add("agent asked one question at a time", multi <= Math.ceil(turns.length * 0.1), `${multi} of ${turns.length} turns asked more than two questions`);
   }

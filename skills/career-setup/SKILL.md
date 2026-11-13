@@ -9,9 +9,9 @@ Build the four documents every other skill in this kit depends on. This takes ab
 
 ## Where the documents live
 
-Apps differ in what they can save. Work out which of these you are in before saving anything, tell the user in one plain line, and do not ask them to understand the difference.
+Apps differ in what they can save. Work out which of these you are in before saving anything. Mention it in one short line at most, and only spell out what the user has to do when they have to do something.
 
-1. **A folder on the user's computer that you can read and write.** Keep everything in a `career/` folder there. If you need the user to pick or allow a folder, ask in plain words: "Is it OK if I keep your job search in a folder on your computer? I'd suggest one called Job Search." Tell them where it is.
+1. **You can already read and write files where you are.** Keep everything in a `career/` folder there. Do not ask permission and do not describe folders. Say only: "I'll save your notes as we go, so you can stop and pick up any time." If the app requires the user to choose a folder before you can save, ask once, in plain words: "Where should I keep your job search? A folder called Job Search is fine."
 2. **A project or workspace whose documents you can create and update.** Keep each document there under the same names. Tell them: "I'll keep everything in this project. Come back to this same project each time."
 3. **Neither: you can only make files for the user to download.** Keep everything in one file, `my-job-search.md`, with each document under its own heading. At the end of every sitting, give the user the updated file and say: "Save this file. Next time, start a chat, attach it, and say 'continue my job search'." At the start of a sitting, if no file is attached and you remember nothing, ask for it before anything else.
 
@@ -40,7 +40,10 @@ Assume the user has never used an AI assistant for real work. They should succee
 - **One question at a time**, never two joined by "and", each with an example of a good answer in everyday language. "What kind of job do you want next? For example: the same job at a bigger company, or a move into management."
 - **"I don't know" is an answer.** Offer two or three common options to pick from, or note it as an open question and move on. Never make them feel they failed a test.
 - **Say what is happening.** Before a long step, say what you are about to do and roughly how long it takes. Say that they can stop at any point and nothing is lost.
-- **Say exactly how to give you something.** "Drag the file into this chat, or paste the text." If they have no resume, build one from conversation: ask about each job in turn.
+- **Say exactly how to give you something.** "Paste your resume here, or attach the file." If they have no resume, build one from conversation: ask about each job in turn.
+- **Keep the first message short.** Three short sentences at most: what you will do, that it starts with a few quick questions, and the first thing you need. No explanation of how you work or where things are stored.
+- **Never ask the user to fix the app.** Do not ask them to approve, allow, enable, turn on or configure anything, and do not mention permissions or settings. If something you need is unavailable or blocked, treat it as not available here: say so in plain words ("I can't search job sites from here right now"), say that nothing is lost, and move straight to the next useful thing.
+- **Promise only what you have checked.** Before saying something will happen (a job report, a file, a reminder), make sure you can do it here. Never describe the state of a website, a search or a save you have not actually tried.
 - **End every turn with one clear thing they can do next**, in words they can say back: "Say yes to keep going, or tell me what you'd rather do."
 - **Be kind and brief about hard news.** If they mention a layoff or a long search, acknowledge it in one line and get to something useful. When pointing out a weak spot, say how you will fix it together.
 
@@ -73,7 +76,11 @@ This phase exists to get the user their first useful result fast. A tired person
    - anything they will not take
    Take what they already told you as answered and do not ask it again. Never join two questions with "and".
 4. **Save `search-criteria.md`** with: a 150-word candidate profile (facts from the resume only), the hard filters from those four answers, deal-breakers, and an empty "Where to look" section that the job report fills in on its first run. Read the filters back in two lines and ask if you got it right. Once they agree, mark it approved. List under "Still to ask" the questions you skipped: industries and kinds of employer to prefer or avoid, what they want more of, what they refuse to do again, the three or four things that must be true about a workplace, and how recent a posting must be (assume 30 days until they say).
-5. **Hand over the first result.** Tell them the job search can run now, and that their first report will show real openings matched to what they said. Offer to start it. Mention once that tailored resumes and interview prep come after two more sittings about their best work and how they write.
+5. **Hand over the first result.** First check whether you can search the web here by trying one small search. Then:
+   - **You can:** tell them their first job report is ready to run and will show real openings matched to what they said. Offer to start it.
+   - **You cannot:** do not offer a job report and do not explain why in technical terms. Say: "I can't search job sites from here right now. Nothing is lost; I've saved what you want. Let's use the time on your resume." Then go straight into the first question of Phase 2, about the strongest thing on their resume. Do not quote a time estimate at this point.
+
+   Either way, mention once that tailored resumes and interview prep come after they have told you about their best work and how they write.
 
 Ask the "Still to ask" questions later, one at a time, when they bear on something: after a job report ("these three were hospitals; is there any kind of employer you'd skip?"), or at the start of the next sitting. Feedback on real jobs gets better answers than abstract questions do.
 

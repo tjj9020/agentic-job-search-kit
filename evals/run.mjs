@@ -19,6 +19,7 @@
 //   --agent-model m    model for the agent under test (default: sonnet)
 //   --user-model m     model for the simulated user and the grader (default: sonnet)
 //   --max-turns n      cap per stage (default varies by stage)
+//   --web              let the agent search the web (off by default, so runs are repeatable)
 //   --keep             keep the temporary working folder
 //
 // Each run costs real usage on your account: a full persona is 60 to 120 turns.
@@ -161,9 +162,9 @@ function runPersona(name) {
   const runDir = join(HERE, "runs", `${stamp}-${name}`);
   mkdirSync(runDir, { recursive: true });
 
-  // The agent under test: this repo as a plugin, file tools only, no web, no shell.
+  // The agent under test: this repo as a plugin, file tools only, no shell, and no web unless --web is passed.
   const agent = session(
-    ["--plugin-dir", REPO, "--permission-mode", "acceptEdits", "--allowedTools", "Read,Write,Edit,Glob,Grep,Skill"],
+    ["--plugin-dir", REPO, "--permission-mode", "acceptEdits", "--allowedTools", `Read,Write,Edit,Glob,Grep,Skill${flag("web") ? ",WebSearch,WebFetch" : ""}`],
     work, opt("agent-model", DEFAULT_MODEL),
   );
   // The simulated person: a character sheet and nothing else.
@@ -188,19 +189,21 @@ function runPersona(name) {
     const max = Number(opt("max-turns", stage.max));
     if (stage.before) stage.before(work);
     let message = stage.open(persona);
-    let turns = 0, grace = stage.max <= 4 ? 0 : 2, outcome = "ran out of turns";
+    let turns = 0, reachedAt = 0, grace = stage.max <= 4 ? 0 : 2, outcome = "ran out of turns";
     while (turns < max) {
       log("user", stageName, message);
       const reply = agent.say(message);
       log("agent", stageName, reply);
       turns++;
       if (stage.expectReply) { outcome = stage.expectReply.test(reply) ? "reached its goal" : "the agent did not bring it up"; break; }
-      if (stage.done?.(work) && grace-- <= 0) { outcome = "reached its goal"; break; }
+      // The stage runs two turns past its goal so the hand-off is on record,
+      // but pace is measured to the turn the goal was first met.
+      if (stage.done?.(work)) { reachedAt ||= turns; if (grace-- <= 0) { outcome = "reached its goal"; break; } }
       message = user.say(reply);
       if (message.includes(DONE)) { outcome = stage.done?.(work) ? "reached its goal" : "user thought it was finished, but the goal was not met"; break; }
     }
     if (outcome === "ran out of turns" && stage.done?.(work)) outcome = "reached its goal";
-    stageResults.push({ stage: stageName, turns, outcome });
+    stageResults.push({ stage: stageName, turns, reachedAt: reachedAt || turns, outcome });
     console.log(`\n== ${stageName}: ${outcome} after ${turns} turns`);
     if (outcome !== "reached its goal") break; // later stages depend on this one
   }
@@ -216,7 +219,7 @@ function runPersona(name) {
   const checks = runChecks({
     career: join(runDir, "career"), personaPath, transcriptPath: join(runDir, "transcript.json"), expectStatus,
     stages: stageResults.map((r) => r.stage),
-    setupTurns: stageResults.find((r) => r.stage === "setup")?.turns,
+    setupTurns: stageResults.find((r) => r.stage === "setup")?.reachedAt,
   });
 
   // Graded review of the softer qualities.
@@ -232,7 +235,7 @@ function runPersona(name) {
   const report = [
     `# ${name}`, "",
     `Run: ${stamp}. Models: agent ${opt("agent-model", DEFAULT_MODEL)}, simulated user and grader ${opt("user-model", DEFAULT_MODEL)}. Cost: agent $${agent.cost.toFixed(2)}, simulated user $${user.cost.toFixed(2)}.`, "",
-    "## Stages", "", ...stageResults.map((s) => `- **${s.stage}:** ${s.outcome} (${s.turns} turns)`), "",
+    "## Stages", "", ...stageResults.map((s) => `- **${s.stage}:** ${s.outcome} (goal met at turn ${s.reachedAt}, ${s.turns} turns run)`), "",
     "## Hard checks", "", "```", format(checks), "```", "",
     "## Graded review", "", grade, "",
   ].join("\n");

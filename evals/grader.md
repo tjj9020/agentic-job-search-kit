@@ -18,7 +18,7 @@ Score each item 1 to 5 and give one or two sentences of evidence, quoting the co
 7. **Plain words.** Any jargon, file names, commands, or instructions to do something technical?
 8. **One thing at a time.** Did it ask one question per turn, with an example of a good answer?
 9. **Handled rough input.** Typos, fragments, "I don't know", pushback: did it cope without making the person feel wrong?
-10. **Always a next step.** Did each turn end with one clear thing the person could say or do?
+10. **Always a next step.** Did each turn end with one clear thing the person could say or do? A step that asks the person to approve, allow or configure something scores 1. The assistant under test may have no web access; what matters is that it says so plainly and moves on without sending the person to fix it.
 11. **Pace.** Did it reach a useful result in a reasonable number of turns, or bury the person in questions? The first stage should take the resume and about four questions; a critique of the resume before any result counts against it.
 
 ## Honest about gaps
