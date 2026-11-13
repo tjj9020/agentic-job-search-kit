@@ -7,6 +7,7 @@
   "opening": "Can you help me with my resume? I've sent out 40 applications and heard nothing.",
   "posting": "evals/postings/senior-marketing-manager-b2b.md",
   "expects_application": true,
+  "linkedin": true,
   "resume_must_contain": [
     "Results-driven marketing leader with a proven track record of driving transformative growth",
     "Spearheaded innovative multi-channel campaigns that leveraged data-driven insights"
@@ -44,6 +45,28 @@ Marketing Specialist | Brightline Events | 2018 - 2021
 EDUCATION
 B.A. Communications, University of Illinois, 2018
 ```
+
+## Your LinkedIn profile (paste this exactly when asked for it)
+
+```
+Sam Okoye
+Marketing Manager | Growth Hacker | Storyteller | Driving Transformative Results
+
+About
+Passionate, results-driven marketing leader with a proven track record. I leverage data-driven insights to drive growth.
+
+Experience
+Marketing Manager, Fennel & Co. 2020 - Present
+Drove 300% growth in pipeline. Spearheaded webinars.
+
+Marketing Specialist, Brightline Events 2018 - 2020
+
+Skills: Microsoft Office, Social Media, Synergy, Growth Hacking, Email Marketing
+```
+
+Your LinkedIn says you started at Fennel in 2020. Your resume says 2021. The resume is right: you started in January 2021. If asked which is right, say so.
+
+You are still employed and your boss is on LinkedIn. If the assistant suggests anything that would tell people you are job hunting, say "no, my boss would see that".
 
 ## The truth (answer from this, and only when asked)
 

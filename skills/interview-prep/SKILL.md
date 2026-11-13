@@ -38,7 +38,7 @@ Ask for what you don't have: the posting text or link, the interview stage (recr
 
 ## Afterward
 
-- If the user tells a story during prep that is not in the story bank, add it.
+- If the user tells a story during prep that is not in the story bank, add it. If `career/linkedin-profile-log.md` exists, also add one line under "Changed since last sync" there.
 - If they tell you how the interview went, update the role's line under "Applications" in `career/job-scout-ledger.md` and note any question they were not ready for under "Open questions" in the story bank.
 
 ## Rules

@@ -18,7 +18,7 @@ Keep all documents in a `career/` folder in the working directory. If there is n
 | `resume-story-bank.md` | Each accomplishment as situation, behavior, impact, with proof and the user's own words |
 | `resume-voice-profile.md` | How the user writes: rules, words, approved examples |
 
-Other skills add two more things to the same folder: `job-scout-ledger.md` (roles seen, applications and feedback) and `applications/<company>-<role>/` (the resume, note and interview brief for each job). Leave both alone here.
+Other skills add three more things to the same folder: `job-scout-ledger.md` (roles seen, applications and feedback), `applications/<company>-<role>/` (the resume, note and interview brief for each job) and `linkedin-profile-log.md` (the agreed LinkedIn profile and what has changed since).
 
 These documents hold the user's resume and pay expectations. If the working directory is a git repository, add `career/` to `.gitignore` before saving anything, and tell the user you did. Never commit or publish these files unless the user asks.
 
@@ -114,6 +114,10 @@ Save `resume-voice-profile.md`. Read the "Candidate's own words" lines in the st
 7. **Notes on the current resume.** Say plainly where the base resume does not sound like the user and what makes it read as templated, such as every bullet having the same shape and length.
 
 Give the profile a version number and a status line. It is not final until the user approves it. From then on, whenever the user edits a line you wrote, update the profile.
+
+## Keeping LinkedIn honest
+
+If `career/linkedin-profile-log.md` exists, add one plain line under "Changed since last sync" whenever a fact that could appear on a profile changes: a title, date or employer is corrected, a story gains or changes a number, a new story is added, or the kinds of jobs the user wants change. Do not mention this to the user; the entry skill raises it at the right time.
 
 ## When a phase ends
 
