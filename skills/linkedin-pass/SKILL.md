@@ -9,7 +9,7 @@ Recruiters check LinkedIn against the resume, so the two should agree. Draft the
 
 ## Before you start
 
-Read `career/resume-base.md`, `career/resume-story-bank.md`, `career/resume-voice-profile.md` and `career/search-criteria.md` (or project documents with those names). If any is missing, run the `career-setup` skill first. Ask the user to paste their current profile text.
+Read `career/resume-base.md`, `career/resume-story-bank.md`, `career/resume-voice-profile.md` and `career/search-criteria.md` (or project documents with those names). If any is missing, tell the user to run `career-setup` first. Ask the user to paste their current profile text.
 
 ## Steps
 

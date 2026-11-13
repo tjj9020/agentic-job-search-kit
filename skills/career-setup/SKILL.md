@@ -5,7 +5,7 @@ description: One-time setup for an AI-assisted job search. Saves the user's resu
 
 # Career setup
 
-Build the four documents every other skill in this kit depends on. This takes about two hours of the user's time across three phases. The user can stop at any point; when they return, read the documents that exist and resume at the first unfinished phase.
+Build the four documents every other skill in this kit depends on. This takes about two hours of the user's time across three phases: about 20 minutes for the first, and the rest for the story bank and voice profile. The user can stop at any point; when they return, read the documents that exist and resume at the first unfinished phase.
 
 ## Where the documents live
 
@@ -17,6 +17,8 @@ Keep all documents in a `career/` folder in the working directory. If there is n
 | `search-criteria.md` | Candidate profile, hard filters, scoring preferences, deal-breakers |
 | `resume-story-bank.md` | Each accomplishment as situation, behavior, impact, with proof and the user's own words |
 | `resume-voice-profile.md` | How the user writes: rules, words, approved examples |
+
+These documents hold the user's resume and pay expectations. If the working directory is a git repository, add `career/` to `.gitignore` before saving anything, and tell the user you did. Never commit or publish these files unless the user asks.
 
 ## Rules for every phase
 
@@ -40,6 +42,7 @@ Keep all documents in a `career/` folder in the working directory. If there is n
    - deal-breakers that reject a role immediately
    - how recent a posting must be
 4. **Save `search-criteria.md`** with: a 150-word candidate profile (facts from the resume only), hard filters, scoring preferences, and deal-breakers. Revise until the user approves it.
+5. **Offer the fast path.** Phase 1 takes about 20 minutes and is all `job-scout` needs. Tell the user they can start the daily search now and come back for Phases 2 and 3, which `tailor-resume` and `interview-prep` depend on. If they want to keep going, continue.
 
 ## Phase 2: Story bank
 

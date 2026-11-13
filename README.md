@@ -6,7 +6,9 @@ Most AI resume help fails in two ways: it sounds like AI, and it makes things up
 
 The skills are small and written in plain Markdown. Read them, change them, make them yours.
 
-![How it works: run career-setup once to build five documents; job-scout reads them every morning and tailor-resume reads them each time you apply; your corrections flow back in.](docs/how-it-works.svg)
+![How it works: run career-setup once to build five documents; job-scout reads them every morning, tailor-resume each time you apply, and interview-prep before an interview; your corrections flow back in.](docs/how-it-works.svg)
+
+Want to see the output before you commit two hours? Read the [worked example](examples/README.md): a fictional candidate's documents, one scout report, one tailored resume and one interview brief.
 
 ## Installation (2-minute setup)
 
@@ -75,7 +77,7 @@ When the installer asks which skills to take, include `career-setup`. To update,
 <details>
 <summary><strong>Chat apps with no installer</strong> (ChatGPT, Grok, Claude on the web)</summary>
 
-If your app has a place to upload skills, upload the four folders under [`skills/`](skills). If it does not, create a project, attach the four `SKILL.md` files to it, and say "follow career-setup". Keep everything in that one project so your documents carry over between chats.
+If your app has a place to upload skills, upload the five folders under [`skills/`](skills). If it does not, create a project, attach the five `SKILL.md` files to it, and say "follow career-setup". Keep everything in that one project so your documents carry over between chats.
 
 </details>
 
@@ -88,12 +90,15 @@ Run it once. Have your current resume ready, plus three to five things you wrote
 - Build your **story bank**: each accomplishment as situation, behavior and impact, with proof
 - Build your **voice profile**: how you write, the words you never use, and examples you approved
 
-You can stop at any point and say "continue career setup" later.
+**You don't have to finish in one sitting.** The first phase takes about 20 minutes and is all the job scout needs, so you can have a report tomorrow morning and build the story bank and voice profile later. Say "continue career setup" to pick up where you stopped.
+
+Your documents hold your resume and your pay floor. Keep the `career/` folder out of any public repository. The setup skill adds it to `.gitignore` for you if you are in one.
 
 ### 3. You're ready
 
 - "Run the job scout every morning at 7."
 - "Tailor my resume to this posting: `<link>`"
+- "I have an interview at `<company>` on Thursday. Prep me."
 
 ## Why these skills exist
 
@@ -127,7 +132,13 @@ Where the story bank doesn't know something, it lists an open question instead o
 
 **The problem.** A resume aimed at one posting takes an hour to do well, so most people send the same one everywhere.
 
-**The fix** is [`/tailor-resume`](skills/tailor-resume/SKILL.md). It reads the posting, shows you which of your stories prove each requirement and where the gaps are, and waits for your go-ahead. Then it writes the resume. Edit any line and the voice profile learns from the edit, so the next draft needs less work.
+**The fix** is [`/tailor-resume`](skills/tailor-resume/SKILL.md). It reads the posting, shows you which of your stories prove each requirement and where the gaps are, and waits for your go-ahead. Then it writes the resume, and a short recruiter note or cover letter if you want one. Edit any line and the voice profile learns from the edit, so the next draft needs less work. Each application is logged, so the scout stops showing you roles you already applied to and reminds you when one has gone quiet for two weeks.
+
+### #5: You get the interview and wing it
+
+**The problem.** The stories that got you the interview are on a resume you tailored two weeks ago. In the room you reach for the same one story three times, and the question about your weakest requirement catches you cold.
+
+**The fix** is [`/interview-prep`](skills/interview-prep/SKILL.md). It predicts the questions from the posting, maps each one to a story you already told it, and flags any story you are leaning on too often. For every gap it helps you plan an honest answer instead of a bluff, then leaves you with a one-page brief for the day.
 
 ## Reference
 
@@ -138,6 +149,7 @@ Every skill is model-invoked: type its name, or just ask for what you want and y
 | [`career-setup`](skills/career-setup/SKILL.md) | Saves your resume, interviews you for search criteria, builds your story bank and voice profile | Once, at the start |
 | [`job-scout`](skills/job-scout/SKILL.md) | Searches, verifies, scores and researches roles, then sends one fit report | Daily, on a schedule or on demand |
 | [`tailor-resume`](skills/tailor-resume/SKILL.md) | Maps a posting to your stories and writes a resume for it in your voice | Every time you apply |
+| [`interview-prep`](skills/interview-prep/SKILL.md) | Predicts the questions for a role, maps each to one of your stories, and plans your answer to every gap | Before each interview |
 | [`linkedin-pass`](skills/linkedin-pass/SKILL.md) | Brings your LinkedIn profile in line with your resume. You approve every change. | Optional |
 
 The skills share five documents, kept in a `career/` folder or in your project's files:
@@ -148,7 +160,7 @@ The skills share five documents, kept in a `career/` folder or in your project's
 | `search-criteria.md` | Target roles, location, pay floor, culture criteria, deal-breakers |
 | `resume-story-bank.md` | Each accomplishment as situation, behavior, impact, with proof and your own words |
 | `resume-voice-profile.md` | How you write: rules, preferred and banned words, examples you approved |
-| `job-scout-ledger.md` | Roles already evaluated, plus your feedback to steer the search |
+| `job-scout-ledger.md` | Roles already evaluated, your applications and their status, and your feedback to steer the search |
 
 ## Keeping it sharp
 
