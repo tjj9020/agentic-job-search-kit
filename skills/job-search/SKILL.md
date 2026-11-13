@@ -23,9 +23,19 @@ Assume the user has never used an AI assistant for real work. They should succee
 - **It is their search and their words.** Early on, say it once: "Everything I write comes from what you tell me, and nothing goes out until you've read it and it sounds like you." Never hand them something to send that they have not read and agreed to.
 - **Be kind and brief about hard news.** If they mention a layoff or a long search, acknowledge it in one line and get to something useful. When pointing out a weak spot, say how you will fix it together.
 
+## Where things are kept
+
+Apps differ in what they can save. Work out which of these you are in before saving anything, tell the user in one plain line, and do not ask them to understand the difference.
+
+1. **A folder on the user's computer that you can read and write.** Keep everything in a `career/` folder there. If you need the user to pick or allow a folder, ask in plain words: "Is it OK if I keep your job search in a folder on your computer? I'd suggest one called Job Search." Tell them where it is.
+2. **A project or workspace whose documents you can create and update.** Keep each document there under the same names. Tell them: "I'll keep everything in this project. Come back to this same project each time."
+3. **Neither: you can only make files for the user to download.** Keep everything in one file, `my-job-search.md`, with each document under its own heading. At the end of every sitting, give the user the updated file and say: "Save this file. Next time, start a chat, attach it, and say 'continue my job search'." At the start of a sitting, if no file is attached and you remember nothing, ask for it before anything else.
+
+Never tell the user something was saved unless it was. If a save fails, say so and give them the content to keep.
+
 ## 1. Read the state
 
-Look for the documents in `career/` in the working directory, or as project documents with the same names. Read whichever exist. Do not ask the user what they have done; find out.
+Look for the documents wherever this app keeps them (see "Where things are kept"): a `career/` folder, project documents with the same names, or a `my-job-search.md` file the user attached. Read whichever exist. Do not ask the user what they have done; find out.
 
 | Document | Done when |
 | --- | --- |
@@ -91,7 +101,7 @@ If the user arrived with something specific (a posting link, "I have an intervie
 
 ## 4. Go there
 
-Call the Skill tool with the matching skill. Do not describe the skill to the user or ask them to run it.
+Use the matching skill yourself: in apps with a Skill tool, call it with that name; otherwise open that skill's instructions and follow them. Do not describe the skill to the user or ask them to run it.
 
 | Step | Skill |
 | --- | --- |

@@ -9,7 +9,7 @@ Find new roles that fit the user, research only the best few, and deliver one re
 
 ## Before the first run
 
-Requires `career/search-criteria.md` and `career/resume-base.md` (or project documents with those names). Phase 1 of `career-setup` creates both; the story bank and voice profile are not needed here. If they are missing, tell the user to run `career-setup` first.
+Requires `career/search-criteria.md` and `career/resume-base.md` (or project documents with those names, or the `my-job-search.md` file the user attached, in an app that cannot keep files). Phase 1 of `career-setup` creates both; the story bank and voice profile are not needed here. If they are missing, tell the user to run `career-setup` first.
 
 Create `career/job-scout-ledger.md` if it does not exist:
 
@@ -77,7 +77,7 @@ A scheduled run is unattended: ask no questions, make reasonable calls and note 
    - the six scores
    - next move: one concrete action
 
-   End with "Also seen": up to five near misses, one line each with the reason. Then "Where I looked": every source searched this run, in three plain groups: found jobs, found nothing, could not open. Never list a source you did not actually search. Then the links you used. If any application has sat at "applied" for more than 14 days, add one line listing them so the user can follow up. Where the tool can produce files, make the report a single self-contained HTML page that reads well on a phone, and notify the user when it is ready.
+   End with "Also seen": up to five near misses, one line each with the reason. Then "Where I looked": every source searched this run, in three plain groups: found jobs, found nothing, could not open. Never list a source you did not actually search. Then the links you used. If any application has sat at "applied" for more than 14 days, add one line listing them so the user can follow up. Where the app can show or create files, make the report a single self-contained HTML page that reads well on a phone, and notify the user when it is ready. Otherwise write it in the chat, best job first.
 7. **Update the ledger.** Add one line per role evaluated today and remove "Evaluated roles" lines older than 60 days. Leave the feedback and "Applications" sections untouched.
 
 ## Rules

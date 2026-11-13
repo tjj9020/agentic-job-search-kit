@@ -9,7 +9,7 @@ Recruiters check LinkedIn against the resume, so the two should agree, and stay 
 
 ## Before you start
 
-Read `career/resume-base.md`, `career/resume-story-bank.md`, `career/resume-voice-profile.md` and `career/search-criteria.md` (or project documents with those names). If the voice profile is not approved yet, say that this works best after they have told you about their best work and how they write, and offer to do that first. If they want LinkedIn now anyway, go ahead with what exists.
+Read `career/resume-base.md`, `career/resume-story-bank.md`, `career/resume-voice-profile.md` and `career/search-criteria.md` (or project documents with those names, or the `my-job-search.md` file the user attached, in an app that cannot keep files). If the voice profile is not approved yet, say that this works best after they have told you about their best work and how they write, and offer to do that first. If they want LinkedIn now anyway, go ahead with what exists.
 
 Then read `career/linkedin-profile-log.md` if it exists:
 
