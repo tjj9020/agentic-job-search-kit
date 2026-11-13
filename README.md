@@ -38,19 +38,45 @@ Want to see finished results first? The [worked example](examples/README.md) sho
 
 You do not need a terminal or any coding tools. Pick the app you already use.
 
-**Claude, desktop app or claude.ai, on a paid plan** (about one minute)
+#### Claude on a paid plan
+
+About one minute, in the desktop app or at claude.ai. Nothing to download.
 
 1. Open **Customize** in the left sidebar, then the **Plugins** tab.
 2. Click **Add**, then **Add marketplace**, then **Add from a repository**.
 3. Type `tjj9020/agentic-job-search-kit`.
 4. Find **job-search-kit** and click **Add**.
 
-**Claude on the free plan, or ChatGPT** (about five minutes)
+#### Claude on the free plan
 
-1. [Download the kit](https://github.com/tjj9020/agentic-job-search-kit/releases/latest/download/job-search-kit-skills.zip) and open the downloaded file. Inside are six small ZIP files and a page of instructions.
-2. Add each of the six to your app:
-   - **Claude:** Customize, then Skills, then **+**, **Create skill**, **Upload a skill**. Choose a ZIP. Repeat for the other five. If uploading is unavailable, turn on "Code execution and file creation" under Settings, Capabilities.
-   - **ChatGPT:** Skills, then **Create**, then **Upload from your computer**. Choose a ZIP. Repeat for the other five.
+About five minutes, in the desktop app or at claude.ai.
+
+1. [Download the kit](https://github.com/tjj9020/agentic-job-search-kit/releases/latest/download/job-search-kit-skills.zip) and open the downloaded file. Inside are six small ZIP files, a `gemini` folder you can ignore, and a page of instructions.
+2. Open **Customize**, then **Skills**.
+3. Click **+**, then **Create skill**, then **Upload a skill**. Choose one of the six ZIP files. Repeat for the other five.
+
+If uploading is unavailable, turn on "Code execution and file creation" under Settings, Capabilities.
+
+#### ChatGPT
+
+About five minutes, in the desktop app or at chatgpt.com.
+
+1. [Download the kit](https://github.com/tjj9020/agentic-job-search-kit/releases/latest/download/job-search-kit-skills.zip) and open the downloaded file. Inside are six small ZIP files, a `gemini` folder you can ignore, and a page of instructions.
+2. Open **Skills**.
+3. Click **Create**, then **Upload from your computer**. Choose one of the six ZIP files. Repeat for the other five.
+
+Skills added in the desktop app do not carry over to the website, or the other way round. Add them where you plan to work.
+
+#### Gemini
+
+About five minutes, at [gemini.google.com](https://gemini.google.com) in a web browser. The Gemini phone app can use skills but cannot upload them yet, so do this part on a computer. It works on the free plan. Google requires you to be 18 or older.
+
+1. [Download the kit](https://github.com/tjj9020/agentic-job-search-kit/releases/latest/download/job-search-kit-skills.zip) and open the downloaded file. Open the `gemini` folder inside it. It holds six ZIP files packed the way Gemini expects. Use these, not the six next to the folder.
+2. At gemini.google.com, open the menu, then **Customize**, then **Skills**. If you don't see Customize, look under **More**.
+3. Click **Create**, then **Upload**. Choose one of the six ZIP files and click **Open**.
+4. Click **Upload**, then **Create**. Repeat for the other five.
+
+Gemini added skill uploads in late 2026, and this is the least tested of the four ways to install. If a step doesn't match what you see, [tell us](https://github.com/tjj9020/agentic-job-search-kit/issues/new/choose).
 
 Menu names change between app versions. If yours looks different, look for "Skills" or "Plugins" in the sidebar or settings.
 
@@ -221,7 +247,7 @@ Each job the user applies to also gets a folder, `career/applications/<company>-
 
 The skills work out where to keep documents in each app: a `career/` folder where they can write to disk, project documents where the app has them, or a single `my-job-search.md` file handed to the user where neither exists.
 
-Each release attaches one ZIP per skill and a bundle, built by `scripts/build-downloads.sh`, for apps that install skills by upload.
+Each release attaches one ZIP per skill and a bundle, built by `scripts/build-downloads.sh`, for apps that install skills by upload. The bundle also holds a `gemini/` folder with the same six skills zipped with `SKILL.md` at the top level, which is what the Gemini app requires.
 
 Plugin installs from a third-party marketplace do not auto-update by default in Claude Code. Run `claude plugin marketplace update tjj9020` to update.
 
