@@ -9,7 +9,15 @@ Build the four documents every other skill in this kit depends on. This takes ab
 
 ## Where the documents live
 
-Keep all documents in a `career/` folder in the working directory. If there is no file system, keep them as project documents or files with the same names. Read them at the start of every session. Save after every few answers so nothing is lost.
+Apps differ in what they can save. Work out which of these you are in before saving anything, tell the user in one plain line, and do not ask them to understand the difference.
+
+1. **A folder on the user's computer that you can read and write.** Keep everything in a `career/` folder there. If you need the user to pick or allow a folder, ask in plain words: "Is it OK if I keep your job search in a folder on your computer? I'd suggest one called Job Search." Tell them where it is.
+2. **A project or workspace whose documents you can create and update.** Keep each document there under the same names. Tell them: "I'll keep everything in this project. Come back to this same project each time."
+3. **Neither: you can only make files for the user to download.** Keep everything in one file, `my-job-search.md`, with each document under its own heading. At the end of every sitting, give the user the updated file and say: "Save this file. Next time, start a chat, attach it, and say 'continue my job search'." At the start of a sitting, if no file is attached and you remember nothing, ask for it before anything else.
+
+Never tell the user something was saved unless it was. If a save fails, say so and give them the content to keep.
+
+The four documents this skill builds:
 
 | Document | Holds |
 | --- | --- |
@@ -121,4 +129,4 @@ If `career/linkedin-profile-log.md` exists, add one plain line under "Changed si
 
 ## When a phase ends
 
-Say in one line what was saved. Then tell the user what it unlocked and what comes next: after Phase 1, the daily job scout; after Phase 3, tailored resumes and interview prep. If the `job-search` skill is available, call the Skill tool with "job-search" so the user sees where they are.
+Say in one line what was saved. Then tell the user what it unlocked and what comes next: after Phase 1, the daily job scout; after Phase 3, tailored resumes and interview prep. If the `job-search` skill is available, use the `job-search` skill (call the Skill tool with that name where one exists) so the user sees where they are.

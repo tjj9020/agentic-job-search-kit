@@ -11,7 +11,7 @@ The user is the author. You are the editor who knows the job posting. A resume t
 
 ## Before you start
 
-Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-voice-profile.md` (or project documents with those names). If any is missing, tell the user to run `career-setup` first. Ask for the posting text or link if the user has not given one.
+Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-voice-profile.md` (or project documents with those names, or the `my-job-search.md` file the user attached, in an app that cannot keep files). If any is missing, tell the user to run `career-setup` first. Ask for the posting text or link if the user has not given one.
 
 ## Steps
 
@@ -39,7 +39,7 @@ Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-v
    - **The interview test.** For the two or three boldest lines, ask: "If they asked about this, could you talk about it for two minutes?" If not, soften or cut the line.
    - **Read it aloud.** Ask them to read it once out loud and change anything they would not say.
 
-6. **Deliver.** Save the resume as `career/applications/<company>-<role>/resume.md` (lowercase, hyphens), containing only the resume. Give the user an editable copy they can export to Word or PDF, a short list of what you emphasized and why, and the gaps to be ready for in an interview.
+6. **Deliver.** Save the resume as `career/applications/<company>-<role>/resume.md` (lowercase, hyphens), containing only the resume. Then give the user a copy they can send: if you can create files, a Word document named `Firstname-Lastname-Company.docx`, plus a PDF if they ask, and say where to find it. If you cannot create files, give clean text and say: "Copy this into Word or Google Docs." Never hand a non-technical user a Markdown file as the finished resume. Add a short list of what you emphasized and why, and the gaps to be ready for in an interview.
 
 7. **Offer a note.** Ask once whether the user wants a short message to go with the resume, and write only what they pick:
    - a recruiter or hiring-manager message: under 120 words, one specific reason they fit, one number, one ask

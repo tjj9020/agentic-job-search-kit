@@ -36,6 +36,16 @@ The check on a first-time contributor's pull request waits for the maintainer to
 - If your change adds a behavior, add a check for it in `evals/check.mjs` or a trap in a persona, so it stays fixed.
 - Personas and postings must be entirely made up.
 
+## Who this is for
+
+Most users are not developers. They use a desktop or web app, have never opened a terminal, and may be using AI for real work for the first time. Design for them first:
+
+- A skill must work when installed by uploading a ZIP, with no shell and no file system.
+- Never assume a tool exists (a browser, a scheduler, web search, a folder). Check, say what is possible here, and offer another way.
+- What the user receives should be something they can use as it is: a Word document, not a Markdown file.
+
+The simulated tests run in Claude Code, so they do not cover desktop apps. For changes that affect how the kit starts, saves or delivers files, walk through [evals/desktop-checklist.md](evals/desktop-checklist.md) by hand.
+
 ## How pull requests are reviewed
 
 Skills are instructions an AI agent follows on someone's computer, next to their resume. So review is strict about a few things:

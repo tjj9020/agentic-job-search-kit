@@ -97,6 +97,7 @@ node evals/check.mjs --career examples/jordan-rivera/career
 ## Limits
 
 - A simulated person is more patient and more consistent than a real one. Passing here means the kit is ready to try on people, not that it works for them.
+- Desktop apps are not simulated. The tests run in Claude Code, where files and folders always work. Use [desktop-checklist.md](desktop-checklist.md) to test by hand in the apps most people use.
 - Browser use is not simulated. The agent under test has no browser, so the LinkedIn stage tests the fallback: it must say so and switch to paste. Test the browser path by hand in a desktop app.
 - The job report is not simulated, because it depends on live job sites. That includes the rule that it skips jobs you already applied to. Test both by hand.
 - The graded review is a model's opinion. Read the transcript before acting on it.

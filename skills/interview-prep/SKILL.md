@@ -9,7 +9,7 @@ Turn the story bank into answers for one specific interview. The user should wal
 
 ## Before you start
 
-Read `career/resume-story-bank.md`, `career/resume-voice-profile.md` and `career/resume-base.md` (or project documents with those names). If the story bank is missing, tell the user to run `career-setup` first.
+Read `career/resume-story-bank.md`, `career/resume-voice-profile.md` and `career/resume-base.md` (or project documents with those names, or the `my-job-search.md` file the user attached, in an app that cannot keep files). If the story bank is missing, tell the user to run `career-setup` first.
 
 Ask for what you don't have: the posting text or link, the interview stage (recruiter screen, hiring manager, panel, final), who the interviewers are if known, and how long until the interview. If a tailored resume for this role is listed under "Tailored versions" in the story bank, read which stories it used; interviewers will ask about what is on the page.
 
@@ -34,7 +34,7 @@ Ask for what you don't have: the posting text or link, the interview stage (recr
 
 7. **Practice, if the user wants it.** Ask one question at a time and wait for the answer. After each, say what landed, what was vague, and whether the number came through. Keep the feedback to three lines. Do not rewrite their answer into yours.
 
-8. **Deliver a one-page brief** the user can skim on the day, saved as `brief.md` in the role's folder under `career/applications/` (create `career/applications/<company>-<role>/` if it does not exist): the three stories that matter most for this role, the numbers to remember, the gaps and the lines for each, and the questions to ask.
+8. **Deliver a one-page brief** the user can skim on the day (as a Word document or PDF if you can create files, so they can print it or read it on a phone), saved as `brief.md` in the role's folder under `career/applications/` (create `career/applications/<company>-<role>/` if it does not exist): the three stories that matter most for this role, the numbers to remember, the gaps and the lines for each, and the questions to ask.
 
 ## Afterward
 

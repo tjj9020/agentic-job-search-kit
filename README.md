@@ -36,24 +36,35 @@ Want to see finished results first? The [worked example](examples/README.md) sho
 
 ### 1. Add it to your AI app
 
-**Claude desktop app** (no typing commands)
+You do not need a terminal or any coding tools. Pick the app you already use.
 
-1. Open **Customize**, then **Plugins**.
-2. Choose **Add marketplace**, then add from a repository.
-3. Paste `https://github.com/tjj9020/agentic-job-search-kit` and press **Sync**.
-4. Install **job-search-kit** from the list.
+**Claude, desktop app or claude.ai, on a paid plan** (about one minute)
 
-Menu names move around between versions of the app. If yours looks different, look for "Add marketplace" under Plugins.
+1. Open **Customize** in the left sidebar, then the **Plugins** tab.
+2. Click **Add**, then **Add marketplace**, then **Add from a repository**.
+3. Type `tjj9020/agentic-job-search-kit`.
+4. Find **job-search-kit** and click **Add**.
 
-**Claude Code** (in a terminal)
+**Claude on the free plan, or ChatGPT** (about five minutes)
+
+1. [Download the kit](https://github.com/tjj9020/agentic-job-search-kit/releases/latest/download/job-search-kit-skills.zip) and open the downloaded file. Inside are six small ZIP files and a page of instructions.
+2. Add each of the six to your app:
+   - **Claude:** Customize, then Skills, then **+**, **Create skill**, **Upload a skill**. Choose a ZIP. Repeat for the other five. If uploading is unavailable, turn on "Code execution and file creation" under Settings, Capabilities.
+   - **ChatGPT:** Skills, then **Create**, then **Upload from your computer**. Choose a ZIP. Repeat for the other five.
+
+Menu names change between app versions. If yours looks different, look for "Skills" or "Plugins" in the sidebar or settings.
+
+**Which app works best?** The kit keeps a few documents about you and builds on them each time you come back. The Claude desktop app can keep those in a folder on your computer, open a browser for you, and send a job report every morning by itself. In an app that can't do one of those things, the kit tells you and gives you another way. Nothing is silently skipped.
+
+<details>
+<summary><strong>For developers</strong> (Claude Code, Codex, GitHub Copilot, Gemini CLI, Cursor)</summary>
+
+**Claude Code**
 
 ```bash
 claude plugin marketplace add tjj9020/agentic-job-search-kit
 claude plugin install job-search-kit@tjj9020
 ```
-
-<details>
-<summary><strong>Other AI tools</strong> (Codex, GitHub Copilot, Gemini, Cursor, ChatGPT and more)</summary>
 
 **Codex**
 
@@ -83,13 +94,7 @@ gemini skills install https://github.com/tjj9020/agentic-job-search-kit.git --pa
 npx skills@latest add tjj9020/agentic-job-search-kit
 ```
 
-Take all six skills when it asks.
-
-**ChatGPT, Grok, or any chat app without an installer**
-
-Create a project, attach the six `SKILL.md` files from the [`skills/`](skills) folder, and say "Help me with my job search." Keep everything in that one project so it remembers you between chats.
-
-Install it one way only. Installing it twice gives you two copies of everything.
+Take all six skills when it asks. Install it one way only; installing it twice gives you two copies of everything.
 
 </details>
 
@@ -99,9 +104,10 @@ That's it. Any wording works: "I need a new job," "where do I start," "I got lai
 
 The first time, it will:
 
-1. Ask for your resume. Drag it in, paste it, or just describe your work if you don't have one.
-2. Ask what you want: what kind of job, where, the least you'd accept in pay, and anything you won't do.
-3. Offer to send you a job report every morning. You are a few minutes in at this point.
+1. Tell you where it will keep your job search: a folder on your computer, this project, or a file it hands you to keep. Say yes if it asks to use a folder.
+2. Ask for your resume. Drag it in, paste it, or just describe your work if you don't have one.
+3. Ask what you want: what kind of job, where, the least you'd accept in pay, and anything you won't do.
+4. Offer to send you a job report every morning. You are a few minutes in at this point.
 
 Over the next sitting or two it asks about your best work and reads a few things you wrote yourself (emails, reports, anything written without AI help). That is how it learns to write a resume that sounds like you. You can stop any time and nothing is lost.
 
@@ -130,7 +136,7 @@ Say "yes" to continue, or tell me what you'd rather do.
 | Say something like | What you get |
 | --- | --- |
 | "What's new today?" | The best three to five open jobs for you, why you fit each one, and what the pay looks like |
-| "Tailor my resume to this job" (paste the link or the text) | A resume written for that job, plus a short note to the recruiter if you want one |
+| "Tailor my resume to this job" (paste the link or the text) | A resume written for that job, as a Word document you can send, plus a short note to the recruiter if you want one |
 | "I applied to that one" | It keeps track, and reminds you if two weeks go by with no reply |
 | "Which resume did I send them?" | Every resume is kept with the job it was written for, so you always know which version went where |
 | "I have an interview Thursday" | The questions they are likely to ask, which of your stories answers each, and a one-page brief |
@@ -169,7 +175,7 @@ These defaults are for the United States. Elsewhere, it picks your country's mai
 - **It never applies for you** or messages anyone. You read everything and you send it. The same goes for LinkedIn: it changes only what you approve, while you watch or by giving you text to paste, and it never posts or connects for you.
 - **It tells you what it can't do.** Some things depend on the app you use: opening a browser, or running every morning by itself. When something isn't possible where you are, it says so and gives you another way.
 - **Tell it when it's wrong.** Every correction makes the next draft better.
-- **Your information is yours.** Your resume and pay expectations are saved in a folder called `career` on your computer, or in your project if you use a chat app. Don't post that folder anywhere public.
+- **Your information is yours.** Your resume and pay expectations are kept where you can see them: a folder on your computer, your project in the app, or a file it gives you. Don't post them anywhere public.
 
 ## Why it works this way
 
@@ -212,6 +218,10 @@ The skills share five documents in a `career/` folder (or the project's files):
 `linkedin-profile-log.md` holds the agreed LinkedIn profile, changes waiting for the user to paste in, and facts that changed since the last sync.
 
 Each job the user applies to also gets a folder, `career/applications/<company>-<role>/`, holding `resume.md` (the version sent), `note.md` (the recruiter note or cover letter, if any) and `brief.md` (the interview brief). The tracker's resume column points at that `resume.md`.
+
+The skills work out where to keep documents in each app: a `career/` folder where they can write to disk, project documents where the app has them, or a single `my-job-search.md` file handed to the user where neither exists.
+
+Each release attaches one ZIP per skill and a bundle, built by `scripts/build-downloads.sh`, for apps that install skills by upload.
 
 Plugin installs from a third-party marketplace do not auto-update by default in Claude Code. Run `claude plugin marketplace update tjj9020` to update.
 
