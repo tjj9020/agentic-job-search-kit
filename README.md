@@ -6,6 +6,18 @@ You don't need to know anything about AI. There are no commands to learn and no 
 
 ![How it works: say "help me with my job search." First it gets to know you through your resume, a conversation and your writing. It remembers your resume, what you want, your stories, your voice and your tracker. Then you just ask for a job report, a tailored resume or interview prep, and it learns from your corrections.](docs/how-it-works.svg)
 
+## It has to be yours
+
+Everyone can generate a resume now, and hiring managers can tell. A page of polished lines that could describe anybody gets skipped, and if it gets you an interview, you are the one who has to explain it.
+
+So this kit treats you as the author. It writes only from what you tell it. Every number comes from you. It asks you to say things your way and keeps your wording. Before it calls a resume done it checks, line by line:
+
+- Could this line sit on a stranger's resume? If so, it adds the detail that makes it yours, or cuts it.
+- Could you talk about this for two minutes if asked? If not, it goes.
+- Would you say this out loud? If not, you change it.
+
+Ask it to make something sound bigger than it was, and it will say no and look for something true that is stronger.
+
 ## What it's like
 
 > **You:** Help me with my job search.
@@ -173,6 +185,8 @@ The skills share five documents in a `career/` folder (or the project's files):
 | `job-scout-ledger.md` | Your tracker | Roles evaluated, applications and status, feedback |
 
 Plugin installs from a third-party marketplace do not auto-update by default in Claude Code. Run `claude plugin marketplace update tjj9020` to update.
+
+Simulated end-to-end tests live in [`evals/`](evals/README.md): a model plays a first-time user and the output is checked for invented facts, filler and jargon.
 
 To change a skill or cut a release, see [CONTRIBUTING.md](CONTRIBUTING.md). Versions are in [CHANGELOG.md](CHANGELOG.md).
 

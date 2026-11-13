@@ -11,7 +11,8 @@
   "scripts": {
     "changeset": "changeset",
     "version": "changeset version && node scripts/sync-plugin-version.mjs",
-    "check": "node scripts/sync-plugin-version.mjs --check && node scripts/check-skills.mjs"
+    "check": "node scripts/sync-plugin-version.mjs --check && node scripts/check-skills.mjs && node evals/check.mjs --career examples/jordan-rivera/career",
+    "eval": "node evals/run.mjs"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.7.0",

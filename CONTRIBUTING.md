@@ -20,7 +20,7 @@ Thanks for helping. Bug reports from real job searches are the most useful thing
 1. Fork the repository and create a branch.
 2. Edit the `SKILL.md`. Keep it plain Markdown that also works when pasted into a chat, and keep the user-facing language free of jargon.
 3. If you add a skill, add its folder to `skills` in `.claude-plugin/plugin.json` and give it an `agents/openai.yaml`.
-4. Try it in an agent. Say what you tested in the pull request.
+4. Try it in an agent. For anything beyond wording, run a simulated user against it: `node evals/run.mjs maria-charge-nurse` (see [evals/README.md](evals/README.md)). Say what you tested in the pull request.
 5. Add a changeset: run `npx changeset`, pick the bump, and write one or two sentences a user would understand.
 6. Run `npm run check`.
 7. Open a pull request against `main`.
