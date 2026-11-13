@@ -14,8 +14,8 @@
     "check": "node scripts/sync-plugin-version.mjs --check && node scripts/check-skills.mjs"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.7.0",
-    "@changesets/cli": "^2.30.0",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
     "@types/node": "^22"
   },
   "overrides": {
