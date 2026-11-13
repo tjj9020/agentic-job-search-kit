@@ -52,7 +52,8 @@ const DONE = "[[DONE]]";
 const USER_RULES = `You are playing a real person in a conversation with a job-search assistant. Stay in character for the whole conversation. Your character sheet is below.
 
 Rules:
-- Reply only as this person would type. One short message. No stage directions, no quotation marks around your reply.
+- Reply only as this person would type. One short message. No narration, no quotation marks around your reply.
+- Now and then you will get a message that starts with [Stage direction]. It is not from the assistant. It tells you what has happened in your life since the last message. Treat it as true, remember it, and reply with what you would type to the assistant next.
 - You know only what the sheet says. If asked something the sheet does not cover, say you are not sure. Never invent a fact, a number, an employer or a date.
 - Do not volunteer facts. Answer what was asked, the way a person would: sometimes incompletely.
 - Follow every instruction under "Things to do during the conversation" at the moment it applies.
@@ -98,54 +99,51 @@ const appFile = (wd, name) => {
   return existsSync(dir) && readdirSync(dir).some((d) => existsSync(join(dir, d, name)));
 };
 
+// A voice profile counts as approved only if a line says so without also saying "not yet".
+const voiceApproved = (text) => text.split("\n").some((l) => /\bapproved\b/i.test(l) && !/\bnot\b|\bun-?approved\b|\bdraft\b|\bpending\b|\bawaiting\b|\buntil\b|\bonce\b|\bwhen\b/i.test(l));
+
+// Each stage after the first begins with a stage direction to the simulated person:
+// what has happened in their life. They then tell the assistant in their own words,
+// so they never contradict an event the test introduced. Nothing is edited behind
+// the assistant's back.
 const STAGES = {
   setup: {
-    open: (p) => p.opening || "help me with my job search",
     done: (wd) => exists(wd, "career", "resume-base.md") && exists(wd, "career", "search-criteria.md"),
     max: 15,
   },
   stories: {
-    open: () => "ok lets keep going with the rest",
-    done: (wd) => exists(wd, "career", "resume-story-bank.md") && /approved/i.test(read(join(wd, "career", "resume-voice-profile.md"))),
+    direction: () => "You have more time now and want to carry on with whatever comes next.",
+    done: (wd) => exists(wd, "career", "resume-story-bank.md") && voiceApproved(read(join(wd, "career", "resume-voice-profile.md"))),
     max: 70,
   },
   tailor: {
-    open: (p) => `can you write my resume for this job\n\n${read(join(REPO, p.posting))}`,
+    direction: (posting) => `You found the job posting below and want a resume written for it. Ask for that in one short line. The posting is attached to your message automatically, so do not retype it.\n\n${posting}`,
+    attachPosting: true,
     done: (wd) => appFile(wd, "resume.md"),
     max: 25,
   },
-  // The user reports, in their own words, that they sent the resume.
   tracking: {
-    open: () => "ok i sent that one in this morning",
+    direction: () => "It is the next morning. Earlier today you sent in your application for that job, using the resume you were given. Tell the assistant.",
     done: (wd) => applications(read(join(wd, "career", "job-scout-ledger.md"))).some((a) => a.status === "applied"),
     max: 4,
   },
-  // Three weeks pass with no reply. Asked what's next, the kit should bring it up itself.
+  // Three weeks pass with no reply. The assistant should suggest a follow-up.
   followup: {
-    before: (wd) => {
-      const p = join(wd, "career", "job-scout-ledger.md");
-      const old = new Date(Date.now() - 21 * 864e5).toISOString().slice(0, 10);
-      // Backdate the application, and any dates in its notes, by three weeks.
-      const lines = read(p).split("\n").map((l) => (/\|\s*applied\s*\|/i.test(l)
-        ? [old, ...l.split("|").slice(1)].join("|").replace(/\d{4}-\d{2}-\d{2}/g, old)
-        : l));
-      writeFileSync(p, lines.join("\n"));
-    },
-    open: () => "whats next",
-    expectReply: /follow.?up|haven'?t heard|no reply|no response|quiet|check in|nudge|three weeks|21 days|weeks ago/i,
+    direction: () => "Three weeks have gone by since you applied. You have heard nothing from the employer. Come back and ask what you should do now, and mention that it has been about three weeks.",
+    expectReply: /follow.?up|check in|check-in|nudge|reach out|short (note|message|email)|message to|email to|note to/i,
     max: 1,
+  },
+  interview: {
+    direction: () => "Good news: the employer has called, and you have an interview for that job this Thursday. Tell the assistant and ask for help getting ready.",
+    done: (wd) => appFile(wd, "brief.md") && applications(read(join(wd, "career", "job-scout-ledger.md"))).some((a) => a.status === "interview"),
+    max: 25,
   },
   // Only for personas that have a LinkedIn profile on their sheet.
   linkedin: {
     only: (p) => Boolean(p.linkedin),
-    open: () => "can you fix up my linkedin too? it doesnt match my resume anymore",
+    direction: () => "You also want your LinkedIn profile fixed, because it no longer matches your resume. Ask for that.",
     done: (wd) => ((read(join(wd, "career", "linkedin-profile-log.md")).split(/^## Profile as agreed/m)[1] || "").split(/^## /m)[0].length > 200),
     max: 30,
-  },
-  interview: {
-    open: () => "they called!! i got an interview for that job, its on thursday. help",
-    done: (wd) => appFile(wd, "brief.md") && applications(read(join(wd, "career", "job-scout-ledger.md"))).some((a) => a.status === "interview"),
-    max: 25,
   },
 };
 
@@ -167,9 +165,11 @@ function runPersona(name) {
     ["--plugin-dir", REPO, "--permission-mode", "acceptEdits", "--allowedTools", `Read,Write,Edit,Glob,Grep,Skill${flag("web") ? ",WebSearch,WebFetch" : ""}`],
     work, opt("agent-model", DEFAULT_MODEL),
   );
+  const opening = persona.opening || "help me with my job search";
+  const posting = persona.posting ? read(join(REPO, persona.posting)) : "";
   // The simulated person: a character sheet and nothing else.
   const user = session(
-    ["--system-prompt", USER_RULES + read(personaPath), "--disallowedTools", "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill,NotebookEdit"],
+    ["--system-prompt", `${USER_RULES}${read(personaPath)}\n\nYou have just opened the conversation by typing: "${opening}"`, "--disallowedTools", "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill,NotebookEdit"],
     userDir, opt("user-model", DEFAULT_MODEL),
   );
 
@@ -178,7 +178,8 @@ function runPersona(name) {
   const log = (role, stage, text) => {
     transcript.push({ n: ++n, role, stage, text });
     writeFileSync(join(runDir, "transcript.json"), JSON.stringify(transcript, null, 2));
-    console.log(`\n[${stage}] ${role === "agent" ? "AGENT" : "USER "}: ${text.length > 400 ? text.slice(0, 400) + " ..." : text}`);
+    const label = { agent: "AGENT", user: "USER ", direction: "STAGE" }[role];
+    console.log(`\n[${stage}] ${label}: ${text.length > 400 ? text.slice(0, 400) + " ..." : text}`);
   };
 
   const stageResults = [];
@@ -187,8 +188,13 @@ function runPersona(name) {
     if (!stage) throw new Error(`unknown stage ${stageName}`);
     if (stage.only && !stage.only(persona)) continue;
     const max = Number(opt("max-turns", stage.max));
-    if (stage.before) stage.before(work);
-    let message = stage.open(persona);
+    let message = opening;
+    if (stage.direction) {
+      const direction = stage.direction(posting);
+      log("direction", stageName, direction);
+      message = user.say(`[Stage direction] ${direction}\n\nReply with only what you would type to the assistant now.`);
+      if (stage.attachPosting) message = `${message}\n\n${posting}`;
+    }
     let turns = 0, reachedAt = 0, grace = stage.max <= 4 ? 0 : 2, outcome = "ran out of turns";
     while (turns < max) {
       log("user", stageName, message);
@@ -203,14 +209,16 @@ function runPersona(name) {
       if (message.includes(DONE)) { outcome = stage.done?.(work) ? "reached its goal" : "user thought it was finished, but the goal was not met"; break; }
     }
     if (outcome === "ran out of turns" && stage.done?.(work)) outcome = "reached its goal";
-    stageResults.push({ stage: stageName, turns, reachedAt: reachedAt || turns, outcome });
+    if (stage.expectReply && outcome === "reached its goal") reachedAt = turns;
+    stageResults.push({ stage: stageName, turns, reachedAt: reachedAt || null, outcome });
     console.log(`\n== ${stageName}: ${outcome} after ${turns} turns`);
     if (outcome !== "reached its goal") break; // later stages depend on this one
   }
 
   // Keep what was produced.
   if (existsSync(join(work, "career"))) cpSync(join(work, "career"), join(runDir, "career"), { recursive: true });
-  const md = transcript.map((t) => `**${t.role === "agent" ? "Agent" : "User"}** (${t.stage}, turn ${t.n})\n\n${t.text}`).join("\n\n---\n\n");
+  const who = { agent: "Agent", user: "User", direction: "Stage direction (given to the simulated person; the agent never sees it)" };
+  const md = transcript.map((t) => `**${who[t.role]}** (${t.stage}, turn ${t.n})\n\n${t.text}`).join("\n\n---\n\n");
   writeFileSync(join(runDir, "transcript.md"), md);
 
   // Hard checks.
@@ -219,7 +227,7 @@ function runPersona(name) {
   const checks = runChecks({
     career: join(runDir, "career"), personaPath, transcriptPath: join(runDir, "transcript.json"), expectStatus,
     stages: stageResults.map((r) => r.stage),
-    setupTurns: stageResults.find((r) => r.stage === "setup")?.reachedAt,
+    setupTurns: stageResults.find((r) => r.stage === "setup")?.reachedAt ?? undefined,
   });
 
   // Graded review of the softer qualities.
@@ -227,7 +235,7 @@ function runPersona(name) {
   try {
     const produced = existsSync(join(runDir, "career")) ? walk(join(runDir, "career")).map((f) => `=== ${f.slice(runDir.length + 1)} ===\n${read(f)}`).join("\n\n") : "(nothing was saved)";
     const grader = session(["--disallowedTools", "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill,NotebookEdit"], userDir, opt("user-model", DEFAULT_MODEL));
-    const scope = `# What this run covered\n\nStages run: ${stageResults.map((r) => `${r.stage} (${r.outcome})`).join(", ")}. Stages not run: ${Object.keys(STAGES).filter((k) => !stageResults.some((r) => r.stage === k)).join(", ") || "none"}. The conversation was stopped on purpose after the last stage listed. Do not mark the assistant down for work that belongs to a stage that was not run; write "not run" for those items and judge only what was in scope.`;
+    const scope = `# What this run covered\n\nStages run: ${stageResults.map((r) => `${r.stage} (${r.outcome})`).join(", ")}. Stages not run: ${Object.keys(STAGES).filter((k) => !stageResults.some((r) => r.stage === k)).join(", ") || "none"}. The conversation was stopped on purpose after the last stage listed. Do not mark the assistant down for work that belongs to a stage that was not run; write "not run" for those items and judge only what was in scope.\n\nHow the test works, so you judge fairly:\n- Entries marked "Stage direction" were given to the simulated person, not the assistant. They are events that really happened in this test (she applied, three weeks passed, she got an interview). The assistant was right to record them when she reported them.\n- The assistant under test ${flag("web") ? "could search the web" : "had no web access"}, could not create Word or PDF files, and had no browser. Saying so plainly and moving on is correct; do not count it as a failure.\n- Stages run in a fixed order chosen by the test. Do not mark the assistant down for that order.`;
     grade = grader.say(`${read(join(HERE, "grader.md"))}\n\n${scope}\n\n# The person (ground truth)\n\n${read(personaPath)}\n\n# The conversation\n\n${md}\n\n# What the assistant saved\n\n${produced}`);
   } catch (e) { grade = `(grader failed: ${e.message})`; }
 
@@ -235,7 +243,7 @@ function runPersona(name) {
   const report = [
     `# ${name}`, "",
     `Run: ${stamp}. Models: agent ${opt("agent-model", DEFAULT_MODEL)}, simulated user and grader ${opt("user-model", DEFAULT_MODEL)}. Cost: agent $${agent.cost.toFixed(2)}, simulated user $${user.cost.toFixed(2)}.`, "",
-    "## Stages", "", ...stageResults.map((s) => `- **${s.stage}:** ${s.outcome} (goal met at turn ${s.reachedAt}, ${s.turns} turns run)`), "",
+    "## Stages", "", ...stageResults.map((s) => `- **${s.stage}:** ${s.outcome} (${s.reachedAt ? `goal met at turn ${s.reachedAt}` : "goal not met"}, ${s.turns} turns run)`), "",
     "## Hard checks", "", "```", format(checks), "```", "",
     "## Graded review", "", grade, "",
   ].join("\n");
