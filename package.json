@@ -1,0 +1,20 @@
+{
+  "name": "job-search-kit",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Agent skills for a daily AI job search and resumes written in your own voice",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjj9020/agentic-job-search-kit"
+  },
+  "license": "MIT",
+  "scripts": {
+    "changeset": "changeset",
+    "version": "changeset version && node scripts/sync-plugin-version.mjs",
+    "check": "node scripts/sync-plugin-version.mjs --check && node scripts/check-skills.mjs"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.30.0"
+  }
+}
