@@ -1,5 +1,15 @@
 # job-search-kit
 
+## 0.5.0
+
+### Minor Changes
+
+- [#12](https://github.com/tjj9020/agentic-job-search-kit/pull/12) [`2786e23`](https://github.com/tjj9020/agentic-job-search-kit/commit/2786e236f7514888d9ed8e5799918dcdbbf67036) Thanks [@tjj9020](https://github.com/tjj9020)! - Resumes now have to pass three tests before they are handed over: could this line sit on a stranger's resume, could you talk about it for two minutes, and would you say it out loud. The kit tells you which lines are your words and which are its wording, and it refuses requests to exaggerate. Tailored resumes, notes and interview briefs are saved in one folder per job. Added `evals/`: simulated first-time users that run the whole kit end to end, with checks for invented numbers, filler words and jargon.
+
+### Patch Changes
+
+- [#14](https://github.com/tjj9020/agentic-job-search-kit/pull/14) [`de1f4ab`](https://github.com/tjj9020/agentic-job-search-kit/commit/de1f4ab4ab7b4732fbc6b55dc218d2826798df85) Thanks [@tjj9020](https://github.com/tjj9020)! - Ask "which resume did I send them?" and it finds that job in your tracker and shows the exact version you sent, with the date and current status.
+
 ## 0.4.1
 
 ### Patch Changes
