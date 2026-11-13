@@ -56,3 +56,23 @@ Never edit the version in `plugin.json` by hand. Plugin installs update only whe
 ## Security problems
 
 Do not open a public issue. See [SECURITY.md](SECURITY.md).
+
+## Maintainer setup
+
+Repository settings live in code so they can be reviewed and reapplied. As the owner, run:
+
+```bash
+bash scripts/apply-repo-settings.sh
+```
+
+It applies:
+
+| Setting | Value |
+| --- | --- |
+| `main` | Pull request required, 1 approving review from a code owner, stale approvals dismissed, conversations resolved, the `check` job must pass, no force pushes, no deletion. The owner can bypass through a pull request. |
+| Release tags (`v*`) | Cannot be moved or deleted |
+| Security | Dependabot alerts and security updates, private vulnerability reporting, secret scanning with push protection |
+| Actions | Only GitHub's own actions and `changesets/action`; read-only token by default; every outside contributor's run needs approval |
+| General | Wiki off, merged branches deleted, no rebase merges |
+
+The rulesets are in [`.github/rulesets/`](.github/rulesets) and can also be imported by hand under Settings > Rules > Rulesets > Import.
