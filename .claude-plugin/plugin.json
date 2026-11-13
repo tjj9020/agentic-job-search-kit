@@ -18,6 +18,7 @@
     "productivity"
   ],
   "skills": [
+    "./skills/job-search",
     "./skills/career-setup",
     "./skills/job-scout",
     "./skills/tailor-resume",

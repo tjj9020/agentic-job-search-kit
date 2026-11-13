@@ -25,3 +25,4 @@ Read `career/resume-base.md`, `career/resume-story-bank.md`, `career/resume-voic
 - Do not post, connect with or message anyone on the user's behalf.
 - Do not add a public "looking for work" line unless asked.
 - Never invent a fact. Everything comes from the resume, the story bank or the user.
+- When you finish, end with one line telling the user they can run `/job-search` to see where things stand and what is next.

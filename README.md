@@ -6,7 +6,7 @@ Most AI resume help fails in two ways: it sounds like AI, and it makes things up
 
 The skills are small and written in plain Markdown. Read them, change them, make them yours.
 
-![How it works: run career-setup once to build five documents; job-scout reads them every morning, tailor-resume each time you apply, and interview-prep before an interview; your corrections flow back in.](docs/how-it-works.svg)
+![How it works: one command, job-search, routes you; run career-setup once to build five documents; job-scout reads them every morning, tailor-resume each time you apply, and interview-prep before an interview; your corrections flow back in.](docs/how-it-works.svg)
 
 Want to see the output before you commit two hours? Read the [worked example](examples/README.md): a fictional candidate's documents, one scout report, one tailored resume and one interview brief.
 
@@ -70,35 +70,54 @@ Re-run the command to update.
 npx skills@latest add tjj9020/agentic-job-search-kit -a <agent>  # cursor, windsurf, opencode, amp; omit -a to choose
 ```
 
-When the installer asks which skills to take, include `career-setup`. To update, run `npx skills@latest update`.
+When the installer asks which skills to take, take all six. To update, run `npx skills@latest update`.
 
 </details>
 
 <details>
 <summary><strong>Chat apps with no installer</strong> (ChatGPT, Grok, Claude on the web)</summary>
 
-If your app has a place to upload skills, upload the five folders under [`skills/`](skills). If it does not, create a project, attach the five `SKILL.md` files to it, and say "follow career-setup". Keep everything in that one project so your documents carry over between chats.
+If your app has a place to upload skills, upload the six folders under [`skills/`](skills). If it does not, create a project, attach the six `SKILL.md` files to it, and say "follow job-search". Keep everything in that one project so your documents carry over between chats.
 
 </details>
 
-### 2. Run `/career-setup`
+### 2. Run `/job-search`
 
-Run it once. Have your current resume ready, plus three to five things you wrote yourself without AI help. It will:
+That is the only command you need. Each time you run it, it reads your documents, shows you where you stand, recommends one next step and takes you there:
 
-- Save your resume as the source of facts, then ask about every claim it can't verify
-- Interview you for what you want: roles, location, pay floor, culture, deal-breakers
-- Build your **story bank**: each accomplishment as situation, behavior and impact, with proof
-- Build your **voice profile**: how you write, the words you never use, and examples you approved
+```
+Your job search
 
-**You don't have to finish in one sitting.** The first phase takes about 20 minutes and is all the job scout needs, so you can have a report tomorrow morning and build the story bank and voice profile later. Say "continue career setup" to pick up where you stopped.
+Setup
+  [x] Resume saved
+  [x] Search criteria
+  [ ] Story bank        4 of 7 stories complete, 6 open questions
+  [ ] Voice profile     not started
 
-Your documents hold your resume and your pay floor. Keep the `career/` folder out of any public repository. The setup skill adds it to `.gitignore` for you if you are in one.
+Running
+  Daily scout           on, last report today
+  Applications          3 active: 1 interview, 2 applied (1 quiet for 16 days)
 
-### 3. You're ready
+Next: finish your story bank (about 40 minutes). It unlocks tailored resumes.
+```
 
-- "Run the job scout every morning at 7."
+The first time, have your current resume ready. It will:
+
+- Save your resume as the source of facts and name its three weakest spots
+- Ask what you want: roles, location, pay floor, culture, deal-breakers
+- Offer to start your daily job scout. This point is about 20 minutes in.
+
+Later sessions build your **story bank** (each accomplishment as situation, behavior and impact, with proof) and your **voice profile** (how you write, the words you never use, examples you approved). For the voice profile, bring three to five things you wrote yourself without AI help. Already have documents like these from another tool? Say so and it imports them.
+
+Your documents hold your resume and your pay floor. Keep the `career/` folder out of any public repository. Setup adds it to `.gitignore` for you if you are in one.
+
+### 3. Come back to `/job-search`
+
+Run it whenever you sit down. Or skip the board and say what you want:
+
 - "Tailor my resume to this posting: `<link>`"
 - "I have an interview at `<company>` on Thursday. Prep me."
+- "What's new today?"
 
 ## Why these skills exist
 
@@ -142,10 +161,11 @@ Where the story bank doesn't know something, it lists an open question instead o
 
 ## Reference
 
-Every skill is model-invoked: type its name, or just ask for what you want and your agent reaches for it.
+You only need `/job-search`. It routes to the skills below, and you can also call any of them by name or just ask for what you want.
 
 | Skill | What it does | When |
 | --- | --- | --- |
+| [`job-search`](skills/job-search/SKILL.md) | The entry point: shows your status board, recommends one next step and takes you there | Every time |
 | [`career-setup`](skills/career-setup/SKILL.md) | Saves your resume, interviews you for search criteria, builds your story bank and voice profile | Once, at the start |
 | [`job-scout`](skills/job-scout/SKILL.md) | Searches, verifies, scores and researches roles, then sends one fit report | Daily, on a schedule or on demand |
 | [`tailor-resume`](skills/tailor-resume/SKILL.md) | Maps a posting to your stories and writes a resume for it in your voice | Every time you apply |

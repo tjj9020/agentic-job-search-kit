@@ -74,3 +74,4 @@ A scheduled run is unattended: ask no questions, make reasonable calls and note 
 - Mark estimates as estimates. Never invent a posting, a salary or a culture claim.
 - If nothing scores 70, say so and list the near misses. Do not pad the report.
 - Paraphrase postings; do not copy them at length.
+- When you finish, end with one line telling the user they can run `/job-search` to see where things stand and what is next. Skip this in an unattended scheduled run.
