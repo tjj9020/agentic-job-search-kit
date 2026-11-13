@@ -60,7 +60,7 @@ Changes to `.github/`, `scripts/`, `package.json` and `.claude-plugin/` get the 
 
 Merging a pull request with a changeset makes the Release workflow open a "chore: version skills" pull request. It bumps `package.json`, copies the version into `.claude-plugin/plugin.json`, and writes `CHANGELOG.md`. Merging that pull request tags the release, and plugin installs pick it up.
 
-Dependabot opens monthly pull requests for GitHub Actions and npm packages. Merge them once the check passes; they need no changeset.
+Dependabot opens monthly pull requests for GitHub Actions and npm packages. They need no changeset. For npm packages and minor action updates, merge once the check passes. For a major version of an action (v1 to v2), read its release notes first: the check on a pull request does not run the Release workflow, so a breaking change there only shows up after merging.
 
 Never edit the version in `plugin.json` by hand. Plugin installs update only when it changes, and `npm run check` fails if it differs from `package.json`.
 
