@@ -9,7 +9,7 @@ Write a resume for one job posting that is true, aimed at that posting, and soun
 
 ## Before you start
 
-Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-voice-profile.md` (or project documents with those names). If any is missing, run the `career-setup` skill first. Ask for the posting text or link if the user has not given one.
+Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-voice-profile.md` (or project documents with those names). If any is missing, tell the user to run `career-setup` first. Ask for the posting text or link if the user has not given one.
 
 ## Steps
 
@@ -33,7 +33,15 @@ Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-v
 
 5. **Deliver.** Give the resume as an editable document the user can export to Word or PDF, a short list of what you emphasized and why, and the gaps to be ready for in an interview.
 
-6. **Learn.**
+6. **Offer a note.** Ask once whether the user wants a short message to go with the resume, and write only what they pick:
+   - a recruiter or hiring-manager message: under 120 words, one specific reason they fit, one number, one ask
+   - a cover letter: under 250 words, opening with the problem this role exists to solve and the story that shows they have solved it
+
+   Both follow the voice profile and use only facts from the story bank. No "I am excited to apply".
+
+7. **Track it.** Add a line for this role under "Applications" in `career/job-scout-ledger.md` with status "drafted": date | company | title | URL | status | resume file | notes. Create the ledger or the section if it does not exist. When the user says they applied, heard back, or withdrew, update the status (applied, screen, interview, offer, rejected, withdrawn). `job-scout` skips every role listed there.
+
+8. **Learn.**
    - Add a line under "Tailored versions" in the story bank: date, company, role, stories used.
    - When the user edits any line, update the voice profile with what the edit shows.
    - If the user supplies a new fact, add it to the story bank.
@@ -43,3 +51,4 @@ Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-v
 - Never invent or inflate a fact, title, date or number.
 - If the story bank leaves a field blank, ask or leave it out.
 - The user reads and approves every resume before it goes out.
+- When an interview is scheduled, point the user to `interview-prep`.

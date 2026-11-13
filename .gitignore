@@ -1,4 +1,4 @@
 node_modules
 .claude
 # Your own career documents are private. Never commit them.
-career/
+/career/
