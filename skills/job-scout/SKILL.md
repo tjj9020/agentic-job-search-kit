@@ -29,6 +29,10 @@ Format: date | company | title | URL | score/100 | status (reported, or skipped:
 
 If the ledger exists but has no "Applications" section, add one above "Evaluated roles".
 
+## Where it looks, in plain words
+
+When the user asks where you look for jobs, answer from [SOURCES.md](SOURCES.md) and their own "Where to look" list, in a few plain lines, and offer to add or drop a source. When they say "also check X", "stop checking Y" or name an employer they would like to work for, save it under "Where to look" in `search-criteria.md` and confirm in one line.
+
 ## Feedback in plain words
 
 When the user says something like "skip sales jobs", "more remote roles" or "I applied to that one", write it into the ledger yourself: preferences under "Feedback from me", applications under "Applications". Confirm in one line. Never ask the user to edit the ledger.
@@ -47,7 +51,7 @@ A scheduled run is unattended: ask no questions, make reasonable calls and note 
 
 ## The run
 
-1. **Discover.** Read the ledger, including the feedback section. Run up to 10 searches across the major job boards, public applicant-tracking boards (Greenhouse, Lever, Ashby, Workday) and local sources for the user's area, using their target titles.
+1. **Discover.** Read the ledger, including the feedback section. Read [SOURCES.md](SOURCES.md) in this skill's folder: it is the full list of where to look and how the ten searches are spent. Search only those places, plus anything under "Where to look" in the user's search criteria. On the first run, pick the "by kind of work" rows that fit the user, tell them in one line where you will look ("I'll check the big job boards, hospital systems near Dayton and Health eCareers"), and save the choice under "Where to look" in `search-criteria.md`. Keep a note of each source as you go: searched and found jobs, searched and found nothing, or could not be opened.
 2. **Triage.** Drop anything already in the ledger, including every role under "Applications", and anything that fails a hard filter: location, level, pay floor when posted, deal-breakers, feedback.
 3. **Verify.** Confirm each remaining posting is live and recent, preferably on the employer's own careers page. Aggregator copies are often stale. If it cannot be confirmed, skip it and record why.
 4. **Score** each verified role out of 100. Use the weights in `search-criteria.md` if the user set them; otherwise:
@@ -73,7 +77,7 @@ A scheduled run is unattended: ask no questions, make reasonable calls and note 
    - the six scores
    - next move: one concrete action
 
-   End with "Also seen": up to five near misses, one line each with the reason, then a list of sources. If any application has sat at "applied" for more than 14 days, add one line listing them so the user can follow up. Where the tool can produce files, make the report a single self-contained HTML page that reads well on a phone, and notify the user when it is ready.
+   End with "Also seen": up to five near misses, one line each with the reason. Then "Where I looked": every source searched this run, in three plain groups: found jobs, found nothing, could not open. Never list a source you did not actually search. Then the links you used. If any application has sat at "applied" for more than 14 days, add one line listing them so the user can follow up. Where the tool can produce files, make the report a single self-contained HTML page that reads well on a phone, and notify the user when it is ready.
 7. **Update the ledger.** Add one line per role evaluated today and remove "Evaluated roles" lines older than 60 days. Leave the feedback and "Applications" sections untouched.
 
 ## Rules
