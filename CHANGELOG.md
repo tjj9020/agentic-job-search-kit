@@ -1,5 +1,11 @@
 # job-search-kit
 
+## 0.8.0
+
+### Minor Changes
+
+- [#22](https://github.com/tjj9020/agentic-job-search-kit/pull/22) [`49478b4`](https://github.com/tjj9020/agentic-job-search-kit/commit/49478b41da31d3810efcbcbc008a4c104fa34ac9) Thanks [@tjj9020](https://github.com/tjj9020)! - The job report now searches a fixed, published list of sources instead of "the major job boards": four general boards, eight employer hiring systems, three government boards, and extra sources chosen for your kind of work. It tells you where it will look on the first run, every report ends with "Where I looked" (what had jobs, what had none, what it couldn't open), and you can say "also check" or "stop checking" to change the list or name employers to watch.
+
 ## 0.7.0
 
 ### Minor Changes
