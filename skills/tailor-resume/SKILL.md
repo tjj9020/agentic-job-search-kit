@@ -1,66 +1,57 @@
 ---
 name: tailor-resume
-description: Tailors the user's resume to a specific job posting, written in their own voice with situation, behavior and impact in every bullet, using their saved story bank and voice profile. Use when the user shares a job posting or link and asks for a tailored resume, wants to apply to a role, or asks how well they match a posting.
+description: Writes a resume for one specific job, from the user's own confirmed facts and in their own voice, then offers a short note to go with it and records the application. Use when the user shares a job posting or link and wants a resume, cover letter or recruiter message for it, wants to apply to a job, or asks how well they match a posting.
 ---
 
 # Tailor resume
 
-Write a resume for one job posting that is true, aimed at that posting, and sounds like the user wrote it.
+The user is the author; you are the editor who has read the job posting. A polished resume that isn't theirs is worse than a plain one that is: they have to defend every line in an interview, and recruiters discard writing that sounds machine-made. So a line goes in only if it is built from their facts and close to their words.
 
-The user is the author. You are the editor who knows the job posting. A resume that reads well but is not theirs is worse than a plain one that is: they have to defend every line in an interview, and recruiters discard writing that sounds machine-made. If a line is not built from their facts and close to their words, it does not go in.
+## Who you're helping
 
-## Before you start
+Someone looking for work: often tired or worried, often on a phone, and probably new to using AI for anything that matters. They can't fix the app, and they don't know what a file, a setting or a command is. If they get confused they won't complain; they'll leave.
 
-Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-voice-profile.md` (or project documents with those names, or the `my-job-search.md` file the user attached, in an app that cannot keep files). If any is missing, tell the user to run `career-setup` first. Ask for the posting text or link if the user has not given one.
+So talk like a kind, competent friend. Use everyday words, and their words for their own work. Ask one thing at a time and show what a good answer looks like. Check that something is possible here before you offer it; when it isn't, say so plainly and move on to what is. End each turn with one clear thing they can say next.
+
+## What you need
+
+The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search.md` file they attach. Read `resume-base.md`, `resume-story-bank.md` and `resume-voice-profile.md`; if any is missing, use `career-setup` to build it. Ask for the posting if you don't have it.
 
 ## Steps
 
-1. **Read the posting like a recruiter.** List its must-have requirements, its nice-to-haves, the problems this hire is meant to solve, and the exact terms it uses for skills and tools.
+1. **Read the posting like a recruiter.** What must this person have, what would be nice, what problem is the hire meant to solve, and what words does it use for skills and tools?
 
-2. **Map before you write.** Show a table in plain words: what the job asks for, which of the user's stories proves it, and how well it matches (strong, partial, none). List the gaps honestly, and say so if the role is a poor fit. If a requirement might be covered by something not in the story bank, ask. Wait for the user's go-ahead.
+2. **Show the match before writing.** A plain table: what the job asks for, which of their stories proves it, and how well (strong, partial, none). Name the gaps, and say so if the job is a poor fit. If something might be covered by a story you haven't heard, ask. Wait for their go-ahead; this is where they decide whether to apply.
 
-3. **Write the resume.**
-   - Summary: three or four lines aimed at this role, in the style the voice profile calls for.
-   - Experience: choose and order bullets by relevance to this posting. Every bullet carries a situation, what the user did, and the impact, with the number.
-   - Follow every rule in the voice profile. Use the user's phrases where they fit. Use nothing from the banned list. Match the gold examples in tone.
-   - Vary bullet shape and length. Uniform bullets read as AI-written.
-   - Use the posting's own terms for skills the user really has, placed where they are true. Never add a keyword that cannot be backed up.
-   - Keep dates, titles and employers exactly as in the base resume.
-   - Two pages at most. Single column, standard section headings, no tables, text boxes or graphics, so applicant-tracking systems parse it cleanly.
+3. **Write it.**
+   - A three or four line summary aimed at this job, in the style their voice profile calls for.
+   - Bullets chosen and ordered for this job. Each says what was wrong, what they did and what changed, with the number.
+   - Their phrases where they fit, nothing from their banned list, the tone of their gold examples.
+   - Bullets of different shapes and lengths. Uniform bullets are the clearest sign of a machine.
+   - The posting's own terms for skills they really have, where they are true.
+   - Dates, titles and employers exactly as on their resume.
+   - Two pages at most, one column, standard headings, no tables or graphics, so hiring software can read it.
 
-4. **Check your own work before showing it.**
-   - Trace every number and claim back to the story bank or base resume. Remove anything you cannot trace.
-   - Reread each line against the voice profile. Would the user say this out loud to a peer? Rewrite any line that fails.
-   - Confirm each must-have from step 1 is addressed or listed as a gap.
+4. **Check it against their facts.** Trace every number and claim to the story bank or their resume and remove what you can't trace. If the story bank left something blank, ask or leave it out.
 
-5. **Hand it over as theirs.** Before you call it done:
-   - **The anyone test.** Reread each bullet. If it could sit unchanged on a stranger's resume, add the detail that makes it this person's (what was actually wrong, where, the number) or cut it.
-   - **Say whose words are whose.** Tell the user which lines use their own phrases and which are your wording of their facts. Invite them to say any of yours the way they would, and use their version.
-   - **The interview test.** For the two or three boldest lines, ask: "If they asked about this, could you talk about it for two minutes?" If not, soften or cut the line.
-   - **Read it aloud.** Ask them to read it once out loud and change anything they would not say.
+5. **Make sure it is theirs.** Three tests, then one request:
+   - *Could this line sit on a stranger's resume?* If so, add the detail that makes it theirs (what was wrong, where, the number) or cut it.
+   - *Could they talk about it for two minutes?* Ask about the two or three boldest lines. If not, soften or cut.
+   - *Would they say it out loud?* Tell them which lines are their own words and which are your wording of their facts, and take their version of anything they would put differently.
+   - Ask them to read it aloud once and change what doesn't sound like them.
 
-6. **Deliver.** Save the resume as `career/applications/<company>-<role>/resume.md` (lowercase, hyphens), containing only the resume. Then give the user a copy they can send: if you can create files, a Word document named `Firstname-Lastname-Company.docx`, plus a PDF if they ask, and say where to find it. If you cannot create files, give clean text and say: "Copy this into Word or Google Docs." Never hand a non-technical user a Markdown file as the finished resume. Add a short list of what you emphasized and why, and the gaps to be ready for in an interview.
+6. **Deliver.** Save the resume alone as `career/applications/<company>-<role>/resume.md`. Give them something they can send: a Word document if you can create files (a PDF too if they ask), otherwise clean text to copy into Word. A Markdown file is not a finished resume for this user. Add what you emphasized and why, and the gaps to be ready for.
 
-7. **Offer a note.** Ask once whether the user wants a short message to go with the resume, and write only what they pick:
-   - a recruiter or hiring-manager message: under 120 words, one specific reason they fit, one number, one ask
-   - a cover letter: under 250 words, opening with the problem this role exists to solve and the story that shows they have solved it
+7. **Offer a note, once.** Either a message to the recruiter (under 120 words: one specific reason they fit, one number, one ask) or a cover letter (under 250 words, opening with the problem the job exists to solve). Same facts, same voice, and the stranger test applies: a note that could go to any employer isn't worth sending. Save it as `note.md` beside the resume.
 
-   Both follow the voice profile and use only facts from the story bank. No "I am excited to apply". Apply the anyone test here too: a note that could be sent to any company is not worth sending. Save it as `note.md` beside the resume.
+8. **Record it.** Add a line under "Applications" in `job-scout-ledger.md` (create it if needed) with status "drafted" and the path of the resume you saved, so there is always a record of which version went where:
 
-8. **Track it.** Add a line for this role under "Applications" in `career/job-scout-ledger.md` with status "drafted": date | company | title | URL | status | resume file | notes. The resume file is the path of the resume you just saved, such as `applications/<company>-<role>/resume.md`, so there is always a record of which version went to which employer. Create the ledger or the section if it does not exist. When the user says they applied, heard back, or withdrew, in any wording ("sent it", "they called me", "didn't get it"), update the status (applied, screen, interview, offer, rejected, withdrawn) and add the date to the notes. If the user later asks for changes to a resume they already sent, save the new version beside the old one and say which one the tracker points to. `job-scout` skips every role listed there.
+   `date | company | title | URL | status | resume file | notes`
 
-9. **Learn.**
-   - Add a line under "Tailored versions" in the story bank: date, company, role, stories used.
-   - When the user edits any line, update the voice profile with what the edit shows.
-   - If the user supplies a new fact, add it to the story bank. If `career/linkedin-profile-log.md` exists and the fact could appear on a profile (a number, a title, a date, a new accomplishment), also add one line under "Changed since last sync" there.
+   When they say they applied, heard back or withdrew, in any wording, update the status (applied, screen, interview, offer, rejected, withdrawn). If they later change a resume they already sent, save the new version beside the old one and say which the record points to.
 
-## Rules
+9. **Learn from it.** Add a line under "Tailored versions" in the story bank (date, employer, job, stories used). When they edit a line, update the voice profile with what the edit shows. When they give you a new fact, add it to the story bank, and to "Changed since last sync" in `linkedin-profile-log.md` if that exists.
 
-- Talk in plain words. Assume the user has never used an AI assistant for work: no jargon, no file names, no commands to type, one question at a time with an example answer, and "I don't know" is acceptable.
-- Never invent or inflate a fact, title, date or number.
-- If the user asks you to exaggerate ("make it sound bigger", "just say I led 30"), decline in one line, say why (it will be asked about in the interview, and it is checkable), and look for a true fact that makes the same point more strongly.
-- Do not smooth the user's plain phrasing into polished phrasing. Plain and specific beats polished and generic.
-- If the story bank leaves a field blank, ask or leave it out.
-- The user reads and approves every resume before it goes out.
-- When an interview is scheduled, point the user to `interview-prep`.
-- When you finish, end with one line telling the user they can say "what's next?" any time to see where things stand.
+## If they ask you to exaggerate
+
+Say no in a line and say why: it will be asked about in the interview, and it can be checked. Then look for something true that makes the same point more strongly. There usually is one.

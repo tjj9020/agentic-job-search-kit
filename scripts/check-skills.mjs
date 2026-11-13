@@ -35,6 +35,26 @@ for (const rel of walk("skills/")) {
   if (!allowed(rel)) errors.push(`skills/${rel} is not allowed: skills may contain only .md files and agents/openai.yaml`);
 }
 
+// Keep skills lean. Every word in SKILL.md is loaded whenever the skill runs and
+// competes with the conversation, so detail belongs in a reference file that is
+// read only when needed. The limit is well under the documented 500 lines.
+const MAX_WORDS = 1200;
+for (const name of onDisk) {
+  const file = new URL(`skills/${name}/SKILL.md`, root);
+  if (!existsSync(file)) continue;
+  const text = readFileSync(file, "utf8");
+  const words = text.replace(/^---\n[\s\S]*?\n---/, "").split(/\s+/).filter(Boolean).length;
+  if (words > MAX_WORDS) errors.push(`skills/${name}/SKILL.md is ${words} words; the limit is ${MAX_WORDS}. Cut it, or move detail into skills/${name}/references/.`);
+  const description = text.match(/^description:\s*(.+)$/m)?.[1] ?? "";
+  if (description.length > 1024) errors.push(`skills/${name}/SKILL.md description is ${description.length} characters; the limit is 1024.`);
+  // Reference files are read one level deep: a reference that points to another gets skimmed.
+  for (const rel of walk(`skills/${name}/`).filter((r) => r.startsWith("references/") && r.endsWith(".md"))) {
+    if (/\]\((?!https?:)[^)]*\.md\)/.test(readFileSync(new URL(`skills/${name}/${rel}`, root), "utf8"))) {
+      errors.push(`skills/${name}/${rel} links to another file; keep references one level deep from SKILL.md.`);
+    }
+  }
+}
+
 // No hidden text: an agent reads what a reviewer cannot see.
 const hidden = /<!--|[\u200B-\u200F\u202A-\u202E\u2060-\u2064\uFEFF\u{E0000}-\u{E007F}]/u;
 for (const rel of walk("skills/").filter((r) => r.endsWith(".md"))) {
