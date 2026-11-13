@@ -15,7 +15,7 @@
 //   node evals/run.mjs all --agent-model opus
 //
 // Options:
-//   --stages a,b,c     setup, stories, tailor, tracking, followup, interview (default: all)
+//   --stages a,b,c     setup, stories, tailor, tracking, followup, interview, linkedin (default: all)
 //   --agent-model m    model for the agent under test (default: sonnet)
 //   --user-model m     model for the simulated user and the grader (default: sonnet)
 //   --max-turns n      cap per stage (default varies by stage)
@@ -134,6 +134,13 @@ const STAGES = {
     expectReply: /follow.?up|haven'?t heard|no reply|no response|quiet|check in|nudge|three weeks|21 days|weeks ago/i,
     max: 1,
   },
+  // Only for personas that have a LinkedIn profile on their sheet.
+  linkedin: {
+    only: (p) => Boolean(p.linkedin),
+    open: () => "can you fix up my linkedin too? it doesnt match my resume anymore",
+    done: (wd) => ((read(join(wd, "career", "linkedin-profile-log.md")).split(/^## Profile as agreed/m)[1] || "").split(/^## /m)[0].length > 200),
+    max: 30,
+  },
   interview: {
     open: () => "they called!! i got an interview for that job, its on thursday. help",
     done: (wd) => appFile(wd, "brief.md") && applications(read(join(wd, "career", "job-scout-ledger.md"))).some((a) => a.status === "interview"),
@@ -147,7 +154,7 @@ function runPersona(name) {
   const personaPath = join(HERE, "personas", `${name}.md`);
   if (!existsSync(personaPath)) throw new Error(`no persona named ${name}`);
   const persona = personaConfig(personaPath);
-  const stages = opt("stages", "setup,stories,tailor,tracking,followup,interview").split(",");
+  const stages = opt("stages", "setup,stories,tailor,tracking,followup,interview,linkedin").split(",");
   const work = mkdtempSync(join(tmpdir(), `jsk-${name}-`));
   const userDir = mkdtempSync(join(tmpdir(), `jsk-user-`));
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
@@ -177,6 +184,7 @@ function runPersona(name) {
   for (const stageName of stages) {
     const stage = STAGES[stageName];
     if (!stage) throw new Error(`unknown stage ${stageName}`);
+    if (stage.only && !stage.only(persona)) continue;
     const max = Number(opt("max-turns", stage.max));
     if (stage.before) stage.before(work);
     let message = stage.open(persona);

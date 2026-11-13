@@ -35,7 +35,7 @@ When the user says something like "skip sales jobs", "more remote roles" or "I a
 
 ## After the first report
 
-If `search-criteria.md` has a "Still to ask" list, ask one of those questions after showing a report, tied to what was in it. Save the answer to the criteria and remove the question from the list.
+If `search-criteria.md` has a "Still to ask" list, ask one of those questions after showing a report, tied to what was in it. Save the answer to the criteria and remove the question from the list. If the kinds of jobs the user wants change and `career/linkedin-profile-log.md` exists, add one line under "Changed since last sync" there, since the headline depends on it.
 
 ## Scheduling
 

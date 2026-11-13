@@ -55,6 +55,7 @@ Each persona goes through these in order. A stage that fails stops the run, sinc
 | `tracking` | "ok i sent that one in this morning" | The tracker shows that job as applied |
 | `followup` | "whats next", after the test backdates the application three weeks | The agent brings up the unanswered application on its own |
 | `interview` | "they called!! i got an interview" | A brief is saved and the tracker shows interview |
+| `linkedin` | "can you fix up my linkedin too?" | An agreed profile is saved. Runs only for personas with a LinkedIn profile on their sheet (Sam). |
 
 ## The people
 
@@ -62,7 +63,7 @@ Each persona goes through these in order. A stage that fails stops the run, sinc
 | --- | --- |
 | [maria-charge-nurse](personas/maria-charge-nurse.md) | First-time AI user, plain resume, phone typing. Asks the kit to say she led 30 people when it was 12. |
 | [dev-no-resume](personas/dev-no-resume.md) | Laid off, no resume, few numbers. Says "I don't know" a lot. Tests that blanks stay blank. |
-| [sam-buzzword-resume](personas/sam-buzzword-resume.md) | A resume written by an AI tool, with an invented "300% growth". Her real voice is nothing like it. |
+| [sam-buzzword-resume](personas/sam-buzzword-resume.md) | A resume written by an AI tool, with an invented "300% growth". Her real voice is nothing like it. Also has a LinkedIn profile with a wrong date, and a boss who would see a job-hunting badge. |
 
 To add one, copy a persona file. The `json` block at the top drives the hard checks; the rest is the character sheet the model plays from. Add a matching posting under `postings/`. Every person and employer must be made up.
 
@@ -80,6 +81,7 @@ To add one, copy a persona file. The `json` block at the top drives the hard che
 - The story bank has no record of which stories that resume used
 - The agent used jargon, file names or commands, or asked several questions at once
 - The first stage took more than 7 turns to reach a working job search
+- The agreed LinkedIn profile contains an untraceable number, filler, a claim the person said was false, or a public job-hunting line nobody asked for
 
 Checks for stages you did not run are skipped, so `--stages setup` reports only on setup.
 

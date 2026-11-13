@@ -34,6 +34,8 @@ Look for the documents in `career/` in the working directory, or as project docu
 | `resume-voice-profile.md` | its status line says approved |
 | `job-scout-ledger.md` | it exists (the scout has run at least once) |
 
+Also read `linkedin-profile-log.md` if it exists: when it was last synced, how many lines are under "Waiting on you", and how many under "Changed since last sync".
+
 From the ledger, also read the "Applications" section: how many are active, the status of each, and whether any has sat at "applied" for more than 14 days. If the tool lists scheduled tasks, check whether a daily scout is scheduled.
 
 If none of the documents exist, ask once whether the user already has a story bank, voice profile or similar notes from another tool. If they do, `career-setup` imports them.
@@ -54,12 +56,15 @@ Getting to know you
 Running
   Daily job report      on, last one today
   Applications          3 active: 1 interview, 2 waiting (1 quiet for 16 days)
+  LinkedIn              2 updates since you last changed it
 
 Next: finish your stories (about 40 minutes). After that I can write resumes for specific jobs.
 Say "yes" to continue, or tell me what you'd rather do.
 ```
 
 The four lines under "Getting to know you" are, in order: the resume, the search criteria, the story bank and the voice profile. "Daily job report" is the job scout.
+
+The LinkedIn line says one of: "not checked yet" (no record exists), "matches your resume" (nothing waiting and nothing changed), "N changes for you to paste in" (approved but not yet on LinkedIn), or "N updates since you last changed it" (facts changed after the last sync). Show it only once the story bank exists.
 
 On a first visit, when nothing exists yet, skip the board. Greet the user in one line, say what this does in two ("I'll get to know your work, then find jobs that fit and write your resume for each one"), say the first step takes a few minutes, and ask for the resume.
 
@@ -75,7 +80,11 @@ Pick the first rule that applies. State it as the "Next:" line with a rough time
 4. Story bank not done: **continue the story bank**. Say how many stories are left.
 5. Voice profile not approved: **build the voice profile**.
 6. An application has been quiet for more than 14 days: **draft a follow-up**.
-7. Everything is set up: ask what they want today, and list: see new roles, tailor a resume to a posting, prepare for an interview, update LinkedIn.
+7. LinkedIn has never been checked, and the voice profile is approved: **bring LinkedIn in line with the resume** (about 15 minutes). Say why in one line: recruiters compare the two.
+8. LinkedIn has changes waiting to be pasted in, or facts changed since the last sync: **update LinkedIn** (a few minutes). Say what changed.
+9. Everything is set up: ask what they want today, and list: see new roles, tailor a resume to a posting, prepare for an interview.
+
+Rules 7 and 8 never outrank an interview, an unfinished setup or a quiet application. Offer LinkedIn at most once per sitting; if the user says not now, drop it until they ask.
 
 If the user arrived with something specific (a posting link, "I have an interview Thursday", "what's new today"), skip the recommendation and go straight to it. If it needs a document they don't have yet, say which one, how long it takes, and offer the shortest path.
 
@@ -89,7 +98,7 @@ Call the Skill tool with the matching skill. Do not describe the skill to the us
 | New roles, scheduling the daily search | `job-scout` |
 | A resume, recruiter note or cover letter for a posting | `tailor-resume` |
 | An upcoming interview | `interview-prep` |
-| LinkedIn profile | `linkedin-pass` |
+| LinkedIn profile: first check, or bringing it up to date | `linkedin-pass` |
 
 When the user reports news about an application in any wording ("I sent it", "they called", "got rejected"), update that application's status and notes in the ledger yourself and confirm in one line. No other skill is needed.
 

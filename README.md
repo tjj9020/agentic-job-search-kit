@@ -119,6 +119,7 @@ Getting to know you
 Running
   Daily job report      on, last one today
   Applications          3 active: 1 interview, 2 waiting (1 quiet for 16 days)
+  LinkedIn              2 updates since you last changed it
 
 Next: finish your stories (about 40 minutes). After that I can write resumes for specific jobs.
 Say "yes" to continue, or tell me what you'd rather do.
@@ -135,7 +136,8 @@ Say "yes" to continue, or tell me what you'd rather do.
 | "I have an interview Thursday" | The questions they are likely to ask, which of your stories answers each, and a one-page brief |
 | "Skip sales jobs" or "more remote roles" | Tomorrow's report follows your feedback |
 | "That doesn't sound like me" | It rewrites the line and writes more like you from then on |
-| "Fix up my LinkedIn" | Suggested changes for you to approve, one at a time |
+| "Fix up my LinkedIn" | A headline, About section and job descriptions that match your resume and sound like you. You approve each change and paste it in yourself. |
+| "Is my LinkedIn still up to date?" | It remembers what your profile should say and tells you what to change when your resume or stories change |
 | "What's next?" | Where you are and the one thing worth doing now |
 
 ## Good to know
@@ -143,7 +145,7 @@ Say "yes" to continue, or tell me what you'd rather do.
 - **Rough answers are fine.** Type the way you talk. It will ask a follow-up if it needs more.
 - **"I don't know" is a fine answer.** It will offer a few options or come back to it later.
 - **It never makes things up.** If it doesn't have a fact, it asks you. Every number on your resume comes from something you told it.
-- **It never applies for you** or messages anyone. You read everything and you send it.
+- **It never applies for you** or messages anyone. You read everything and you send it. The same goes for LinkedIn: it drafts, you paste, and it never posts or connects for you.
 - **Tell it when it's wrong.** Every correction makes the next draft better.
 - **Your information is yours.** Your resume and pay expectations are saved in a folder called `career` on your computer, or in your project if you use a chat app. Don't post that folder anywhere public.
 
@@ -173,7 +175,7 @@ Say "yes" to continue, or tell me what you'd rather do.
 | [`job-scout`](skills/job-scout/SKILL.md) | Searches, verifies, scores and researches roles, then sends one fit report |
 | [`tailor-resume`](skills/tailor-resume/SKILL.md) | Maps a posting to stories, writes the resume and optional note, logs the application |
 | [`interview-prep`](skills/interview-prep/SKILL.md) | Predicts questions, maps them to stories, plans gap answers, writes a brief |
-| [`linkedin-pass`](skills/linkedin-pass/SKILL.md) | Aligns a LinkedIn profile with the resume, with approval for every change |
+| [`linkedin-pass`](skills/linkedin-pass/SKILL.md) | Aligns a LinkedIn profile with the resume, records the agreed text, and updates only what changed afterward. The user approves and applies every change. |
 
 The skills share five documents in a `career/` folder (or the project's files):
 
@@ -184,6 +186,8 @@ The skills share five documents in a `career/` folder (or the project's files):
 | `resume-story-bank.md` | Your stories | Each accomplishment as situation, behavior, impact, with proof and the user's own words |
 | `resume-voice-profile.md` | Your voice | Rules, preferred and banned words, approved examples |
 | `job-scout-ledger.md` | Your tracker | Roles evaluated, applications and status, feedback |
+
+`linkedin-profile-log.md` holds the agreed LinkedIn profile, changes waiting for the user to paste in, and facts that changed since the last sync.
 
 Each job the user applies to also gets a folder, `career/applications/<company>-<role>/`, holding `resume.md` (the version sent), `note.md` (the recruiter note or cover letter, if any) and `brief.md` (the interview brief). The tracker's resume column points at that `resume.md`.
 

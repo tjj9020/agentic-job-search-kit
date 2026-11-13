@@ -52,7 +52,7 @@ Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-v
 9. **Learn.**
    - Add a line under "Tailored versions" in the story bank: date, company, role, stories used.
    - When the user edits any line, update the voice profile with what the edit shows.
-   - If the user supplies a new fact, add it to the story bank.
+   - If the user supplies a new fact, add it to the story bank. If `career/linkedin-profile-log.md` exists and the fact could appear on a profile (a number, a title, a date, a new accomplishment), also add one line under "Changed since last sync" there.
 
 ## Rules
 

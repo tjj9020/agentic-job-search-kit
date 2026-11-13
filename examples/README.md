@@ -15,6 +15,7 @@ What `career-setup` and `job-scout` leave in Jordan's `career/` folder:
 | [resume-story-bank.md](jordan-rivera/career/resume-story-bank.md) | The same accomplishments after the interview, plus open questions left blank instead of guessed |
 | [resume-voice-profile.md](jordan-rivera/career/resume-voice-profile.md) | Rules with quoted evidence, banned words, approved examples |
 | [job-scout-ledger.md](jordan-rivera/career/job-scout-ledger.md) | Feedback, applications, and roles already evaluated |
+| [linkedin-profile-log.md](jordan-rivera/career/linkedin-profile-log.md) | The agreed LinkedIn profile, one change still to paste in, and one fact that changed since |
 
 ## What comes out
 

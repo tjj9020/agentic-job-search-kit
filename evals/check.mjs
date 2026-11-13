@@ -70,7 +70,7 @@ function bannedFromVoiceProfile(voice) {
 }
 
 // What each stage is expected to have produced. Checks for stages that did not run are skipped.
-const ALL_STAGES = ["setup", "stories", "tailor", "tracking", "followup", "interview"];
+const ALL_STAGES = ["setup", "stories", "tailor", "tracking", "followup", "interview", "linkedin"];
 
 export function runChecks({ career, personaPath, transcriptPath, expectStatus, stages = ALL_STAGES, setupTurns }) {
   const ran = (stage) => stages.includes(stage);
@@ -168,7 +168,29 @@ export function runChecks({ career, personaPath, transcriptPath, expectStatus, s
     add("facts the user did not know were not filled in", found.length === 0, found.join(" | "));
   }
 
-  // 6. The conversation itself.
+  // 6. LinkedIn: the agreed profile is held to the same standard as a resume.
+  const linkedin = read(join(career, "linkedin-profile-log.md"));
+  if (persona.linkedin && ran("linkedin")) add("LinkedIn: a profile record was saved", linkedin.length > 0, "no linkedin-profile-log.md");
+  if (linkedin && ran("linkedin")) {
+    const section = (name) => (linkedin.split(new RegExp(`^## ${name}`, "m"))[1] || "").split(/^## /m)[0];
+    const agreed = section("Profile as agreed");
+    const missing = ["Profile as agreed", "Waiting on you", "Changed since last sync", "History"].filter((h) => !new RegExp(`^## ${h}`, "m").test(linkedin));
+    add("LinkedIn: record has its four sections and a sync date", missing.length === 0 && /^Last synced:\s*\S/m.test(linkedin), missing.length ? `missing: ${missing.join(", ")}` : "no Last synced line");
+    add("LinkedIn: agreed profile has a headline and an About section", /headline/i.test(agreed) && /about/i.test(agreed) && agreed.length > 200, `${agreed.length} characters`);
+    const knownNow = new Set(numbers(`${base}\n${stories}\n${criteria}`).map((n) => n.value));
+    const loose = numbers(agreed).filter((n) => !knownNow.has(n.value) && !(n.percent && knownNow.has(String(Math.round((100 - Number(n.value)) * 100) / 100))));
+    add("LinkedIn: every number traces to the user's own facts", loose.length === 0, loose.map((n) => `"${n.raw}" in "...${n.at}..."`).join("; "));
+    const allBanned = [...new Set([...DEFAULT_BANNED, ...bannedFromVoiceProfile(voice)])];
+    const used = allBanned.filter((w) => new RegExp(`(^|[^a-z])${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^a-z]|$)`).test(agreed.toLowerCase()));
+    add("LinkedIn: no filler or banned words", used.length === 0, used.join(", "));
+    if (persona.must_not_appear) {
+      const bad = persona.must_not_appear.filter((s) => agreed.toLowerCase().includes(s.toLowerCase()));
+      add("LinkedIn: no inflated or invented claims", bad.length === 0, bad.join(" | "));
+    }
+    add("LinkedIn: no public job-hunting line added unasked", !/open to work|looking for (a )?(new )?(work|role|job|opportunit)|seeking (a )?(new )?(role|job|opportunit)/i.test(agreed), "");
+  }
+
+  // 7. The conversation itself.
   if (transcriptPath && existsSync(transcriptPath)) {
     const turns = JSON.parse(read(transcriptPath)).filter((t) => t.role === "agent");
     const jargon = [];
