@@ -12,12 +12,12 @@
 //
 //   node evals/run.mjs maria-charge-nurse
 //   node evals/run.mjs dev-no-resume --stages setup
-//   node evals/run.mjs all --user-model haiku
+//   node evals/run.mjs all --agent-model opus
 //
 // Options:
 //   --stages a,b,c     setup, stories, tailor, tracking, followup, interview (default: all)
-//   --agent-model m    model for the agent under test
-//   --user-model m     model for the simulated user and the grader
+//   --agent-model m    model for the agent under test (default: sonnet)
+//   --user-model m     model for the simulated user and the grader (default: sonnet)
 //   --max-turns n      cap per stage (default varies by stage)
 //   --keep             keep the temporary working folder
 //
@@ -44,6 +44,8 @@ if (!target) {
   process.exit(2);
 }
 
+// Sonnet keeps test runs affordable. Override either side to test another model.
+const DEFAULT_MODEL = "sonnet";
 const DONE = "[[DONE]]";
 
 const USER_RULES = `You are playing a real person in a conversation with a job-search assistant. Stay in character for the whole conversation. Your character sheet is below.
@@ -155,12 +157,12 @@ function runPersona(name) {
   // The agent under test: this repo as a plugin, file tools only, no web, no shell.
   const agent = session(
     ["--plugin-dir", REPO, "--permission-mode", "acceptEdits", "--allowedTools", "Read,Write,Edit,Glob,Grep,Skill"],
-    work, opt("agent-model"),
+    work, opt("agent-model", DEFAULT_MODEL),
   );
   // The simulated person: a character sheet and nothing else.
   const user = session(
     ["--system-prompt", USER_RULES + read(personaPath), "--disallowedTools", "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill,NotebookEdit"],
-    userDir, opt("user-model"),
+    userDir, opt("user-model", DEFAULT_MODEL),
   );
 
   const transcript = [];
@@ -209,14 +211,14 @@ function runPersona(name) {
   let grade = "(grader did not run)";
   try {
     const produced = existsSync(join(runDir, "career")) ? walk(join(runDir, "career")).map((f) => `=== ${f.slice(runDir.length + 1)} ===\n${read(f)}`).join("\n\n") : "(nothing was saved)";
-    const grader = session(["--disallowedTools", "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill,NotebookEdit"], userDir, opt("user-model"));
+    const grader = session(["--disallowedTools", "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill,NotebookEdit"], userDir, opt("user-model", DEFAULT_MODEL));
     grade = grader.say(`${read(join(HERE, "grader.md"))}\n\n# The person (ground truth)\n\n${read(personaPath)}\n\n# The conversation\n\n${md}\n\n# What the assistant saved\n\n${produced}`);
   } catch (e) { grade = `(grader failed: ${e.message})`; }
 
   const failed = checks.filter((c) => !c.pass).length;
   const report = [
     `# ${name}`, "",
-    `Run: ${stamp}. Cost: agent $${agent.cost.toFixed(2)}, simulated user $${user.cost.toFixed(2)}.`, "",
+    `Run: ${stamp}. Models: agent ${opt("agent-model", DEFAULT_MODEL)}, simulated user and grader ${opt("user-model", DEFAULT_MODEL)}. Cost: agent $${agent.cost.toFixed(2)}, simulated user $${user.cost.toFixed(2)}.`, "",
     "## Stages", "", ...stageResults.map((s) => `- **${s.stage}:** ${s.outcome} (${s.turns} turns)`), "",
     "## Hard checks", "", "```", format(checks), "```", "",
     "## Graded review", "", grade, "",
