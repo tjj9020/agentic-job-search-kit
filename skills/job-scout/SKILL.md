@@ -1,6 +1,6 @@
 ---
 name: job-scout
-description: Runs an agentic job search. Searches job boards, filters against the user's criteria, verifies postings are live, scores each role out of 100, researches the best few, and delivers one fit report while tracking evaluated roles in a ledger. Use when the user asks to find jobs, run the job scout, set up a daily job search, or get a fit report on open roles.
+description: Runs an agentic job search. Searches job boards, filters against the user's criteria, verifies postings are live, scores each role out of 100, researches the best few, and delivers one fit report while tracking evaluated roles in a ledger. Use when the user asks to find jobs, asks what is new today, wants a daily or morning job report, gives feedback on the jobs they were shown ("skip sales jobs", "more remote"), or says they applied to one.
 ---
 
 # Job scout
@@ -28,6 +28,10 @@ Format: date | company | title | URL | score/100 | status (reported, or skipped:
 ```
 
 If the ledger exists but has no "Applications" section, add one above "Evaluated roles".
+
+## Feedback in plain words
+
+When the user says something like "skip sales jobs", "more remote roles" or "I applied to that one", write it into the ledger yourself: preferences under "Feedback from me", applications under "Applications". Confirm in one line. Never ask the user to edit the ledger.
 
 ## Scheduling
 
@@ -70,8 +74,9 @@ A scheduled run is unattended: ask no questions, make reasonable calls and note 
 
 ## Rules
 
+- Talk in plain words. Assume the user has never used an AI assistant for work: no jargon, no file names, no commands to type, one question at a time with an example answer, and "I don't know" is acceptable.
 - Every claim about a company or role must come from something retrieved during this run.
 - Mark estimates as estimates. Never invent a posting, a salary or a culture claim.
 - If nothing scores 70, say so and list the near misses. Do not pad the report.
 - Paraphrase postings; do not copy them at length.
-- When you finish, end with one line telling the user they can run `/job-search` to see where things stand and what is next. Skip this in an unattended scheduled run.
+- When you finish, end with one line telling the user they can say "what's next?" any time to see where things stand. Skip this in an unattended scheduled run.

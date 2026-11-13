@@ -15,7 +15,7 @@ Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-v
 
 1. **Read the posting like a recruiter.** List its must-have requirements, its nice-to-haves, the problems this hire is meant to solve, and the exact terms it uses for skills and tools.
 
-2. **Map before you write.** Show a table: each requirement, the story from the story bank that proves it, and the strength of the match (strong, partial, none). List the gaps honestly, and say so if the role is a poor fit. If a requirement might be covered by something not in the story bank, ask. Wait for the user's go-ahead.
+2. **Map before you write.** Show a table in plain words: what the job asks for, which of the user's stories proves it, and how well it matches (strong, partial, none). List the gaps honestly, and say so if the role is a poor fit. If a requirement might be covered by something not in the story bank, ask. Wait for the user's go-ahead.
 
 3. **Write the resume.**
    - Summary: three or four lines aimed at this role, in the style the voice profile calls for.
@@ -48,8 +48,9 @@ Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-v
 
 ## Rules
 
+- Talk in plain words. Assume the user has never used an AI assistant for work: no jargon, no file names, no commands to type, one question at a time with an example answer, and "I don't know" is acceptable.
 - Never invent or inflate a fact, title, date or number.
 - If the story bank leaves a field blank, ask or leave it out.
 - The user reads and approves every resume before it goes out.
 - When an interview is scheduled, point the user to `interview-prep`.
-- When you finish, end with one line telling the user they can run `/job-search` to see where things stand and what is next.
+- When you finish, end with one line telling the user they can say "what's next?" any time to see where things stand.

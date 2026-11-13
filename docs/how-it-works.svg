@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
   <title id="t">How the Agentic Job Search Kit works</title>
-  <desc id="d">One command, job-search, shows where you stand and routes you to each step. You run career-setup once. It builds five documents your AI keeps. The job-scout skill reads them every morning and sends a fit report. The tailor-resume skill reads them each time you apply and writes a resume in your voice. The interview-prep skill reads them before an interview and writes a one-page brief. Your corrections flow back into the documents.</desc>
+  <desc id="d">You say "help me with my job search" in plain words. The first time, it gets to know you: your resume, a conversation about your goals and your best work, and samples of your writing. It remembers five things: your resume, what you want, your stories, your voice and your tracker. After that you just ask: "what's new today" gets a job report, "tailor my resume to this job" gets a resume for that job, and "I have an interview Thursday" gets a one-page brief. Your corrections flow back into what it remembers.</desc>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0 0L10 5L0 10z" fill="#0969da"/>
@@ -10,99 +10,96 @@
   <rect x="0.5" y="0.5" width="1199" height="599" rx="14" fill="#ffffff" stroke="#d0d7de"/>
 
   <text x="40" y="48" font-size="24" font-weight="700" fill="#1f2328">How it works</text>
-  <text x="40" y="74" font-size="14" fill="#59636e">One command, <tspan font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">/job-search</tspan>, shows where you stand and takes you to the next step. These are the steps it runs.</text>
+  <text x="40" y="74" font-size="14" fill="#59636e">No commands to learn. Say <tspan font-weight="700" fill="#0969da">“Help me with my job search”</tspan> and it works out where you are and what to do next.</text>
 
-  <!-- column labels -->
   <g font-size="12" font-weight="700" fill="#0969da" letter-spacing="1">
-    <text x="40" y="118">1  SET UP ONCE</text>
-    <text x="400" y="118">2  WHAT YOUR AI KEEPS</text>
-    <text x="880" y="118">3  WHAT YOU GET</text>
+    <text x="40" y="118">1  FIRST, IT GETS TO KNOW YOU</text>
+    <text x="400" y="118">2  WHAT IT REMEMBERS</text>
+    <text x="880" y="118">3  THEN YOU JUST ASK</text>
   </g>
 
   <!-- column 1 -->
   <rect x="40" y="132" width="280" height="300" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
-  <text x="60" y="166" font-size="17" font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">/career-setup</text>
-  <text x="60" y="186" font-size="12" fill="#59636e">about 2 hours, stop and resume any time</text>
-  <line x1="60" y1="204" x2="300" y2="204" stroke="#d0d7de"/>
+  <text x="60" y="164" font-size="15" font-weight="700" fill="#0969da">“Help me with my job search”</text>
+  <text x="60" y="186" font-size="12" fill="#59636e">About 2 hours in total, a little at a time.</text>
+  <text x="60" y="203" font-size="12" fill="#59636e">Your first job report comes after 20 minutes.</text>
+  <line x1="60" y1="220" x2="300" y2="220" stroke="#d0d7de"/>
   <g>
-    <circle cx="70" cy="238" r="5" fill="#0969da"/>
-    <text x="88" y="236" font-size="14" font-weight="600" fill="#1f2328">Your resume</text>
-    <text x="88" y="254" font-size="12" fill="#59636e">saved word for word, then audited</text>
-    <circle cx="70" cy="302" r="5" fill="#0969da"/>
-    <text x="88" y="300" font-size="14" font-weight="600" fill="#1f2328">An interview</text>
-    <text x="88" y="318" font-size="12" fill="#59636e">goals, plus the story behind each win</text>
-    <circle cx="70" cy="366" r="5" fill="#0969da"/>
-    <text x="88" y="364" font-size="14" font-weight="600" fill="#1f2328">Your writing</text>
-    <text x="88" y="382" font-size="12" fill="#59636e">3 to 5 samples you wrote without AI</text>
+    <circle cx="70" cy="250" r="5" fill="#0969da"/>
+    <text x="88" y="248" font-size="14" font-weight="600" fill="#1f2328">Your resume</text>
+    <text x="88" y="266" font-size="12" fill="#59636e">drop it in, or just describe your work</text>
+    <circle cx="70" cy="310" r="5" fill="#0969da"/>
+    <text x="88" y="308" font-size="14" font-weight="600" fill="#1f2328">A conversation</text>
+    <text x="88" y="326" font-size="12" fill="#59636e">what you want, and your best work</text>
+    <circle cx="70" cy="370" r="5" fill="#0969da"/>
+    <text x="88" y="368" font-size="14" font-weight="600" fill="#1f2328">Your writing</text>
+    <text x="88" y="386" font-size="12" fill="#59636e">a few things you wrote yourself</text>
   </g>
 
-  <!-- arrow 1 to 2 -->
   <line x1="326" y1="282" x2="392" y2="282" stroke="#0969da" stroke-width="2" marker-end="url(#a)"/>
   <text x="359" y="272" font-size="11" fill="#59636e" text-anchor="middle">builds</text>
 
-  <!-- column 2: documents -->
+  <!-- column 2 -->
   <g font-size="12" fill="#59636e">
     <g>
       <rect x="400" y="132" width="400" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
       <rect x="400" y="132" width="5" height="52" rx="2" fill="#0969da"/>
-      <text x="420" y="154" font-size="13" font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">resume-base.md</text>
-      <text x="420" y="172">Your resume, word for word. The source of facts.</text>
+      <text x="420" y="154" font-size="14" font-weight="700" fill="#1f2328">Your resume</text>
+      <text x="420" y="172">Word for word. The only source of facts.</text>
     </g>
     <g>
       <rect x="400" y="194" width="400" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
       <rect x="400" y="194" width="5" height="52" rx="2" fill="#0969da"/>
-      <text x="420" y="216" font-size="13" font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">search-criteria.md</text>
-      <text x="420" y="234">Roles, location, pay floor, culture, deal-breakers.</text>
+      <text x="420" y="216" font-size="14" font-weight="700" fill="#1f2328">What you want</text>
+      <text x="420" y="234">Kinds of jobs, where, minimum pay, deal-breakers.</text>
     </g>
     <g>
       <rect x="400" y="256" width="400" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
       <rect x="400" y="256" width="5" height="52" rx="2" fill="#0969da"/>
-      <text x="420" y="278" font-size="13" font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">resume-story-bank.md</text>
-      <text x="420" y="296">Each win as situation, behavior, impact, with proof.</text>
+      <text x="420" y="278" font-size="14" font-weight="700" fill="#1f2328">Your stories</text>
+      <text x="420" y="296">Each win: what was wrong, what you did, what changed.</text>
     </g>
     <g>
       <rect x="400" y="318" width="400" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
       <rect x="400" y="318" width="5" height="52" rx="2" fill="#0969da"/>
-      <text x="420" y="340" font-size="13" font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">resume-voice-profile.md</text>
-      <text x="420" y="358">How you write: rules, banned words, approved examples.</text>
+      <text x="420" y="340" font-size="14" font-weight="700" fill="#1f2328">Your voice</text>
+      <text x="420" y="358">How you write, and the words you would never use.</text>
     </g>
     <g>
       <rect x="400" y="380" width="400" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
       <rect x="400" y="380" width="5" height="52" rx="2" fill="#0969da"/>
-      <text x="420" y="402" font-size="13" font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">job-scout-ledger.md</text>
-      <text x="420" y="420">Roles seen, applications sent, and your feedback.</text>
+      <text x="420" y="402" font-size="14" font-weight="700" fill="#1f2328">Your tracker</text>
+      <text x="420" y="420">Jobs it has seen, where you applied, your feedback.</text>
     </g>
   </g>
 
-  <!-- arrows 2 to 3 -->
   <line x1="806" y1="178" x2="872" y2="178" stroke="#0969da" stroke-width="2" marker-end="url(#a)"/>
   <line x1="806" y1="282" x2="872" y2="282" stroke="#0969da" stroke-width="2" marker-end="url(#a)"/>
   <line x1="806" y1="384" x2="872" y2="384" stroke="#0969da" stroke-width="2" marker-end="url(#a)"/>
-  <text x="839" y="168" font-size="11" fill="#59636e" text-anchor="middle">reads</text>
+  <text x="839" y="168" font-size="11" fill="#59636e" text-anchor="middle">used for</text>
 
   <!-- column 3 -->
   <rect x="880" y="132" width="280" height="93" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
-  <text x="900" y="161" font-size="16" font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">/job-scout</text>
-  <text x="1140" y="161" font-size="12" fill="#59636e" text-anchor="end">every morning</text>
-  <text x="900" y="190" font-size="14" font-weight="600" fill="#1f2328">One fit report</text>
-  <text x="900" y="208" font-size="12" fill="#59636e">the best 3 to 5 live roles, and why you fit</text>
+  <text x="900" y="160" font-size="15" font-weight="700" fill="#0969da">“What’s new today?”</text>
+  <text x="900" y="186" font-size="13" font-weight="600" fill="#1f2328">A job report, every morning if you like</text>
+  <text x="900" y="205" font-size="12" fill="#59636e">the best 3 to 5 open jobs, and why you fit</text>
+
   <rect x="880" y="235" width="280" height="93" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
-  <text x="900" y="264" font-size="16" font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">/tailor-resume</text>
-  <text x="1140" y="264" font-size="12" fill="#59636e" text-anchor="end">when you apply</text>
-  <text x="900" y="293" font-size="14" font-weight="600" fill="#1f2328">A resume for that job</text>
-  <text x="900" y="311" font-size="12" fill="#59636e">true, targeted, and in your voice</text>
+  <text x="900" y="263" font-size="15" font-weight="700" fill="#0969da">“Tailor my resume to this job”</text>
+  <text x="900" y="289" font-size="13" font-weight="600" fill="#1f2328">A resume written for that job</text>
+  <text x="900" y="308" font-size="12" fill="#59636e">true, targeted, and it sounds like you</text>
+
   <rect x="880" y="338" width="280" height="93" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
-  <text x="900" y="367" font-size="16" font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">/interview-prep</text>
-  <text x="1140" y="367" font-size="12" fill="#59636e" text-anchor="end">pre-interview</text>
-  <text x="900" y="396" font-size="14" font-weight="600" fill="#1f2328">A one-page brief</text>
-  <text x="900" y="414" font-size="12" fill="#59636e">likely questions, mapped to your stories</text>
+  <text x="900" y="366" font-size="15" font-weight="700" fill="#0969da">“I have an interview Thursday”</text>
+  <text x="900" y="392" font-size="13" font-weight="600" fill="#1f2328">A one-page brief</text>
+  <text x="900" y="411" font-size="12" fill="#59636e">likely questions, matched to your stories</text>
 
   <!-- feedback loop -->
   <path d="M1020 431V470" stroke="#0969da" stroke-width="2" fill="none" stroke-dasharray="5 4"/>
   <path d="M600 470V440" stroke="#0969da" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#a)"/>
   <rect x="400" y="470" width="760" height="64" rx="10" fill="#ddf4ff" stroke="#0969da" stroke-dasharray="5 4"/>
   <text x="420" y="497" font-size="14" font-weight="700" fill="#1f2328">It learns from your corrections</text>
-  <text x="420" y="517" font-size="12" fill="#3d4650">Edit a resume line and the voice profile updates. Add a line of feedback and tomorrow's search obeys it.</text>
+  <text x="420" y="517" font-size="12" fill="#3d4650">Change a line you don’t like and it writes more like you next time. Say “skip sales jobs” and tomorrow’s report does.</text>
 
-  <text x="40" y="572" font-size="12" fill="#59636e"><tspan font-weight="700" fill="#1f2328">Three rules in every skill:</tspan> never invent a fact  ·  a blank stays blank until you fill it  ·  nothing AI-written counts as your voice</text>
+  <text x="40" y="572" font-size="12" fill="#59636e"><tspan font-weight="700" fill="#1f2328">Three rules it always follows:</tspan> it never makes up a fact  ·  what it doesn’t know, it asks  ·  only your own writing counts as your voice</text>
 </svg>

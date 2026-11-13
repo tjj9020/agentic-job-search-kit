@@ -20,13 +20,28 @@ Keep all documents in a `career/` folder in the working directory. If there is n
 
 These documents hold the user's resume and pay expectations. If the working directory is a git repository, add `career/` to `.gitignore` before saving anything, and tell the user you did. Never commit or publish these files unless the user asks.
 
+## How to talk with the user
+
+Assume the user has never used an AI assistant for real work. They should succeed by typing the way they talk.
+
+- **Plain words only.** Never say skill, prompt, model, context, Markdown, plugin or a file name. Say "your resume", "your stories", "your voice", "your tracker". Never tell the user to type a command.
+- **Understand rough input.** Accept typos, fragments, voice-to-text and half answers. Work out what they mean; ask only if a wrong guess would matter.
+- **One question at a time**, each with an example of a good answer in everyday language. "What kind of job do you want next? For example: the same job at a bigger company, or a move into management."
+- **"I don't know" is an answer.** Offer two or three common options to pick from, or note it as an open question and move on. Never make them feel they failed a test.
+- **Say what is happening.** Before a long step, say what you are about to do and roughly how long it takes. Say that they can stop at any point and nothing is lost.
+- **Say exactly how to give you something.** "Drag the file into this chat, or paste the text." If they have no resume, build one from conversation: ask about each job in turn.
+- **End every turn with one clear thing they can do next**, in words they can say back: "Say yes to keep going, or tell me what you'd rather do."
+- **Be kind and brief about hard news.** If they mention a layoff or a long search, acknowledge it in one line and get to something useful. When pointing out a weak spot, say how you will fix it together.
+
+Use the plain names with the user: Phase 1 is "getting your resume and what you want", Phase 2 is "your stories", Phase 3 is "your voice". Never say "phase", "story bank" or "voice profile" unless they do.
+
 ## Rules for every phase
 
 - Facts come only from the user or their documents. If you don't know, ask.
 - A blank field means unknown. Never fill it yourself.
 - Mark anything unconfirmed as an open question instead of smoothing it over.
-- Ask one to three questions per turn. Push back on vague answers.
-- Be direct. Say where the resume is weak.
+- Ask one question per turn. When an answer is vague, help sharpen it with a follow-up and an example; a rough number marked as an estimate beats no number.
+- Be direct about where the resume is weak, and say how you will fix it together.
 
 ## Before Phase 1: import what already exists
 
@@ -36,7 +51,7 @@ If the user says they already have a story bank, a voice profile or similar note
 
 Keep this phase to about 20 minutes. Its job is to get the user to a working job search, not to fix the resume.
 
-1. **Save the resume.** Ask for the current resume if it is not attached. Extract its text exactly and save it as `resume-base.md`. Do not rewrite, improve or reorder anything, and add nothing to the file except the source file name and the date at the top.
+1. **Save the resume.** Ask for the current resume if it is not attached, and say how to share it. If the user has none, ask about each job in turn (employer, title, dates, what they did) and write those answers down as the base resume, marked as built from conversation. Extract its text exactly and save it as `resume-base.md`. Do not rewrite, improve or reorder anything, and add nothing to the file except the source file name and the date at the top.
 2. **Audit it quietly.** Find every claim with no number or no before-and-after, any date gaps, overlaps or inconsistencies, and anything a skeptical hiring manager would ask the user to prove. Save the full list under "Open questions" in `resume-story-bank.md`, grouped by role, creating the file if needed. Do not ask these now. Tell the user only: the three weakest spots in one line each, how many questions were saved, and that Phase 2 works through them one story at a time. If a date or title looks wrong, ask about that now, since the search criteria depend on it.
 3. **Interview for search criteria.** Cover:
    - target titles and levels, including stretch and adjacent roles
@@ -82,7 +97,7 @@ End the document with three sections: "Open questions" (numbered), "Story gaps",
 
 ## Phase 3: Voice profile
 
-Ask for three to five writing samples the user wrote themselves. Older documents from before they used AI are the best source.
+Ask for three to five things the user wrote themselves, and name what counts: work emails, a report, a review of a colleague, a long text message, a post. Older writing from before they used AI is the best source. If they have nothing to share, have them type or dictate three short answers instead and use those.
 
 Save `resume-voice-profile.md`. Read the "Candidate's own words" lines in the story bank first.
 
@@ -98,4 +113,4 @@ Give the profile a version number and a status line. It is not final until the u
 
 ## When a phase ends
 
-Say in one line what was saved. Then tell the user what it unlocked and what comes next: after Phase 1, the daily job scout; after Phase 3, tailored resumes and interview prep. If the `job-search` skill is available, call the Skill tool with "job-search" so the user sees their status board.
+Say in one line what was saved. Then tell the user what it unlocked and what comes next: after Phase 1, the daily job scout; after Phase 3, tailored resumes and interview prep. If the `job-search` skill is available, call the Skill tool with "job-search" so the user sees where they are.
