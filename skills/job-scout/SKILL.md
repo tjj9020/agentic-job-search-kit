@@ -45,13 +45,13 @@ If `search-criteria.md` has a "Still to ask" list, ask one of those questions af
 
 If the tool has scheduled tasks, offer to run this every morning at a time the user chooses. A scheduled run usually starts with no memory of earlier chats, so its instructions must stand alone: embed the user's 150-word candidate profile, hard filters and scoring preferences from `search-criteria.md` directly in them, along with the steps below. Show the user the instructions and the defaults before creating the task, then run it once as a test.
 
-If the tool has no scheduler, tell the user plainly: "I can't run by myself each morning from here, so just ask me 'what's new today' when you want a report." Then run this whenever they ask. If web search is not available either, say so before starting and stop; a job report built without live results would be invented.
+If the tool has no scheduler, tell the user plainly: "I can't run by myself each morning from here, so just ask me 'what's new today' when you want a report." Then run this whenever they ask. If you cannot search the web here, do not start and do not ask the user to change anything. Say: "I can't search job sites from here right now, so I can't give you a job report. Nothing is lost." Then offer the next useful thing (their stories, a resume for a job they already have a link or text for). A job report built without live results would be invented.
 
 A scheduled run is unattended: ask no questions, make reasonable calls and note them in the report.
 
 ## The run
 
-1. **Discover.** Read the ledger, including the feedback section. Read [SOURCES.md](SOURCES.md) in this skill's folder: it is the full list of where to look and how the ten searches are spent. Search only those places, plus anything under "Where to look" in the user's search criteria. On the first run, pick the "by kind of work" rows that fit the user, tell them in one line where you will look ("I'll check the big job boards, hospital systems near Dayton and Health eCareers"), and save the choice under "Where to look" in `search-criteria.md`. Keep a note of each source as you go: searched and found jobs, searched and found nothing, or could not be opened.
+1. **Discover.** Read the ledger, including the feedback section. Read [SOURCES.md](SOURCES.md) in this skill's folder: it is the full list of where to look and how the ten searches are spent. Search only those places, plus anything under "Where to look" in the user's search criteria. On the first run, pick the "by kind of work" rows that fit the user, tell them in one line where you will look, in everyday words ("I'll check the big job sites and the hospitals near Dayton"); name specific sites only if they ask, and save the choice under "Where to look" in `search-criteria.md`. Keep a note of each source as you go: searched and found jobs, searched and found nothing, or could not be opened.
 2. **Triage.** Drop anything already in the ledger, including every role under "Applications", and anything that fails a hard filter: location, level, pay floor when posted, deal-breakers, feedback.
 3. **Verify.** Confirm each remaining posting is live and recent, preferably on the employer's own careers page. Aggregator copies are often stale. If it cannot be confirmed, skip it and record why.
 4. **Score** each verified role out of 100. Use the weights in `search-criteria.md` if the user set them; otherwise:
@@ -84,6 +84,7 @@ A scheduled run is unattended: ask no questions, make reasonable calls and note 
 
 - Talk in plain words. Assume the user has never used an AI assistant for work: no jargon, no file names, no commands to type, one question at a time with an example answer, and "I don't know" is acceptable.
 - Every claim about a company or role must come from something retrieved during this run.
+- Report a source as unavailable only after you tried it in this run. Never say a site is down, slow or blocked from memory or assumption.
 - Mark estimates as estimates. Never invent a posting, a salary or a culture claim.
 - If nothing scores 70, say so and list the near misses. Do not pad the report.
 - Paraphrase postings; do not copy them at length.
