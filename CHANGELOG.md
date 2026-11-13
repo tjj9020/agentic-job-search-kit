@@ -1,5 +1,11 @@
 # job-search-kit
 
+## 0.10.1
+
+### Patch Changes
+
+- [#31](https://github.com/tjj9020/agentic-job-search-kit/pull/31) [`7ca3bed`](https://github.com/tjj9020/agentic-job-search-kit/commit/7ca3bed3152353ab10ebe0ae17fd04dbe3b140ad) Thanks [@tjj9020](https://github.com/tjj9020)! - Adds install steps for the Gemini app, with a set of ZIP files packed the way Gemini expects. Each app now has its own section in the README, so you can link straight to the steps for Claude, ChatGPT or Gemini.
+
 ## 0.10.0
 
 ### Minor Changes
