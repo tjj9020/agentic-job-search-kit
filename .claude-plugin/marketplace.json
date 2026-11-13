@@ -1,0 +1,23 @@
+{
+  "name": "tjj9020",
+  "owner": {
+    "name": "Tim Johnson",
+    "url": "https://github.com/tjj9020"
+  },
+  "description": "Agent skills for a daily AI job search and resumes written in your own voice, as an installable plugin.",
+  "plugins": [
+    {
+      "name": "job-search-kit",
+      "source": "./",
+      "description": "Agent skills for job seekers: a one-time career interview, a daily job scout with fit reports, resumes tailored to any posting in your own voice, and a LinkedIn pass.",
+      "category": "productivity",
+      "keywords": [
+        "job-search",
+        "resume",
+        "career",
+        "skills",
+        "linkedin"
+      ]
+    }
+  ]
+}

@@ -1,19 +1,146 @@
 # Agentic Job Search Kit
 
-Four skills that give your AI assistant a daily job search and a resume writer that sounds like you.
+Agent skills that run your job search every morning and write each resume in your own voice.
 
-You spend about two hours up front telling it what you have done and how you write. After that, it searches for roles every day, tells you why each one fits, and writes a resume tailored to any posting, in your voice, using only facts you confirmed.
+Most AI resume help fails in two ways: it sounds like AI, and it makes things up. These skills fix both by interviewing you first. You spend about two hours telling your agent what you did and how you write. After that it works only from facts you confirmed.
 
-## What is in the kit
+The skills are small and written in plain Markdown. Read them, change them, make them yours.
 
-| Skill | What it does | When you use it |
+![How it works: run career-setup once to build five documents; job-scout reads them every morning and tailor-resume reads them each time you apply; your corrections flow back in.](docs/how-it-works.svg)
+
+## Installation (2-minute setup)
+
+A plugin is a managed bundle you subscribe to. [skills.sh](https://skills.sh) copies editable files into your project, and you update them by hand. Pick one per agent, because installing both gives you every skill twice.
+
+### 1. Get the skills
+
+<details>
+<summary><strong>Claude Code</strong></summary>
+
+```bash
+claude plugin marketplace add tjj9020/agentic-job-search-kit
+claude plugin install job-search-kit@tjj9020
+```
+
+To update, run `claude plugin marketplace update tjj9020`, or turn on auto-update for the marketplace under `/plugin` > Marketplaces.
+
+</details>
+
+<details>
+<summary><strong>Codex</strong></summary>
+
+```bash
+codex plugin marketplace add tjj9020/agentic-job-search-kit
+codex plugin add job-search-kit@tjj9020
+```
+
+Updates itself at startup.
+
+</details>
+
+<details>
+<summary><strong>GitHub Copilot</strong> (CLI and VS Code)</summary>
+
+```bash
+copilot plugin marketplace add tjj9020/agentic-job-search-kit
+copilot plugin install job-search-kit@tjj9020
+```
+
+In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.com/tjj9020/agentic-job-search-kit`.
+
+</details>
+
+<details>
+<summary><strong>Gemini CLI</strong> (manual updates)</summary>
+
+```bash
+gemini skills install https://github.com/tjj9020/agentic-job-search-kit.git --path skills
+```
+
+Re-run the command to update.
+
+</details>
+
+<details>
+<summary><strong>Cursor, Windsurf, and any other agent</strong> (manual updates)</summary>
+
+```bash
+npx skills@latest add tjj9020/agentic-job-search-kit -a <agent>  # cursor, windsurf, opencode, amp; omit -a to choose
+```
+
+When the installer asks which skills to take, include `career-setup`. To update, run `npx skills@latest update`.
+
+</details>
+
+<details>
+<summary><strong>Chat apps with no installer</strong> (ChatGPT, Grok, Claude on the web)</summary>
+
+If your app has a place to upload skills, upload the four folders under [`skills/`](skills). If it does not, create a project, attach the four `SKILL.md` files to it, and say "follow career-setup". Keep everything in that one project so your documents carry over between chats.
+
+</details>
+
+### 2. Run `/career-setup`
+
+Run it once. Have your current resume ready, plus three to five things you wrote yourself without AI help. It will:
+
+- Save your resume as the source of facts, then ask about every claim it can't verify
+- Interview you for what you want: roles, location, pay floor, culture, deal-breakers
+- Build your **story bank**: each accomplishment as situation, behavior and impact, with proof
+- Build your **voice profile**: how you write, the words you never use, and examples you approved
+
+You can stop at any point and say "continue career setup" later.
+
+### 3. You're ready
+
+- "Run the job scout every morning at 7."
+- "Tailor my resume to this posting: `<link>`"
+
+## Why these skills exist
+
+### #1: The resume sounds like AI
+
+**The problem.** Ask an AI for a resume and you get "spearheaded" and "leveraged" in bullets that all have the same shape and length. Recruiters spot it in seconds. It could be anyone's resume, so it sells no one.
+
+**The fix** is a voice profile. [`/career-setup`](skills/career-setup/SKILL.md) reads writing you did yourself, finds the rules you follow without noticing, shows you the same bullet written two ways and asks which one is you, and keeps a list of words you would never say out loud. Every later draft is checked against it. Samples written with AI are excluded, because the agent would learn the AI's habits and hand them back to you.
+
+### #2: The AI makes things up
+
+**The problem.** An agent asked to make you look good will round a number up, upgrade a title, or invent a metric to fill a gap. You find out in the interview.
+
+**The fix** is a story bank and three rules built into every skill:
+
+1. The AI never invents a fact.
+2. A blank stays blank until you fill it.
+3. Nothing AI-written counts as a sample of your voice.
+
+Before a resume reaches you, every number in it is traced back to something you confirmed.
+
+Where the story bank doesn't know something, it lists an open question instead of guessing.
+
+### #3: Job boards are mostly noise
+
+**The problem.** Half the listings an aggregator shows are expired, reposted, or the wrong level. Checking them by hand every day is a second job.
+
+**The fix** is [`/job-scout`](skills/job-scout/SKILL.md). It searches, drops anything that fails your hard filters, confirms each posting is still live on the employer's own site, scores what is left out of 100, and researches only the best three to five. A ledger remembers every role it has seen, so you never read about the same one twice. If nothing is good enough, it says so instead of padding the report.
+
+### #4: Every application starts from zero
+
+**The problem.** A resume aimed at one posting takes an hour to do well, so most people send the same one everywhere.
+
+**The fix** is [`/tailor-resume`](skills/tailor-resume/SKILL.md). It reads the posting, shows you which of your stories prove each requirement and where the gaps are, and waits for your go-ahead. Then it writes the resume. Edit any line and the voice profile learns from the edit, so the next draft needs less work.
+
+## Reference
+
+Every skill is model-invoked: type its name, or just ask for what you want and your agent reaches for it.
+
+| Skill | What it does | When |
 | --- | --- | --- |
 | [`career-setup`](skills/career-setup/SKILL.md) | Saves your resume, interviews you for search criteria, builds your story bank and voice profile | Once, at the start |
-| [`job-scout`](skills/job-scout/SKILL.md) | Searches job boards, verifies postings, scores each role out of 100, researches the best few, sends one report | Daily, on a schedule or on demand |
+| [`job-scout`](skills/job-scout/SKILL.md) | Searches, verifies, scores and researches roles, then sends one fit report | Daily, on a schedule or on demand |
 | [`tailor-resume`](skills/tailor-resume/SKILL.md) | Maps a posting to your stories and writes a resume for it in your voice | Every time you apply |
-| [`linkedin-pass`](skills/linkedin-pass/SKILL.md) | Brings your LinkedIn profile in line with your resume | Optional |
+| [`linkedin-pass`](skills/linkedin-pass/SKILL.md) | Brings your LinkedIn profile in line with your resume. You approve every change. | Optional |
 
-The skills share five small documents, kept in a `career/` folder or in your project's documents:
+The skills share five documents, kept in a `career/` folder or in your project's files:
 
 | Document | Holds |
 | --- | --- |
@@ -23,39 +150,13 @@ The skills share five small documents, kept in a `career/` folder or in your pro
 | `resume-voice-profile.md` | How you write: rules, preferred and banned words, examples you approved |
 | `job-scout-ledger.md` | Roles already evaluated, plus your feedback to steer the search |
 
-## What you need
-
-- An AI assistant with web search and somewhere to keep files between chats (a project, a workspace or a folder).
-- Your current resume.
-- Three to five things you wrote yourself without AI help: emails, proposals, reviews, announcements.
-
-## Install
-
-**If your tool supports Agent Skills** (Claude, Claude Code, Cursor, Codex, GitHub Copilot and others that read `SKILL.md`): copy the four folders under `skills/` into your tool's skills location. Check your tool's documentation for where that is and how to turn skills on. Then say "set up my job search".
-
-**If it does not, or you are not sure:** open a skill's `SKILL.md`, copy everything below the top block between the `---` lines, and paste it as your first message in a new chat. Each one works as a plain prompt. Use one project or workspace for all of them so the documents carry over.
-
-## Order
-
-1. `career-setup`. Three phases: resume and criteria, story bank, voice profile. You can stop and resume.
-2. `job-scout`. Ask it to run every morning if your tool has scheduled tasks. If not, run it when you want a report.
-3. `tailor-resume`. Paste a posting or a link.
-4. `linkedin-pass`, if you want it.
-
 ## Keeping it sharp
 
 - **Steer the scout.** Add a line under "Feedback from me" in the ledger ("skip agencies", "applied to X"). The next run obeys it.
-- **Edit the resume lines you don't like.** Each edit teaches the voice profile. After three or four tailored resumes, first drafts need little change.
-- **Answer the open questions.** The story bank lists what it could not confirm. Every answer becomes a stronger bullet.
+- **Edit the lines you don't like.** After three or four tailored resumes, first drafts need little change.
+- **Answer the open questions.** Every answer becomes a stronger bullet.
 - **Add wins as they happen**, while the numbers are fresh.
-- **Never give it AI-written samples as your voice.** It will learn the AI's habits and hand them back to you.
-- **Read every resume before it goes out.** The skills forbid invented facts, but you are the one signing it.
-
-## Three rules built into every skill
-
-1. The AI never invents a fact.
-2. A blank stays blank until you fill it.
-3. Nothing AI-written is used as a sample of your voice.
+- **Read every resume before it goes out.** You are the one signing it.
 
 ## License
 
