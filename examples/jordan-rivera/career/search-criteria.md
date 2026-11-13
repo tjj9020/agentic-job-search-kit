@@ -23,6 +23,13 @@ Default weights. Within "role and scope fit", favor roles with more than one sit
 - Managers are promoted from the floor, with examples
 - Performance data is visible to the people doing the work
 
+## Where to look
+
+- The standard list
+- By kind of work: warehouse and hourly (Snagajob, largest employers within 40 minutes of Columbus)
+- Employers Jordan named: Larkspur Home Goods, Meridian Pantry
+- Not government
+
 ## Deal-breakers
 
 - Third-party logistics roles with more than 50% travel

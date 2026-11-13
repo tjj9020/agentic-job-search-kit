@@ -140,6 +140,27 @@ Say "yes" to continue, or tell me what you'd rather do.
 | "Is my LinkedIn still up to date?" | It remembers what your profile should say and tells you what to change when your resume or stories change |
 | "What's next?" | Where you are and the one thing worth doing now |
 
+## Where it looks for jobs
+
+It searches a fixed, published list. Nothing is hidden, and you can change it by saying "also check" or "stop checking".
+
+| Group | Sources |
+| --- | --- |
+| General job boards | Indeed, LinkedIn Jobs, Glassdoor, ZipRecruiter |
+| Employers' own hiring pages | Jobs posted through Greenhouse, Lever, Ashby, Workday, iCIMS, SmartRecruiters, Workable and ADP |
+| Government, if you want it | USAJOBS, GovernmentJobs, your state's job bank through CareerOneStop |
+| By your kind of work | Software: Built In, Wellfound, Work at a Startup. Healthcare: Health eCareers and hospital systems near you. Warehouse, retail and hourly: Snagajob and the largest employers near you. Education: HigherEdJobs. Nonprofit: Idealist. Remote: We Work Remotely. |
+| Local | One search for your job title in your city or region |
+| Yours | Any employer you name is checked directly every time |
+
+Three things to know:
+
+- **It reads public pages only.** It never signs in to a job board as you.
+- **Indeed and LinkedIn often can't be opened by an AI.** When that happens it looks for the same job on the employer's own site. If it can't confirm a job is still open, it leaves it out.
+- **Every report ends with "Where I looked"**: which sources had jobs, which had none, and which it couldn't open that day.
+
+These defaults are for the United States. Elsewhere, it picks your country's main job boards and tells you which. The full list is in [SOURCES.md](skills/job-scout/SOURCES.md).
+
 ## Good to know
 
 - **Rough answers are fine.** Type the way you talk. It will ask a follow-up if it needs more.
@@ -173,7 +194,7 @@ Say "yes" to continue, or tell me what you'd rather do.
 | --- | --- |
 | [`job-search`](skills/job-search/SKILL.md) | Entry point and router |
 | [`career-setup`](skills/career-setup/SKILL.md) | Saves the resume, interviews for search criteria, builds the story bank and voice profile, imports existing documents |
-| [`job-scout`](skills/job-scout/SKILL.md) | Searches, verifies, scores and researches roles, then sends one fit report |
+| [`job-scout`](skills/job-scout/SKILL.md) | Searches the sources in [SOURCES.md](skills/job-scout/SOURCES.md), verifies, scores and researches roles, then sends one fit report |
 | [`tailor-resume`](skills/tailor-resume/SKILL.md) | Maps a posting to stories, writes the resume and optional note, logs the application |
 | [`interview-prep`](skills/interview-prep/SKILL.md) | Predicts questions, maps them to stories, plans gap answers, writes a brief |
 | [`linkedin-pass`](skills/linkedin-pass/SKILL.md) | Aligns a LinkedIn profile with the resume, records the agreed text, and updates only what changed afterward. The user approves and applies every change. |

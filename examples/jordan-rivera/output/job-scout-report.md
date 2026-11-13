@@ -85,6 +85,12 @@ Found 19, passed filters 5, verified live 2, reported 2.
 - [Director of Operations, Hollis & Pine](https://example.com/jobs/hollis-pine-dir-ops): only on an aggregator, dated 11 weeks ago, and not on the employer's site. Probably filled.
 - [Regional Operations Director, Tessera 3PL](https://example.com/tessera/careers/5519): 60% travel.
 
+## Where I looked
+
+- **Found jobs:** employers' hiring pages (Workday, iCIMS), a local search for Columbus
+- **Found nothing new:** Glassdoor, ZipRecruiter, Snagajob
+- **Could not open:** Indeed and LinkedIn Jobs. Two jobs seen there were found again on the employers' own sites; one was not and is listed above as a near miss.
+
 ## Sources
 
 Larkspur careers page and annual letter; Calder Outdoor posting; Meridian Pantry posting. All retrieved March 8.
