@@ -1,0 +1,10 @@
+# Every change needs a review from the maintainer.
+*                   @tjj9020
+
+# These decide what runs on users' machines and in CI. Review with extra care.
+/skills/            @tjj9020
+/.claude-plugin/    @tjj9020
+/.github/           @tjj9020
+/scripts/           @tjj9020
+/package.json       @tjj9020
+/package-lock.json  @tjj9020

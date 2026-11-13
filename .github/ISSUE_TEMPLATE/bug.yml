@@ -1,0 +1,42 @@
+name: Something went wrong
+description: A skill did the wrong thing, got stuck, or made something up.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please remove personal details (your name, employer, pay, resume text) before posting. Issues are public.
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Which part?
+      options:
+        - Getting started / "help me with my job search"
+        - Setup (resume, stories, voice)
+        - Daily job report
+        - Tailored resume
+        - Interview prep
+        - LinkedIn
+        - Installing
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: Which AI app and version?
+      placeholder: Claude desktop, Claude Code 2.1, Cursor, ChatGPT...
+    validations:
+      required: true
+  - type: textarea
+    id: said
+    attributes:
+      label: What did you say or do?
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
