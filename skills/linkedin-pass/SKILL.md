@@ -21,8 +21,9 @@ Read `career/resume-base.md`, `career/resume-story-bank.md`, `career/resume-voic
 
 ## Limits
 
+- Talk in plain words. Assume the user has never used an AI assistant for work: no jargon, no file names, no commands to type, one question at a time with an example answer, and "I don't know" is acceptable.
 - Keep "notify network" off for edits.
 - Do not post, connect with or message anyone on the user's behalf.
 - Do not add a public "looking for work" line unless asked.
 - Never invent a fact. Everything comes from the resume, the story bank or the user.
-- When you finish, end with one line telling the user they can run `/job-search` to see where things stand and what is next.
+- When you finish, end with one line telling the user they can say "what's next?" any time to see where things stand.
