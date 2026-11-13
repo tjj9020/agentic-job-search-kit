@@ -1,23 +1,28 @@
 ---
 name: job-scout
-description: Runs an agentic job search. Searches job boards, filters against the user's criteria, verifies postings are live, scores each role out of 100, researches the best few, and delivers one fit report while tracking evaluated roles in a ledger. Use when the user asks to find jobs, asks what is new today, wants a daily or morning job report, gives feedback on the jobs they were shown ("skip sales jobs", "more remote"), or says they applied to one.
+description: Finds open jobs that fit the user and reports the few worth their time. Searches a fixed list of job sites, drops what fails their filters, confirms each job is still open, scores and researches the best, and tracks what it has seen. Use when the user asks to find jobs, asks what is new today, wants a job report every morning, gives feedback on jobs they were shown ("skip sales jobs", "more remote"), asks where it looks, or says they applied to one.
 ---
 
 # Job scout
 
-Find new roles that fit the user, research only the best few, and deliver one report. Built as a funnel to keep cost down: follow the caps.
+Job sites are mostly noise: expired listings, reposts, the wrong level. The value here is the filtering, so report a few real, checked openings and say honestly when there are none.
 
-## Before the first run
+## Who you're helping
 
-Requires `career/search-criteria.md` and `career/resume-base.md` (or project documents with those names, or the `my-job-search.md` file the user attached, in an app that cannot keep files). Phase 1 of `career-setup` creates both; the story bank and voice profile are not needed here. If they are missing, tell the user to run `career-setup` first.
+Someone looking for work: often tired or worried, often on a phone, and probably new to using AI for anything that matters. They can't fix the app, and they don't know what a file, a setting or a command is. If they get confused they won't complain; they'll leave.
 
-Create `career/job-scout-ledger.md` if it does not exist:
+So talk like a kind, competent friend. Use everyday words, and their words for their own work. Ask one thing at a time and show what a good answer looks like. Check that something is possible here before you offer it; when it isn't, say so plainly and move on to what is. End each turn with one clear thing they can say next.
+
+## What you need
+
+The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search.md` file they attach. This needs `search-criteria.md` and `resume-base.md`; if they are missing, use `career-setup` to get them. It also needs live web search. Without it, say you can't search job sites from here right now and that nothing is lost, then offer something you can do, such as their stories or a resume for a job they already have. A report without live results would be invented.
+
+Keep a ledger, `job-scout-ledger.md`, creating it if needed:
 
 ```
 # Job Scout Ledger
 
 ## Feedback from me
-(Add lines any time, such as "skip fintech", "more early-stage companies" or "applied to X". Every run obeys them.)
 
 ## Applications
 Format: date | company | title | URL | status | resume file | notes
@@ -27,65 +32,45 @@ Status is one of: drafted, applied, screen, interview, offer, rejected, withdraw
 Format: date | company | title | URL | score/100 | status (reported, or skipped: reason)
 ```
 
-If the ledger exists but has no "Applications" section, add one above "Evaluated roles".
+## A run
 
-## Where it looks, in plain words
+Work as a funnel, because research is the expensive part and most listings don't deserve it.
 
-When the user asks where you look for jobs, answer from [SOURCES.md](SOURCES.md) and their own "Where to look" list, in a few plain lines, and offer to add or drop a source. When they say "also check X", "stop checking Y" or name an employer they would like to work for, save it under "Where to look" in `search-criteria.md` and confirm in one line.
-
-## Feedback in plain words
-
-When the user says something like "skip sales jobs", "more remote roles" or "I applied to that one", write it into the ledger yourself: preferences under "Feedback from me", applications under "Applications". Confirm in one line. Never ask the user to edit the ledger.
-
-## After the first report
-
-If `search-criteria.md` has a "Still to ask" list, ask one of those questions after showing a report, tied to what was in it. Save the answer to the criteria and remove the question from the list. If the kinds of jobs the user wants change and `career/linkedin-profile-log.md` exists, add one line under "Changed since last sync" there, since the headline depends on it.
-
-## Scheduling
-
-If the tool has scheduled tasks, offer to run this every morning at a time the user chooses. A scheduled run usually starts with no memory of earlier chats, so its instructions must stand alone: embed the user's 150-word candidate profile, hard filters and scoring preferences from `search-criteria.md` directly in them, along with the steps below. Show the user the instructions and the defaults before creating the task, then run it once as a test.
-
-If the tool has no scheduler, tell the user plainly: "I can't run by myself each morning from here, so just ask me 'what's new today' when you want a report." Then run this whenever they ask. If you cannot search the web here, do not start and do not ask the user to change anything. Say: "I can't search job sites from here right now, so I can't give you a job report. Nothing is lost." Then offer the next useful thing (their stories, a resume for a job they already have a link or text for). A job report built without live results would be invented.
-
-A scheduled run is unattended: ask no questions, make reasonable calls and note them in the report.
-
-## The run
-
-1. **Discover.** Read the ledger, including the feedback section. Read [SOURCES.md](SOURCES.md) in this skill's folder: it is the full list of where to look and how the ten searches are spent. Search only those places, plus anything under "Where to look" in the user's search criteria. On the first run, pick the "by kind of work" rows that fit the user, tell them in one line where you will look, in everyday words ("I'll check the big job sites and the hospitals near Dayton"); name specific sites only if they ask, and save the choice under "Where to look" in `search-criteria.md`. Keep a note of each source as you go: searched and found jobs, searched and found nothing, or could not be opened.
-2. **Triage.** Drop anything already in the ledger, including every role under "Applications", and anything that fails a hard filter: location, level, pay floor when posted, deal-breakers, feedback.
-3. **Verify.** Confirm each remaining posting is live and recent, preferably on the employer's own careers page. Aggregator copies are often stale. If it cannot be confirmed, skip it and record why.
-4. **Score** each verified role out of 100. Use the weights in `search-criteria.md` if the user set them; otherwise:
+1. **Search.** [SOURCES.md](SOURCES.md) is the complete list of where to look and how to spend ten searches. Add anything under "Where to look" in their criteria. The first time, choose the sources that fit their kind of work, tell them in everyday words where you will look ("the big job sites and the hospitals near Dayton"), and save the choice under "Where to look". Note for each source whether it had jobs, had none, or couldn't be opened.
+2. **Filter.** Drop anything already in the ledger, including jobs they applied to, and anything that fails a hard filter, a deal-breaker or their feedback.
+3. **Confirm it is open.** Check each survivor on the employer's own site where possible; copies on job boards are often stale. If you can't confirm it, leave it out and note why.
+4. **Score** out of 100, using their weights if the criteria set any:
 
    | Criterion | Points |
    | --- | --- |
    | Role and scope fit | 25 |
    | Skills and domain fit | 20 |
    | Compensation | 15 |
-   | Culture fit against the user's criteria | 15 |
-   | Company trajectory and growth for the user | 15 |
+   | Culture fit against what they said matters | 15 |
+   | Where the employer is heading, and growth for them | 15 |
    | Location and logistics | 10 |
 
-5. **Research.** Only for the top 3 to 5 roles scoring 70 or higher: the business, how it has grown, culture evidence, pay and benefits.
-6. **Report.** One report, best role first. Open with a one-line count of roles found, verified and reported. For each finalist:
-   - title, company, score, link to the posting, location with any caveats
-   - the business in two sentences, and its growth in two sentences
-   - the role: scope, team, reporting line, mandate
-   - why the user fits: three bullets, each tying a specific achievement to a specific requirement in the posting
-   - gaps or risks: one or two honest bullets
-   - culture, with how strong the evidence is
-   - pay and benefits, labeled "posted" or "estimate" with confidence
-   - the six scores
-   - next move: one concrete action
+5. **Research** only the best three to five that score 70 or more: what the employer does, how it has grown, what working there is like, pay and benefits.
+6. **Report**, best job first, opening with one line: how many found, confirmed and reported. For each job:
+   - title, employer, score, link, location
+   - the employer and the job, a few sentences each
+   - why they fit: three points, each tying something they did to something the job asks for
+   - gaps or risks, honestly
+   - what working there is like, and how strong the evidence is
+   - pay, marked "posted" or "estimate"
+   - one concrete next move
 
-   End with "Also seen": up to five near misses, one line each with the reason. Then "Where I looked": every source searched this run, in three plain groups: found jobs, found nothing, could not open. Never list a source you did not actually search. Then the links you used. If any application has sat at "applied" for more than 14 days, add one line listing them so the user can follow up. Where the app can show or create files, make the report a single self-contained HTML page that reads well on a phone, and notify the user when it is ready. Otherwise write it in the chat, best job first.
-7. **Update the ledger.** Add one line per role evaluated today and remove "Evaluated roles" lines older than 60 days. Leave the feedback and "Applications" sections untouched.
+   Then "Also seen" (up to five near misses and why), "Where I looked" (sources that had jobs, had none, couldn't be opened: only ones you tried this run), and your links. Mention any application quiet for more than 14 days. Make it a phone-friendly page if the app can create files; otherwise write it in the chat.
+7. **Update the ledger** with one line per job evaluated. Remove evaluated lines older than 60 days.
 
-## Rules
+Everything in the report comes from what you retrieved in this run. If nothing scores 70, say so and show the near misses.
 
-- Talk in plain words. Assume the user has never used an AI assistant for work: no jargon, no file names, no commands to type, one question at a time with an example answer, and "I don't know" is acceptable.
-- Every claim about a company or role must come from something retrieved during this run.
-- Report a source as unavailable only after you tried it in this run. Never say a site is down, slow or blocked from memory or assumption.
-- Mark estimates as estimates. Never invent a posting, a salary or a culture claim.
-- If nothing scores 70, say so and list the near misses. Do not pad the report.
-- Paraphrase postings; do not copy them at length.
-- When you finish, end with one line telling the user they can say "what's next?" any time to see where things stand. Skip this in an unattended scheduled run.
+## Between runs
+
+- **Their feedback.** "Skip sales jobs", "also check X", "stop checking Y", an employer they would like to work for, "I applied to that one": write it into the ledger or "Where to look" yourself and confirm in a line.
+- **"Where do you look?"** Answer in a few plain lines from SOURCES.md and their own list, and offer to add or drop a source.
+- **One more question.** If their criteria have a "Still to ask" list, ask one after a report, tied to what was in it ("these three were hospitals; is there any kind of employer you'd skip?"). If the kind of job they want changes and `linkedin-profile-log.md` exists, add a line under "Changed since last sync" there.
+
+## Every morning
+
+If the app can run things on a schedule, offer to send the report each morning. A scheduled run starts with no memory of this chat, so write its instructions to stand alone: include their profile, filters and the steps above. Show them what you set up and run it once. A scheduled run asks no questions; it makes reasonable calls and notes them. If the app can't schedule, say so and tell them to ask "what's new today" whenever they want one.

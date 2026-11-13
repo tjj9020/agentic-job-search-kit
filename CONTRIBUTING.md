@@ -27,11 +27,22 @@ Thanks for helping. Bug reports from real job searches are the most useful thing
 
 The check on a first-time contributor's pull request waits for the maintainer to approve it before it runs. That is normal.
 
+## Writing a skill
+
+These follow [Anthropic's skill authoring guidance](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices). The models reading a skill are capable; what they lack is context about this user and this task.
+
+- **Explain why, then trust the model.** Describe who the user is and what matters, and let the behavior follow. "They have to defend every line in an interview" does more than five rules about accuracy. If you find yourself writing "never" or "always", try writing the reason.
+- **Do not add a rule for every test failure.** A failure usually means an instruction is unclear, missing a reason, or contradicted by another one. Fix that. A skill that grows a line per bug stops being read carefully.
+- **Keep `SKILL.md` short.** It is loaded in full whenever the skill runs. `npm run check` fails over 1,200 words. Put detail that is needed only sometimes in `references/`, linked from `SKILL.md` with a note on when to read it, one level deep.
+- **Be specific where a mistake is costly, loose where judgment is better.** File names, document formats and the tracker's columns are exact because other skills and the tests depend on them. How to phrase a question is not.
+- **One term per thing.** With the user: "your stories", "your voice", "your tracker". In the files: story bank, voice profile, ledger.
+- **Describe the skill in the third person**, saying what it does and when to use it, with the words a user would actually say.
+
 ## Testing with simulated users
 
 `evals/` runs a simulated first-time user against the kit in Claude Code. See [evals/README.md](evals/README.md).
 
-- Everything runs on Sonnet by default. Runs use real usage on your account, so start with `--stages setup`.
+- Everything runs on Sonnet by default. Before a release, also run one persona with `--agent-model haiku` (is there enough guidance?) and `--agent-model opus` (is anything over-explained?). Runs use real usage on your account, so start with `--stages setup`.
 - Run a persona before and after your change, and say in the pull request what moved. Results vary, so one run is weak evidence.
 - If your change adds a behavior, add a check for it in `evals/check.mjs` or a trap in a persona, so it stays fixed.
 - Personas and postings must be entirely made up.

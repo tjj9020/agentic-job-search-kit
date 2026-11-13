@@ -31,4 +31,6 @@ Start with a one-line verdict: PASS (ready for real people), CONCERNS (works, wi
 
 Then a table of the twelve items: number, name, score, evidence.
 
-Then "Fix first": up to three specific changes to the skills' instructions that would most improve the result, most important first. Name the behavior to change, not the model.
+Then "Fix first": the changes to the skills' instructions that would matter to a real person, most important first. Three at most, and none is a fine answer: say "Nothing worth changing" when that is true. A small imperfection that a real person would not notice is not a fix.
+
+The skills are kept short on purpose, and every added rule makes the others weaker. So prefer, in this order: removing an instruction that caused the problem, explaining a reason the assistant seems to have missed, and only last adding something new. Describe the behavior to change and why it matters to the person, not a rule to append.
