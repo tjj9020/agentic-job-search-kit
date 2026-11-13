@@ -25,6 +25,8 @@ What `career-setup` and `job-scout` leave in Jordan's `career/` folder:
 | [tailored-resume-larkspur.md](jordan-rivera/output/tailored-resume-larkspur.md) | `tailor-resume`, including the requirement map and the optional note |
 | [interview-brief-larkspur.md](jordan-rivera/output/interview-brief-larkspur.md) | `interview-prep`, the one-page brief |
 
+The resume, note and brief are also saved the way the kit saves them, under [`career/applications/`](jordan-rivera/career/applications/larkspur-director-fulfillment), one folder per job.
+
 ## What to notice
 
 - Compare a bullet in `resume-base.md` with the same accomplishment in `tailored-resume-larkspur.md`. The facts are identical. The second one says what was broken first and sounds like a person.

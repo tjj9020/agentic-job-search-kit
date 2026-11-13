@@ -34,7 +34,7 @@ Ask for what you don't have: the posting text or link, the interview stage (recr
 
 7. **Practice, if the user wants it.** Ask one question at a time and wait for the answer. After each, say what landed, what was vague, and whether the number came through. Keep the feedback to three lines. Do not rewrite their answer into yours.
 
-8. **Deliver a one-page brief** the user can skim on the day: the three stories that matter most for this role, the numbers to remember, the gaps and the lines for each, and the questions to ask.
+8. **Deliver a one-page brief** the user can skim on the day, saved as `brief.md` in the role's folder under `career/applications/` (create `career/applications/<company>-<role>/` if it does not exist): the three stories that matter most for this role, the numbers to remember, the gaps and the lines for each, and the questions to ask.
 
 ## Afterward
 

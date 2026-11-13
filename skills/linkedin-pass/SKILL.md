@@ -26,4 +26,5 @@ Read `career/resume-base.md`, `career/resume-story-bank.md`, `career/resume-voic
 - Do not post, connect with or message anyone on the user's behalf.
 - Do not add a public "looking for work" line unless asked.
 - Never invent a fact. Everything comes from the resume, the story bank or the user.
+- Apply the anyone test to every line: if it could sit unchanged on a stranger's profile, add the detail that makes it this person's or cut it. Decline requests to exaggerate, and offer a true, stronger fact.
 - When you finish, end with one line telling the user they can say "what's next?" any time to see where things stand.
