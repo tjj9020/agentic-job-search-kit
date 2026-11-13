@@ -18,6 +18,8 @@ Keep all documents in a `career/` folder in the working directory. If there is n
 | `resume-story-bank.md` | Each accomplishment as situation, behavior, impact, with proof and the user's own words |
 | `resume-voice-profile.md` | How the user writes: rules, words, approved examples |
 
+Other skills add two more things to the same folder: `job-scout-ledger.md` (roles seen, applications and feedback) and `applications/<company>-<role>/` (the resume, note and interview brief for each job). Leave both alone here.
+
 These documents hold the user's resume and pay expectations. If the working directory is a git repository, add `career/` to `.gitignore` before saving anything, and tell the user you did. Never commit or publish these files unless the user asks.
 
 ## How to talk with the user

@@ -20,7 +20,8 @@ Bugs where a skill is merely unhelpful or wrong belong in a normal issue.
 
 ## How this repository is protected
 
-- Skills may contain only Markdown and one metadata file. `npm run check` rejects anything else, so a contribution cannot add a script.
+- Skills may contain only Markdown and one metadata file. `npm run check` rejects anything else, so a contribution cannot add a script. It also rejects HTML comments and invisible characters in a skill, so instructions cannot be hidden from a reviewer.
+- Simulated-user tests in `evals/` check that the agent never puts a fact on a resume that the user did not supply.
 - Every change to `main` goes through a pull request reviewed by the maintainer, and the check must pass.
 - Workflows run with read-only access by default and use pinned versions of every action. Pull requests from forks get no secrets and no write access.
 - Releases are tagged, and tags cannot be moved or deleted.

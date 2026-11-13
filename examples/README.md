@@ -27,6 +27,8 @@ What `career-setup` and `job-scout` leave in Jordan's `career/` folder:
 
 The resume, note and brief are also saved the way the kit saves them, under [`career/applications/`](jordan-rivera/career/applications/larkspur-director-fulfillment), one folder per job.
 
+`npm run check` runs the kit's output checks against this folder on every pull request: every number on the resume must trace to Jordan's own facts, no filler words, and the tracker must point at the resume that was sent.
+
 ## What to notice
 
 - Compare a bullet in `resume-base.md` with the same accomplishment in `tailored-resume-larkspur.md`. The facts are identical. The second one says what was broken first and sounds like a person.
