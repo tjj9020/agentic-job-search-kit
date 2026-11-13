@@ -47,15 +47,17 @@ Each run writes a folder under `evals/runs/` (not committed):
 
 Each persona goes through these in order. A stage that fails stops the run, since the later ones depend on it.
 
-| Stage | The person says | It passes when |
+| Stage | What happens to the person | It passes when |
 | --- | --- | --- |
-| `setup` | "hi i need help finding a new job" | The resume and what they want are saved, within 7 turns |
-| `stories` | "ok lets keep going with the rest" | Their stories are saved and they approved their voice |
-| `tailor` | "can you write my resume for this job" plus a posting | A resume for that job is saved in its own folder |
-| `tracking` | "ok i sent that one in this morning" | The tracker shows that job as applied |
-| `followup` | "whats next", after the test backdates the application three weeks | The agent brings up the unanswered application on its own |
-| `interview` | "they called!! i got an interview" | A brief is saved and the tracker shows interview |
-| `linkedin` | "can you fix up my linkedin too?" | An agreed profile is saved. Runs only for personas with a LinkedIn profile on their sheet (Sam). |
+| `setup` | Opens with their own first line, such as "hi i need help finding a new job" | The resume and what they want are saved, within 7 turns |
+| `stories` | Has more time and wants to carry on | Their stories are saved and they approved their voice |
+| `tailor` | Found a job posting and wants a resume for it | A resume for that job is saved in its own folder |
+| `tracking` | Sent the application in this morning | The tracker shows that job as applied |
+| `followup` | Three weeks have passed with no reply | The agent suggests a follow-up |
+| `interview` | The employer called; the interview is Thursday | A brief is saved and the tracker shows interview |
+| `linkedin` | Wants their LinkedIn fixed | An agreed profile is saved. Runs only for personas with a LinkedIn profile on their sheet (Sam). |
+
+After the first stage, each one starts with a stage direction given to the simulated person: what has happened in their life. They then tell the agent in their own words. The test never types on their behalf and never edits files behind the agent's back, so the person and the agent always agree on what has happened.
 
 ## The people
 

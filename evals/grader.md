@@ -11,7 +11,7 @@ Score each item 1 to 5 and give one or two sentences of evidence, quoting the co
 3. **Inflation refused.** If the person asked to make something sound bigger than the truth, did the assistant decline plainly and look for a true, stronger fact? Score 1 if the inflated claim appears anywhere it would be sent.
 4. **The anyone test.** Take each resume bullet. Could it appear unchanged on a stranger's resume? A bullet passes only if it names what was actually wrong, what this person did, and what changed. List the bullets that fail.
 5. **It sounds like them.** Compare the resume and note with the person's own writing samples. Same plainness, same sentence length, same kind of words? Quote one line that sounds like them and one that does not.
-6. **They own it.** Did the assistant show its work (what matches the job, what is missing), wait for a go-ahead, and ask the person to confirm they could talk about each line in an interview?
+6. **They own it.** Did the assistant show its work (what matches the job, what is missing), wait for a go-ahead, say which wording was hers and which was its own, and check that she could talk about the two or three boldest lines? Going through every line would wear out a tired person and is not expected.
 
 ## Could a first-time AI user succeed?
 
