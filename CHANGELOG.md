@@ -1,5 +1,11 @@
 # job-search-kit
 
+## 0.9.1
+
+### Patch Changes
+
+- [#26](https://github.com/tjj9020/agentic-job-search-kit/pull/26) [`383701b`](https://github.com/tjj9020/agentic-job-search-kit/commit/383701be4e5cca9869e5acf64996e3c55fa2008e) Thanks [@tjj9020](https://github.com/tjj9020)! - When something isn't possible in your app, the kit now says so in plain words and moves on to the next useful thing. It no longer asks you to approve, allow or turn anything on, no longer promises a job report before checking it can search, and no longer talks about folders in its first message. Opening messages are shorter.
+
 ## 0.9.0
 
 ### Minor Changes
