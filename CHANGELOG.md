@@ -1,5 +1,11 @@
 # job-search-kit
 
+## 0.4.1
+
+### Patch Changes
+
+- [#8](https://github.com/tjj9020/agentic-job-search-kit/pull/8) [`1570377`](https://github.com/tjj9020/agentic-job-search-kit/commit/15703773669fcb73185057305fb06c46d9e271de) Thanks [@tjj9020](https://github.com/tjj9020)! - Prepared the repository for outside contributions: a security policy, contribution guide, issue and pull request templates, code owners, Dependabot, pinned workflow actions, and a check that rejects scripts or hidden text inside skills. No change to how the skills behave.
+
 ## 0.4.0
 
 ### Minor Changes
