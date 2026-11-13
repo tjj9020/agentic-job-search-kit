@@ -136,7 +136,7 @@ Say "yes" to continue, or tell me what you'd rather do.
 | "I have an interview Thursday" | The questions they are likely to ask, which of your stories answers each, and a one-page brief |
 | "Skip sales jobs" or "more remote roles" | Tomorrow's report follows your feedback |
 | "That doesn't sound like me" | It rewrites the line and writes more like you from then on |
-| "Fix up my LinkedIn" | A headline, About section and job descriptions that match your resume and sound like you. You approve each change and paste it in yourself. |
+| "Fix up my LinkedIn" | A headline, About section and job descriptions that match your resume and sound like you. You approve each change. In a desktop app with a browser it can make the edits while you watch; anywhere else it tells you so and gives you the text to paste. |
 | "Is my LinkedIn still up to date?" | It remembers what your profile should say and tells you what to change when your resume or stories change |
 | "What's next?" | Where you are and the one thing worth doing now |
 
@@ -145,7 +145,8 @@ Say "yes" to continue, or tell me what you'd rather do.
 - **Rough answers are fine.** Type the way you talk. It will ask a follow-up if it needs more.
 - **"I don't know" is a fine answer.** It will offer a few options or come back to it later.
 - **It never makes things up.** If it doesn't have a fact, it asks you. Every number on your resume comes from something you told it.
-- **It never applies for you** or messages anyone. You read everything and you send it. The same goes for LinkedIn: it drafts, you paste, and it never posts or connects for you.
+- **It never applies for you** or messages anyone. You read everything and you send it. The same goes for LinkedIn: it changes only what you approve, while you watch or by giving you text to paste, and it never posts or connects for you.
+- **It tells you what it can't do.** Some things depend on the app you use: opening a browser, or running every morning by itself. When something isn't possible where you are, it says so and gives you another way.
 - **Tell it when it's wrong.** Every correction makes the next draft better.
 - **Your information is yours.** Your resume and pay expectations are saved in a folder called `career` on your computer, or in your project if you use a chat app. Don't post that folder anywhere public.
 

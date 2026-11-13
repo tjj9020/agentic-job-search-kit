@@ -41,7 +41,7 @@ If `search-criteria.md` has a "Still to ask" list, ask one of those questions af
 
 If the tool has scheduled tasks, offer to run this every morning at a time the user chooses. A scheduled run usually starts with no memory of earlier chats, so its instructions must stand alone: embed the user's 150-word candidate profile, hard filters and scoring preferences from `search-criteria.md` directly in them, along with the steps below. Show the user the instructions and the defaults before creating the task, then run it once as a test.
 
-If the tool has no scheduler, run this whenever the user asks.
+If the tool has no scheduler, tell the user plainly: "I can't run by myself each morning from here, so just ask me 'what's new today' when you want a report." Then run this whenever they ask. If web search is not available either, say so before starting and stop; a job report built without live results would be invented.
 
 A scheduled run is unattended: ask no questions, make reasonable calls and note them in the report.
 

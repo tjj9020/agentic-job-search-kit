@@ -81,6 +81,7 @@ To add one, copy a persona file. The `json` block at the top drives the hard che
 - The story bank has no record of which stories that resume used
 - The agent used jargon, file names or commands, or asked several questions at once
 - The first stage took more than 7 turns to reach a working job search
+- The agent started on LinkedIn without saying whether it could open a browser and what it would do instead
 - The agreed LinkedIn profile contains an untraceable number, filler, a claim the person said was false, or a public job-hunting line nobody asked for
 
 Checks for stages you did not run are skipped, so `--stages setup` reports only on setup.
@@ -96,6 +97,7 @@ node evals/check.mjs --career examples/jordan-rivera/career
 ## Limits
 
 - A simulated person is more patient and more consistent than a real one. Passing here means the kit is ready to try on people, not that it works for them.
+- Browser use is not simulated. The agent under test has no browser, so the LinkedIn stage tests the fallback: it must say so and switch to paste. Test the browser path by hand in a desktop app.
 - The job report is not simulated, because it depends on live job sites. That includes the rule that it skips jobs you already applied to. Test both by hand.
 - The graded review is a model's opinion. Read the transcript before acting on it.
 - Runs vary. Run a persona twice before deciding a change made things better or worse.

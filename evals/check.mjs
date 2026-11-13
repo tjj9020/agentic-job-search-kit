@@ -201,6 +201,12 @@ export function runChecks({ career, personaPath, transcriptPath, expectStatus, s
       const q = (t.text.replace(/["“][^"”]*["”]/g, "").match(/\?/g) || []).length;
       if (q > 2) multi++;
     }
+    const li = turns.filter((t) => t.stage === "linkedin");
+    if (li.length) {
+      add("LinkedIn: agent said whether it could open a browser, and what it would do instead",
+        li.slice(0, 3).some((t) => /browser/i.test(t.text) && /paste|copy/i.test(t.text)),
+        "none of the first three LinkedIn turns explained how changes would reach the profile");
+    }
     add("agent used plain words (no jargon, file names or commands)", jargon.length === 0, jargon.slice(0, 8).join("; "));
     add("agent asked one question at a time", multi <= Math.ceil(turns.length * 0.1), `${multi} of ${turns.length} turns asked more than two questions`);
   }
