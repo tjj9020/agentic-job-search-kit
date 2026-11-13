@@ -1,5 +1,11 @@
 # job-search-kit
 
+## 0.10.0
+
+### Minor Changes
+
+- [#28](https://github.com/tjj9020/agentic-job-search-kit/pull/28) [`4e650db`](https://github.com/tjj9020/agentic-job-search-kit/commit/4e650dbaf94222fccf428390fe9771c3e55b0532) Thanks [@tjj9020](https://github.com/tjj9020)! - All six skills were rewritten to follow current skill-writing guidance: about half the length, with reasons in place of long rule lists, and detail that is only sometimes needed moved into reference files. Behavior is meant to be the same, with two small improvements: it no longer reads back a number you stated clearly, and it tells you when one part ends and the next begins.
+
 ## 0.9.1
 
 ### Patch Changes

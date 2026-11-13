@@ -1,6 +1,6 @@
 {
   "name": "job-search-kit",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "private": true,
   "description": "Agent skills for a daily AI job search and resumes written in your own voice",
   "repository": {
