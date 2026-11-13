@@ -30,7 +30,8 @@ cat > "$OUT/START-HERE.txt" <<'TXT'
 Agentic Job Search Kit
 
 This folder holds six small files, one for each part of the kit, and a
-"gemini" folder with the same six packed for Gemini. Add all six to your AI app, then say: "Help me with my job search."
+"gemini" folder with the same six packed for Gemini. Add all six to your AI
+app, then say: "Help me with my job search."
 
 Claude (desktop app or claude.ai)
   1. Open Customize, then Skills.
