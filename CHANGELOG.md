@@ -1,5 +1,11 @@
 # job-search-kit
 
+## 0.6.0
+
+### Minor Changes
+
+- [#17](https://github.com/tjj9020/agentic-job-search-kit/pull/17) [`8683cac`](https://github.com/tjj9020/agentic-job-search-kit/commit/8683cac6d047dcc15a2b02054c71d00109979a25) Thanks [@tjj9020](https://github.com/tjj9020)! - Getting started is much shorter. After your resume, it asks four questions (what job, where, lowest pay, anything you won't take) and your job search is ready. The other questions come later, one at a time, tied to real jobs it shows you. It no longer opens with a critique of your resume, never asks two questions at once, and uses your own words for your work instead of trade terms you didn't use.
+
 ## 0.5.0
 
 ### Minor Changes
