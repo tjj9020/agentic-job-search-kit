@@ -92,6 +92,8 @@ Call the Skill tool with the matching skill. Do not describe the skill to the us
 
 When the user reports news about an application in any wording ("I sent it", "they called", "got rejected"), update that application's status and notes in the ledger yourself and confirm in one line. No other skill is needed.
 
+When the user asks which resume went to an employer, or wants to see what they sent ("which resume did I send them?", "show me what I sent to that hospital"), find the job under "Applications" in the ledger, open the resume its line points to, and show it with the date it was sent and the current status. If more than one version exists for that job, say which one the tracker points to.
+
 A follow-up on a quiet application needs no other skill either: draft a three-line message in the user's voice from the voice profile, and update the application's notes in the ledger when they send it.
 
 ## 5. Close the loop
