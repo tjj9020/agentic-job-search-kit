@@ -28,10 +28,16 @@ These documents hold the user's resume and pay expectations. If the working dire
 - Ask one to three questions per turn. Push back on vague answers.
 - Be direct. Say where the resume is weak.
 
+## Before Phase 1: import what already exists
+
+If the user says they already have a story bank, a voice profile or similar notes from another tool, ask for the files or their location once. Copy them into `career/` under the names above, convert them to the formats in this skill without changing any fact, and list what is missing against each phase. Then start at the first phase that is not complete. Do not re-interview the user for anything an imported document already answers.
+
 ## Phase 1: Resume and search criteria
 
-1. **Save the resume.** Ask for the current resume if it is not attached. Extract its text exactly and save it as `resume-base.md`. Do not rewrite, improve or reorder anything. Note the source file name and the date at the top.
-2. **Audit it, don't fix it.** List every claim with no number or no before-and-after, any date gaps, overlaps or inconsistencies, and anything a skeptical hiring manager would ask the user to prove. Ask about each and record the answers.
+Keep this phase to about 20 minutes. Its job is to get the user to a working job search, not to fix the resume.
+
+1. **Save the resume.** Ask for the current resume if it is not attached. Extract its text exactly and save it as `resume-base.md`. Do not rewrite, improve or reorder anything, and add nothing to the file except the source file name and the date at the top.
+2. **Audit it quietly.** Find every claim with no number or no before-and-after, any date gaps, overlaps or inconsistencies, and anything a skeptical hiring manager would ask the user to prove. Save the full list under "Open questions" in `resume-story-bank.md`, grouped by role, creating the file if needed. Do not ask these now. Tell the user only: the three weakest spots in one line each, how many questions were saved, and that Phase 2 works through them one story at a time. If a date or title looks wrong, ask about that now, since the search criteria depend on it.
 3. **Interview for search criteria.** Cover:
    - target titles and levels, including stretch and adjacent roles
    - location: cities, remote, hybrid, travel limits
@@ -63,7 +69,7 @@ Candidate's own words: phrases they actually said or wrote, quoted exactly
 
 How to run the interview:
 
-1. Seed one story per resume bullet and from any attached documents. Leave unknown fields blank.
+1. Seed one story per resume bullet and from any attached documents. Leave unknown fields blank. Attach each open question saved in Phase 1 to its story, and ask it when you reach that story.
 2. Interview one story at a time, starting with the stories most relevant to the target roles.
 3. For each story, dig for: what was actually broken before they started, the decision that was theirs and not the team's, what they chose not to do and why, the number, and who would vouch for it.
 4. When the user describes something in a vivid or plain way, save the exact phrase under "Candidate's own words". Those phrases feed the voice profile.
@@ -89,3 +95,7 @@ Save `resume-voice-profile.md`. Read the "Candidate's own words" lines in the st
 7. **Notes on the current resume.** Say plainly where the base resume does not sound like the user and what makes it read as templated, such as every bullet having the same shape and length.
 
 Give the profile a version number and a status line. It is not final until the user approves it. From then on, whenever the user edits a line you wrote, update the profile.
+
+## When a phase ends
+
+Say in one line what was saved. Then tell the user what it unlocked and what comes next: after Phase 1, the daily job scout; after Phase 3, tailored resumes and interview prep. If the `job-search` skill is available, call the Skill tool with "job-search" so the user sees their status board.

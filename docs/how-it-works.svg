@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
   <title id="t">How the Agentic Job Search Kit works</title>
-  <desc id="d">You run career-setup once. It builds five documents your AI keeps. The job-scout skill reads them every morning and sends a fit report. The tailor-resume skill reads them each time you apply and writes a resume in your voice. The interview-prep skill reads them before an interview and writes a one-page brief. Your corrections flow back into the documents.</desc>
+  <desc id="d">One command, job-search, shows where you stand and routes you to each step. You run career-setup once. It builds five documents your AI keeps. The job-scout skill reads them every morning and sends a fit report. The tailor-resume skill reads them each time you apply and writes a resume in your voice. The interview-prep skill reads them before an interview and writes a one-page brief. Your corrections flow back into the documents.</desc>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0 0L10 5L0 10z" fill="#0969da"/>
@@ -10,7 +10,7 @@
   <rect x="0.5" y="0.5" width="1199" height="599" rx="14" fill="#ffffff" stroke="#d0d7de"/>
 
   <text x="40" y="48" font-size="24" font-weight="700" fill="#1f2328">How it works</text>
-  <text x="40" y="74" font-size="14" fill="#59636e">Set up once. After that, your AI searches every morning and writes each resume from facts you confirmed, in your voice.</text>
+  <text x="40" y="74" font-size="14" fill="#59636e">One command, <tspan font-weight="700" fill="#1f2328" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">/job-search</tspan>, shows where you stand and takes you to the next step. These are the steps it runs.</text>
 
   <!-- column labels -->
   <g font-size="12" font-weight="700" fill="#0969da" letter-spacing="1">

@@ -46,3 +46,4 @@ Ask for what you don't have: the posting text or link, the interview stage (recr
 - Every fact in an answer comes from the story bank or the user. Never invent a detail to make a story fit a question.
 - Say plainly when a story is a weak answer to a question.
 - Prepare the user to answer in their own voice. Do not hand them lines that sound rehearsed.
+- When you finish, end with one line telling the user they can run `/job-search` to see where things stand and what is next.

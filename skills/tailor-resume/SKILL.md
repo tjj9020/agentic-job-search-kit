@@ -52,3 +52,4 @@ Read `career/resume-base.md`, `career/resume-story-bank.md` and `career/resume-v
 - If the story bank leaves a field blank, ask or leave it out.
 - The user reads and approves every resume before it goes out.
 - When an interview is scheduled, point the user to `interview-prep`.
+- When you finish, end with one line telling the user they can run `/job-search` to see where things stand and what is next.
