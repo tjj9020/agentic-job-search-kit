@@ -4,7 +4,7 @@ A job-search helper you talk to in plain English. It looks for jobs that fit you
 
 You don't need to know anything about AI. There are no commands to learn and no special way to phrase things. You say what you want, it asks you questions one at a time, and it remembers your answers.
 
-![How it works: say "help me with my job search." First it gets to know you through your resume, a conversation and your writing. It remembers your resume, what you want, your stories, your voice and your tracker. Then you just ask for a job report, a tailored resume or interview prep, and it learns from your corrections.](docs/how-it-works.svg)
+![How it works: say "help me with my job search." First it gets to know you through your resume, a conversation and your writing. It remembers your resume, what you want, your stories, your voice and your tracker. Then you just ask for a job report, a tailored resume, interview prep or a LinkedIn profile that matches, and it learns from your corrections.](docs/how-it-works.svg)
 
 ## It has to be yours
 
