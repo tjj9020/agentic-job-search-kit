@@ -9,7 +9,8 @@
 ## Checklist
 
 - [ ] I ran `npm run check`
-- [ ] I added a changeset with `npx changeset` (skip for docs-only changes)
+- [ ] I added a changeset with `npx changeset` (skip for docs, examples, evals and `.github/` changes)
 - [ ] Any skill I changed still reads as plain language for someone new to AI
-- [ ] I tried the changed skill in an agent and it behaved as described
+- [ ] I tried the changed skill in an agent, or ran `node evals/run.mjs <persona>`, and it behaved as described
+- [ ] If I changed a document format, I updated `examples/` to match
 - [ ] No personal data: every example person, company and number is made up

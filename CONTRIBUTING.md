@@ -21,11 +21,20 @@ Thanks for helping. Bug reports from real job searches are the most useful thing
 2. Edit the `SKILL.md`. Keep it plain Markdown that also works when pasted into a chat, and keep the user-facing language free of jargon.
 3. If you add a skill, add its folder to `skills` in `.claude-plugin/plugin.json` and give it an `agents/openai.yaml`.
 4. Try it in an agent. For anything beyond wording, run a simulated user against it: `node evals/run.mjs maria-charge-nurse` (see [evals/README.md](evals/README.md)). Say what you tested in the pull request.
-5. Add a changeset: run `npx changeset`, pick the bump, and write one or two sentences a user would understand.
-6. Run `npm run check`.
+5. Add a changeset: run `npx changeset`, pick the bump, and write one or two sentences a user would understand. Skip this for changes that touch only docs, `examples/`, `evals/` or `.github/`.
+6. Run `npm run check`. It verifies the plugin version, the skill folders, that skills hold no scripts or hidden text, and that the [worked example](examples/README.md) still passes the output checks. If you change the format of a document a skill writes, update the example to match.
 7. Open a pull request against `main`.
 
 The check on a first-time contributor's pull request waits for the maintainer to approve it before it runs. That is normal.
+
+## Testing with simulated users
+
+`evals/` runs a simulated first-time user against the kit in Claude Code. See [evals/README.md](evals/README.md).
+
+- Everything runs on Sonnet by default. Runs use real usage on your account, so start with `--stages setup`.
+- Run a persona before and after your change, and say in the pull request what moved. Results vary, so one run is weak evidence.
+- If your change adds a behavior, add a check for it in `evals/check.mjs` or a trap in a persona, so it stays fixed.
+- Personas and postings must be entirely made up.
 
 ## How pull requests are reviewed
 
@@ -50,6 +59,8 @@ Changes to `.github/`, `scripts/`, `package.json` and `.claude-plugin/` get the 
 ## How a release happens
 
 Merging a pull request with a changeset makes the Release workflow open a "chore: version skills" pull request. It bumps `package.json`, copies the version into `.claude-plugin/plugin.json`, and writes `CHANGELOG.md`. Merging that pull request tags the release, and plugin installs pick it up.
+
+Dependabot opens monthly pull requests for GitHub Actions and npm packages. Merge them once the check passes; they need no changeset.
 
 Never edit the version in `plugin.json` by hand. Plugin installs update only when it changes, and `npm run check` fails if it differs from `package.json`.
 

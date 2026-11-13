@@ -131,6 +131,7 @@ Say "yes" to continue, or tell me what you'd rather do.
 | "What's new today?" | The best three to five open jobs for you, why you fit each one, and what the pay looks like |
 | "Tailor my resume to this job" (paste the link or the text) | A resume written for that job, plus a short note to the recruiter if you want one |
 | "I applied to that one" | It keeps track, and reminds you if two weeks go by with no reply |
+| "Which resume did I send them?" | Every resume is kept with the job it was written for, so you always know which version went where |
 | "I have an interview Thursday" | The questions they are likely to ask, which of your stories answers each, and a one-page brief |
 | "Skip sales jobs" or "more remote roles" | Tomorrow's report follows your feedback |
 | "That doesn't sound like me" | It rewrites the line and writes more like you from then on |
@@ -184,9 +185,11 @@ The skills share five documents in a `career/` folder (or the project's files):
 | `resume-voice-profile.md` | Your voice | Rules, preferred and banned words, approved examples |
 | `job-scout-ledger.md` | Your tracker | Roles evaluated, applications and status, feedback |
 
+Each job the user applies to also gets a folder, `career/applications/<company>-<role>/`, holding `resume.md` (the version sent), `note.md` (the recruiter note or cover letter, if any) and `brief.md` (the interview brief). The tracker's resume column points at that `resume.md`.
+
 Plugin installs from a third-party marketplace do not auto-update by default in Claude Code. Run `claude plugin marketplace update tjj9020` to update.
 
-Simulated end-to-end tests live in [`evals/`](evals/README.md): a model plays a first-time user and the output is checked for invented facts, filler and jargon.
+Simulated end-to-end tests live in [`evals/`](evals/README.md): a model plays a first-time user from the first message to an interview brief, and the output is checked for invented facts, filler, jargon and correct application tracking. A [worked example](examples/README.md) shows every document and is checked on each pull request.
 
 To change a skill or cut a release, see [CONTRIBUTING.md](CONTRIBUTING.md). Versions are in [CHANGELOG.md](CHANGELOG.md).
 
