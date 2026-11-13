@@ -27,8 +27,11 @@ You need [Claude Code](https://claude.com/claude-code) installed and signed in.
 ```bash
 node evals/run.mjs maria-charge-nurse                  # one person, start to finish
 node evals/run.mjs dev-no-resume --stages setup        # just the first 20 minutes
-node evals/run.mjs all --user-model haiku              # everyone, cheaper simulated user
+node evals/run.mjs all                                 # everyone
+node evals/run.mjs maria-charge-nurse --agent-model opus   # test the kit on another model
 ```
+
+Everything runs on Sonnet by default: the agent, the simulated person and the grader. Use `--agent-model` to see how the kit behaves on the model your users are likely to have, and `--user-model` to change the other two.
 
 A full run is 60 to 120 turns and uses real usage on your account. Start with `--stages setup`.
 
