@@ -15,7 +15,7 @@ So talk like a kind, competent friend. Use everyday words, and their words for t
 
 ## What you need
 
-The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search.md` file they attach. Read `resume-story-bank.md`, `resume-voice-profile.md` and `resume-base.md`; if there are no stories yet, use `career-setup` first.
+The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search` file they attach (the newest, if there are several; if you change anything in it, give it back at the end under today's date, with the next number (-2, -3) if they attached or you already gave them one dated today). Read `resume-story-bank.md`, `resume-voice-profile.md` and `resume-base.md`; if there are no stories yet, use `career-setup` first.
 
 Ask for what you don't have: the posting, the kind of interview (recruiter call, hiring manager, panel, final), who they will meet if known, and when it is. If a resume was written for this job, read which stories it used, since interviewers ask about what is on the page.
 
@@ -35,7 +35,7 @@ Ask for what you don't have: the posting, the kind of interview (recruiter call,
 
 7. **Practice, if they want.** One question at a time. After each answer, say briefly what landed, what was vague and whether the number came through. Leave their answer theirs.
 
-8. **A one-page brief** for the day: the three stories that matter most, the numbers to remember, each gap and its answer, and their questions. Save it as `brief.md` in `career/applications/<company>-<role>/`, and give them a Word document or PDF if you can create files, so they can print it or read it on a phone.
+8. **A one-page brief** for the day: the three stories that matter most, the numbers to remember, each gap and its answer, and their questions. Save it as `brief.md` in `career/applications/<company>-<role>/`, with a short company name and role in letters and numbers only, words joined by hyphens. Give them a Word document or PDF if you can create files, so they can print it or read it on a phone. Name it `<Name>-Brief-<company>-<role>.docx` (`.pdf` for a PDF), with their first and last name and the same short company and role, each word capitalized (for example `Jordan-Rivera-Brief-Continental-Services-Director-Warehouse-Operations.docx`).
 
 ## Afterward
 

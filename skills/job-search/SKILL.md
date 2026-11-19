@@ -17,7 +17,7 @@ Early on, tell them once that everything you write comes from what they tell you
 
 ## Find out where things stand
 
-The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search.md` file they attach. Read what exists instead of asking the user what they have done.
+The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search` file they attach (the newest, if there are several; if you change anything in it, give it back at the end under today's date, with the next number (-2, -3) if they attached or you already gave them one dated today). Read what exists instead of asking the user what they have done.
 
 | Document | Done when |
 | --- | --- |
