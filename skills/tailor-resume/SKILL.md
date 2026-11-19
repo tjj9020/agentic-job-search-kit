@@ -48,7 +48,7 @@ The user's documents are in a `career/` folder, or in project documents with the
 
    `date | company | title | URL | status | resume file | notes`
 
-   When they say they applied, heard back or withdrew, in any wording, update the status (applied, screen, interview, offer, rejected, withdrawn). If they later change a resume they already sent, save the new version beside the old one and say which the record points to.
+   When they say they applied, heard back or withdrew, in any wording, update the status (applied, screen, interview, offer, rejected, withdrawn). Keep the status to that one word and put the date and any detail in notes, such as "applied Nov 18": the date column is the day the resume was drafted, and the notes are where anyone can see when they applied. If they later change a resume they already sent, save the new version beside the old one and say which the record points to.
 
 9. **Learn from it.** Add a line under "Tailored versions" in the story bank (date, employer, job, stories used). When they edit a line, update the voice profile with what the edit shows. When they give you a new fact, add it to the story bank, and to "Changed since last sync" in `linkedin-profile-log.md` if that exists.
 

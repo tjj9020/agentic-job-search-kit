@@ -9,7 +9,7 @@
 
 ## Applications
 Format: date | company | title | URL | status | resume file | notes
-Status is one of: drafted, applied, screen, interview, offer, rejected, withdrawn
+Status is one of: drafted, applied, screen, interview, offer, rejected, withdrawn. Dates and details go in notes.
 March 9 | Larkspur Home Goods | Director of Fulfillment Operations | https://example.com/larkspur/careers/1042 | interview | applications/larkspur-director-fulfillment/resume.md | applied March 10; recruiter screen March 14; hiring manager March 21
 
 ## Evaluated roles

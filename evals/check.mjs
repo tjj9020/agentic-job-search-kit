@@ -40,6 +40,15 @@ export function numbers(text) {
 
 const STATUSES = ["drafted", "applied", "screen", "interview", "offer", "rejected", "withdrawn"];
 
+/**
+ * The status word in a tracker cell. Agents add dates and short notes to the
+ * status ("applied 2026-11-18", "**applied**"), so this takes the first word
+ * and ignores the rest. "not applied" reads as "not", which is not a status.
+ */
+export function statusWord(cell) {
+  return cell.toLowerCase().match(/[a-z]+/)?.[0] ?? "";
+}
+
 /** The lines under "## Applications": date | company | title | URL | status | resume file | notes */
 export function applications(ledger) {
   const section = (ledger.split(/^## Applications/m)[1] || "").split(/^## /m)[0];
@@ -47,7 +56,7 @@ export function applications(ledger) {
     .filter((l) => l.includes("|") && !/^\s*(Format|Status)\b/.test(l))
     .map((l) => l.split("|").map((c) => c.trim()))
     .filter((c) => c.length >= 6)
-    .map(([date, company, title, url, status, resume, notes = ""]) => ({ date, company, title, url, status: status.toLowerCase(), resume, notes }));
+    .map(([date, company, title, url, status, resume, notes = ""]) => ({ date, company, title, url, status: statusWord(status), statusText: status, resume, notes }));
 }
 
 /** Parse the ```json block at the top of a persona file. */
@@ -140,11 +149,11 @@ export function runChecks({ career, personaPath, transcriptPath, expectStatus, s
     const line = applications(ledger).find((a) => a.resume.includes(app));
     add(`${app}: application logged in the tracker`, Boolean(line), line ? "" : "no Applications line names this job's resume");
     if (line) {
-      add(`${app}: tracker status is a known value`, STATUSES.includes(line.status), `status is "${line.status}"`);
+      add(`${app}: tracker status is a known value`, STATUSES.includes(line.status), `status is "${line.statusText}"`);
       const path = line.resume.replace(/^career\//, "");
       add(`${app}: tracker points to the resume that was sent`, existsSync(join(career, path)), `"${line.resume}" does not exist`);
       add(`${app}: tracker line has a company, a title and a date`, Boolean(line.date && line.company && line.title), JSON.stringify(line));
-      if (expectStatus) add(`${app}: status follows what the user said happened`, line.status === expectStatus, `expected "${expectStatus}", found "${line.status}"`);
+      if (expectStatus) add(`${app}: status follows what the user said happened`, line.status === expectStatus, `expected "${expectStatus}", found "${line.statusText}"`);
     }
     // The story bank records which stories this resume used.
     const tailored = stories.split(/^## Tailored versions/m)[1] || "";

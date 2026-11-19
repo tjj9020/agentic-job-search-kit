@@ -95,7 +95,7 @@ Run them on any folder without a simulation:
 node evals/check.mjs --career examples/jordan-rivera/career
 ```
 
-`npm run check` does this for the worked example on every pull request, so the example can never drift from the rules.
+`npm run check` does this for the worked example on every pull request, so the example can never drift from the rules. It also runs `node --test evals/check.test.mjs`, which tests how the checks read the tracker, since a misread status ends a full run early.
 
 ## Limits
 
