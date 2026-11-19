@@ -26,7 +26,7 @@ Keep a ledger, `job-scout-ledger.md`, creating it if needed:
 
 ## Applications
 Format: date | company | title | URL | status | resume file | notes
-Status is one of: drafted, applied, screen, interview, offer, rejected, withdrawn
+Status is one of: drafted, applied, screen, interview, offer, rejected, withdrawn. Dates and details go in notes.
 
 ## Evaluated roles
 Format: date | company | title | URL | score/100 | status (reported, or skipped: reason)
