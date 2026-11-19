@@ -1,5 +1,11 @@
 # job-search-kit
 
+## 0.10.3
+
+### Patch Changes
+
+- [#46](https://github.com/tjj9020/agentic-job-search-kit/pull/46) [`2e02ac1`](https://github.com/tjj9020/agentic-job-search-kit/commit/2e02ac1d4a4ff397c6e5f2c2531e19b77e2e5350) Thanks [@tjj9020](https://github.com/tjj9020)! - When you tell the kit you applied or heard back, your tracker now keeps the status to one word and puts the date in its notes, so you can always see when you applied as well as when your resume was written.
+
 ## 0.10.2
 
 ### Patch Changes
