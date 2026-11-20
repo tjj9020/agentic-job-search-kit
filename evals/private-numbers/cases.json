@@ -1,0 +1,731 @@
+[
+ {
+  "id": "d01-warehouse-mispicks",
+  "split": "dev",
+  "context": {
+   "role": "Warehouse shift lead",
+   "employer": "Tallgrass Distribution",
+   "resume_base": [
+    "Shift lead, Tallgrass Distribution, 2021-2025",
+    "Ran second shift picking and packing"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Cut mis-picks from 14 per week to 6 by reworking slotting on second shift",
+   "Trained 9 new pickers on scanner workflow"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d02-logistics-carrier-spend",
+  "split": "dev",
+  "context": {
+   "role": "Transportation coordinator",
+   "employer": "Copperline Foods",
+   "resume_base": [
+    "Transportation coordinator, Copperline Foods, 2020-2025",
+    "Renegotiated carrier contracts; cut freight cost 11%"
+   ],
+   "notes": [
+    "Story: carrier renegotiation. User mentioned in conversation that the freight spend was about $4.2M a year."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Renegotiated carrier contracts covering $4.2M in annual freight spend, cutting cost 11%",
+   "Moved 3 lanes to intermodal with no late deliveries"
+  ],
+  "expected_flagged": [
+   "$4.2M"
+  ]
+ },
+ {
+  "id": "d03-nursing-falls",
+  "split": "dev",
+  "context": {
+   "role": "Charge nurse, med-surg",
+   "employer": "St. Odile Medical Center",
+   "resume_base": [
+    "Charge nurse, St. Odile Medical Center, 2018-2025"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Reduced patient falls from 2.1% to 0.6% of admissions with hourly rounding",
+   "Led a team of 12 nurses across day shift"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d04-teacher-grant-budget",
+  "split": "dev",
+  "context": {
+   "role": "Middle school English teacher",
+   "employer": "Pinecrest Unified School District",
+   "resume_base": [
+    "English teacher, Pinecrest Middle School, 2016-2025"
+   ],
+   "notes": [
+    "User said they wrote the grant and controlled every purchase from it."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Raised grade 7 reading proficiency from 48% to 71% in two years",
+   "Managed a $15,000 classroom library grant budget"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d05-sales-hospital-contract",
+  "split": "dev",
+  "context": {
+   "role": "Account executive, medical devices",
+   "employer": "Veltrix Surgical",
+   "resume_base": [
+    "Account executive, Veltrix Surgical, 2019-2025",
+    "Exceeded quota three years running"
+   ],
+   "notes": [
+    "Story: the hospital system deal. Proof level: user's own numbers, confirmed."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Closed a $1.8M three-year contract with a regional hospital system",
+   "Finished 2024 at 132% of quota"
+  ],
+  "expected_flagged": [
+   "$1.8M"
+  ]
+ },
+ {
+  "id": "d06-software-mau",
+  "split": "dev",
+  "context": {
+   "role": "Senior backend engineer",
+   "employer": "Quillstack (private SaaS company)",
+   "resume_base": [
+    "Senior backend engineer, Quillstack, 2021-2025",
+    "Owned the notifications API"
+   ],
+   "notes": [
+    "User mentioned the product has about 3.2 million monthly active users; this is from an internal dashboard."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Cut notifications API p95 latency 40% by moving fan-out to a queue",
+   "Kept the platform stable for 3.2 million monthly active users"
+  ],
+  "expected_flagged": [
+   "3.2 million"
+  ]
+ },
+ {
+  "id": "d07-retail-store-sales",
+  "split": "dev",
+  "context": {
+   "role": "Store manager",
+   "employer": "Hollis & Pike Home Goods",
+   "resume_base": [
+    "Store manager, Hollis & Pike, 2017-2025",
+    "Cut shrink by more than half"
+   ],
+   "notes": [
+    "User said the store did about $6.5M a year in sales."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Ran a store generating $6.5M in annual sales with 38 staff",
+   "Cut shrink from 2.4% to 1.1% of sales"
+  ],
+  "expected_flagged": [
+   "$6.5M"
+  ]
+ },
+ {
+  "id": "d08-restaurant-waste",
+  "split": "dev",
+  "context": {
+   "role": "Kitchen manager",
+   "employer": "Saltmarsh Grill",
+   "resume_base": [
+    "Kitchen manager, Saltmarsh Grill, 2019-2025"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Reduced food waste 18% with par-level prep sheets",
+   "Hired and trained 22 line and prep cooks",
+   "Saved 6 hours a week by moving scheduling to an app"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d09-finance-on-resume-base",
+  "split": "dev",
+  "context": {
+   "role": "Senior financial analyst",
+   "employer": "Marrow Industrial Supply",
+   "resume_base": [
+    "Senior financial analyst, Marrow Industrial Supply, 2019-2025",
+    "Built the annual forecast for a $340M revenue division"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Built the annual forecast for a $340M revenue division",
+   "Cut forecast error from 9% to 3%"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d10-public-sector-capital-plan",
+  "split": "dev",
+  "context": {
+   "role": "Senior planner",
+   "employer": "City of Ashford Public Works",
+   "resume_base": [
+    "Senior planner, City of Ashford, 2015-2025"
+   ],
+   "notes": [
+    "User said the capital program total is in the city's adopted budget, which is posted publicly."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Coordinated scheduling for the city's $410M five-year capital improvement program",
+   "Cut permit review time from 30 days to 12"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d11-nonprofit-donor-count",
+  "split": "dev",
+  "context": {
+   "role": "Development manager",
+   "employer": "Harbor Light Literacy Project (nonprofit)",
+   "resume_base": [
+    "Development manager, Harbor Light Literacy Project, 2020-2025",
+    "Raised donor retention"
+   ],
+   "notes": [
+    "User mentioned the donor count from the internal CRM."
+   ]
+  },
+  "draft_kind": "LinkedIn experience entry",
+  "draft": [
+   "Grew the active donor base to 8,400 donors",
+   "Raised donor retention from 61% to 74%"
+  ],
+  "expected_flagged": [
+   "8,400"
+  ]
+ },
+ {
+  "id": "d12-already-ok-to-share",
+  "split": "dev",
+  "context": {
+   "role": "Customer success manager",
+   "employer": "Brambleworks Software",
+   "resume_base": [
+    "Customer success manager, Brambleworks, 2020-2025",
+    "Owned renewals for mid-market accounts"
+   ],
+   "notes": [
+    "Story: renewals book. Proof level: user's own numbers. $12M ARR: OK to share (user confirmed 2026-10-02)."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Owned renewals for a $12M ARR mid-market book",
+   "Raised gross retention from 86% to 93%"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d13-procurement-unit-cost",
+  "split": "dev",
+  "context": {
+   "role": "Procurement specialist",
+   "employer": "Granite Peak Beverages",
+   "resume_base": [
+    "Procurement specialist, Granite Peak Beverages, 2018-2025",
+    "Consolidated packaging suppliers"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Negotiated bottle cap unit cost from $0.042 to $0.031",
+   "Consolidated packaging vendors from 14 to 5"
+  ],
+  "expected_flagged": [
+   "$0.042",
+   "$0.031"
+  ],
+  "note": "Supplier prices: ask."
+ },
+ {
+  "id": "d14-unreleased-pilot",
+  "split": "dev",
+  "context": {
+   "role": "Product manager",
+   "employer": "Ferncastle Analytics",
+   "resume_base": [
+    "Product manager, Ferncastle Analytics, 2022-2025",
+    "Led the forecasting product"
+   ],
+   "notes": [
+    "User said the new forecasting product has not launched; it is planned for spring 2027 and the pilot is confidential."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Ran a pilot of the new forecasting product with 40 enterprise customers ahead of its 2027 launch",
+   "Cut onboarding time from 3 days to 4 hours"
+  ],
+  "expected_flagged": [
+   "40 enterprise customers",
+   "2027 launch"
+  ]
+ },
+ {
+  "id": "d15-restaurant-profit",
+  "split": "dev",
+  "context": {
+   "role": "General manager",
+   "employer": "Oakhaven Tavern Group",
+   "resume_base": [
+    "General manager, Oakhaven Tavern Group, 2018-2025"
+   ],
+   "notes": [
+    "User mentioned the location's profit last year in passing."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Ran a 140-seat location with $480K annual profit",
+   "Cut labor cost from 34% to 29% of sales"
+  ],
+  "expected_flagged": [
+   "$480K"
+  ]
+ },
+ {
+  "id": "d16-finance-product-line",
+  "split": "dev",
+  "context": {
+   "role": "Pricing analyst",
+   "employer": "Sorrel Brands",
+   "resume_base": [
+    "Pricing analyst, Sorrel Brands, 2020-2025",
+    "Improved gross margin on the snacks line"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Improved gross margin from 31% to 36% on a $90M snacks product line",
+   "Built a price-elasticity model used in 4 regions"
+  ],
+  "expected_flagged": [
+   "$90M"
+  ]
+ },
+ {
+  "id": "d17-warehouse-safety",
+  "split": "dev",
+  "context": {
+   "role": "Safety coordinator",
+   "employer": "Bluestem Logistics",
+   "resume_base": [
+    "Safety coordinator, Bluestem Logistics, 2019-2025"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Ran 45 site safety audits a year",
+   "Zero lost-time incidents across 18 months",
+   "Led a crew of 30 forklift operators"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d18-nursing-supply-contract",
+  "split": "dev",
+  "context": {
+   "role": "Nurse manager, perioperative",
+   "employer": "Mercy Vale Hospital",
+   "resume_base": [
+    "Nurse manager, Mercy Vale Hospital, 2017-2025",
+    "Led product standardization for the OR"
+   ],
+   "notes": [
+    "User said they sat on the committee that chose the supplier; the contract is held by supply chain, not their unit."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Helped select the supplier for a $3.6M surgical supply contract with Corvane Medical",
+   "Cut OR turnover time from 42 to 28 minutes"
+  ],
+  "expected_flagged": [
+   "$3.6M"
+  ]
+ },
+ {
+  "id": "d19-retail-public-and-private",
+  "split": "dev",
+  "context": {
+   "role": "Regional merchandising manager",
+   "employer": "Tamberlin Outfitters (publicly traded)",
+   "resume_base": [
+    "Regional merchandising manager, Tamberlin Outfitters, 2018-2025"
+   ],
+   "notes": [
+    "User said Tamberlin's $1.2B total revenue is in its annual report. Regional sales are internal."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Led merchandising for the Midwest region of a $1.2B retailer",
+   "Grew region sales from $210M to $260M in two years"
+  ],
+  "expected_flagged": [
+   "$210M",
+   "$260M"
+  ]
+ },
+ {
+  "id": "d20-teacher-no-ask",
+  "split": "dev",
+  "context": {
+   "role": "High school chemistry teacher",
+   "employer": "Eastgate High School",
+   "resume_base": [
+    "Chemistry teacher, Eastgate High School, 2012-2025"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Taught 140 students a year across 5 sections",
+   "Cut chronic absence in my classes from 22% to 13%",
+   "Wrote 3 new lab courses"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d21-software-billing-mixed",
+  "split": "dev",
+  "context": {
+   "role": "Staff engineer, payments",
+   "employer": "Lumenpath (private fintech)",
+   "resume_base": [
+    "Staff engineer, Lumenpath, 2020-2025",
+    "Led the billing migration"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Migrated 1,200 enterprise customers to the new billing system with no downtime",
+   "Reduced failed payments 35%",
+   "Saved the support team 10 hours a week"
+  ],
+  "expected_flagged": [
+   "1,200"
+  ]
+ },
+ {
+  "id": "d22-sales-linkedin-agreed",
+  "split": "dev",
+  "context": {
+   "role": "Regional sales manager",
+   "employer": "Corbel Packaging",
+   "resume_base": [
+    "Regional sales manager, Corbel Packaging, 2016-2025"
+   ],
+   "notes": [
+    "Agreed LinkedIn profile (approved in an earlier pass) says: 'Managed a $5M book of business across the Southeast.'",
+    "User mentioned their largest customer was worth about $900K a year."
+   ]
+  },
+  "draft_kind": "recruiter note",
+  "draft": [
+   "I managed a $5M book of business across the Southeast for Corbel.",
+   "I landed our largest customer, a $900K-a-year food processor, and kept them for six years."
+  ],
+  "expected_flagged": [
+   "$900K"
+  ]
+ },
+ {
+  "id": "t01-nurse-overtime-spend",
+  "split": "test",
+  "context": {
+   "role": "Nurse manager, ICU",
+   "employer": "Clearbrook Regional Hospital",
+   "resume_base": [
+    "Nurse manager, Clearbrook Regional Hospital, 2019-2025",
+    "Led a staff of 40 nurses"
+   ],
+   "notes": [
+    "User said they built the unit's staffing plan; the overtime line sits in the unit budget, which finance owns."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Cut ICU overtime spend from $410K to $260K a year with a self-scheduling plan",
+   "Led a staff of 40 nurses"
+  ],
+  "expected_flagged": [
+   "$410K",
+   "$260K"
+  ],
+  "note": "Dollar before/after reveals employer spend: ask."
+ },
+ {
+  "id": "t02-warehouse-shipper-account",
+  "split": "test",
+  "context": {
+   "role": "Operations supervisor",
+   "employer": "Redmoor 3PL",
+   "resume_base": [
+    "Operations supervisor, Redmoor 3PL, 2020-2025",
+    "Cut damage claims for key accounts"
+   ],
+   "notes": [
+    "User mentioned the shipper's account value from a client review meeting."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Cut damage claims 30% for our largest shipper, a $2.3M-a-year account",
+   "Led a crew of 25 across two docks"
+  ],
+  "expected_flagged": [
+   "$2.3M"
+  ]
+ },
+ {
+  "id": "t03-restaurant-catering-counts",
+  "split": "test",
+  "context": {
+   "role": "Catering coordinator",
+   "employer": "Juniper Street Bakery & Cafe",
+   "resume_base": [
+    "Catering coordinator, Juniper Street Bakery, 2021-2025"
+   ],
+   "notes": []
+  },
+  "draft_kind": "LinkedIn experience entry",
+  "draft": [
+   "Grew catering orders from 12 to 31 a month",
+   "Cut ticket times from 14 to 9 minutes at lunch rush",
+   "Trained 7 front-of-house staff on the new POS"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "t04-county-road-program",
+  "split": "test",
+  "context": {
+   "role": "Procurement officer",
+   "employer": "Wexley County",
+   "resume_base": [
+    "Procurement officer, Wexley County, 2014-2025"
+   ],
+   "notes": [
+    "User said the road program total is in the county's adopted budget, a public record."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Ran procurement for the county's $58M road resurfacing program",
+   "Cut bid review time from 6 weeks to 3"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "t05-startup-unreleased-revenue",
+  "split": "test",
+  "context": {
+   "role": "Machine learning engineer",
+   "employer": "Kestrel Commerce (private startup)",
+   "resume_base": [
+    "ML engineer, Kestrel Commerce, 2022-2025",
+    "Built the recommendation engine"
+   ],
+   "notes": [
+    "User said the product is still in pilot; general launch is planned for 2027."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Built the recommendation engine behind $640K in pilot revenue ahead of the 2027 launch",
+   "Reduced model training time 60% by caching features"
+  ],
+  "expected_flagged": [
+   "$640K"
+  ]
+ },
+ {
+  "id": "t06-retail-answered-plus-new",
+  "split": "test",
+  "context": {
+   "role": "District manager",
+   "employer": "Westmere Pharmacy",
+   "resume_base": [
+    "District manager, Westmere Pharmacy, 2018-2025"
+   ],
+   "notes": [
+    "Story: district turnaround. Proof level: user's own numbers. $22M district sales: OK to share (user confirmed last month).",
+    "User mentioned the loyalty program count from an internal report."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Led an 11-store district with $22M in annual sales",
+   "Grew the district's loyalty program to 4,000 active members",
+   "Cut pharmacist vacancies from 6 to 1"
+  ],
+  "expected_flagged": [
+   "4,000"
+  ]
+ },
+ {
+  "id": "t07-accountant-recovered-payments",
+  "split": "test",
+  "context": {
+   "role": "Staff accountant",
+   "employer": "Dunmore Fabrication",
+   "resume_base": [
+    "Staff accountant, Dunmore Fabrication, 2019-2025",
+    "Closed the books monthly for a $75M manufacturer"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Closed the books monthly for a $75M manufacturer",
+   "Cut month-end close from 10 days to 6",
+   "Recovered $1.1M in duplicate vendor payments"
+  ],
+  "expected_flagged": [],
+  "note": "Dollar amount recovered, on its own: never ask."
+ },
+ {
+  "id": "t08-nonprofit-volunteers",
+  "split": "test",
+  "context": {
+   "role": "Volunteer program manager",
+   "employer": "Riverbend Food Pantry Network (nonprofit)",
+   "resume_base": [
+    "Volunteer program manager, Riverbend Food Pantry Network, 2019-2025"
+   ],
+   "notes": [
+    "User said they set and owned the volunteer program budget."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Recruited and trained 85 volunteers a year",
+   "Managed a $120,000 program budget",
+   "Raised volunteer retention from 40% to 66%"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "t09-sales-university-contract",
+  "split": "test",
+  "context": {
+   "role": "Account executive, ed-tech",
+   "employer": "Cobaltline Learning Systems",
+   "resume_base": [
+    "Account executive, Cobaltline Learning Systems, 2021-2025",
+    "Signed new logos in higher education"
+   ],
+   "notes": [
+    "User mentioned the university deal size in conversation."
+   ]
+  },
+  "draft_kind": "recruiter note",
+  "draft": [
+   "In my last role I signed 11 new logos in higher education.",
+   "That included a $3M three-year contract with a state university system."
+  ],
+  "expected_flagged": [
+   "$3M"
+  ]
+ },
+ {
+  "id": "t10-home-health-public-report",
+  "split": "test",
+  "context": {
+   "role": "Clinical coordinator, home health",
+   "employer": "Wellspring Home Health",
+   "resume_base": [
+    "Clinical coordinator, Wellspring Home Health, 2018-2025"
+   ],
+   "notes": [
+    "User said the agency publishes its patient count in its annual community report, which is on its website."
+   ]
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Coordinated care for an agency serving 2,300 patients a year",
+   "Cut 30-day readmissions from 18% to 11%"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d23-logistics-savings-alone",
+  "split": "dev",
+  "context": {
+   "role": "Transportation planner",
+   "employer": "Kestrel Supply",
+   "resume_base": [
+    "Transportation planner, Kestrel Supply, 2020-2025"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Saved $300K a year in freight by rebuilding delivery routes",
+   "Cut late deliveries from 9% to 3%"
+  ],
+  "expected_flagged": []
+ },
+ {
+  "id": "d24-it-spend-before-after",
+  "split": "dev",
+  "context": {
+   "role": "IT manager",
+   "employer": "Harrow & Pike Insurance",
+   "resume_base": [
+    "IT manager, Harrow & Pike Insurance, 2017-2025",
+    "Ran software licence renewals"
+   ],
+   "notes": []
+  },
+  "draft_kind": "resume bullets",
+  "draft": [
+   "Cut software licence spend from $1.2M to $800K a year by retiring unused seats",
+   "Led a team of 6"
+  ],
+  "expected_flagged": [
+   "$1.2M",
+   "$800K"
+  ]
+ }
+]

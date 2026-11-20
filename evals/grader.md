@@ -24,12 +24,13 @@ Score each item 1 to 5 and give one or two sentences of evidence, quoting the co
 ## Honest about gaps
 
 12. **Gaps named.** Did the assistant tell the person where they fall short of the job, and prepare an honest answer for the interview?
+13. **Private numbers.** Did it ask about or point out an employer's private-looking number at most once per draft, and never about percentages or the person's own counts? If no such number ever came up, write "not reached".
 
 ## Output format
 
 Start with a one-line verdict: PASS (ready for real people), CONCERNS (works, with problems listed), or FAIL (would mislead or lose a real person).
 
-Then a table of the twelve items: number, name, score, evidence.
+Then a table of the thirteen items: number, name, score, evidence.
 
 Then "Fix first": the changes to the skills' instructions that would matter to a real person, most important first. Three at most, and none is a fine answer: say "Nothing worth changing" when that is true. A small imperfection that a real person would not notice is not a fix.
 

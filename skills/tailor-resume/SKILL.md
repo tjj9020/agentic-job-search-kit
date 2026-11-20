@@ -34,10 +34,11 @@ The user's documents are in a `career/` folder, or in project documents with the
 
 4. **Check it against their facts.** Trace every number and claim to the story bank or their resume and remove what you can't trace. If the story bank left something blank, ask or leave it out.
 
-5. **Make sure it is theirs.** Three tests, then one request:
+5. **Make sure it is theirs.** Four tests, then one request:
    - *Could this line sit on a stranger's resume?* If so, add the detail that makes it theirs (what was wrong, where, the number) or cut it.
    - *Could they talk about it for two minutes?* Ask about the two or three boldest lines. If not, soften or cut.
    - *Would they say it out loud?* Tell them which lines are their own words and which are your wording of their facts, and take their version of anything they would put differently.
+   - *Is every number theirs to share?* What the company earns or spends, a price, what a customer or contract is worth, how many customers it has, or plans not yet public can be the employer's to share. If one isn't on their resume and they haven't said it's public, ask. Percentages, before-and-after results, a dollar amount they saved and the size of their own job (team, budget) describe their own work, so they need no question; a before and after in dollars shows what the employer spends, so ask.
    - Ask them to read it aloud once and change what doesn't sound like them.
 
 6. **Deliver.** Save the resume alone as `career/applications/<company>-<role>/resume.md`. Give them something they can send: a Word document if you can create files (a PDF too if they ask), otherwise clean text to copy into Word. A Markdown file is not a finished resume for this user. Add what you emphasized and why, and the gaps to be ready for.
@@ -50,7 +51,7 @@ The user's documents are in a `career/` folder, or in project documents with the
 
    When they say they applied, heard back or withdrew, in any wording, update the status (applied, screen, interview, offer, rejected, withdrawn). Keep the status to that one word and put the date and any detail in notes, such as "applied Nov 18": the date column is the day the resume was drafted, and the notes are where anyone can see when they applied. If they later change a resume they already sent, save the new version beside the old one and say which the record points to.
 
-9. **Learn from it.** Add a line under "Tailored versions" in the story bank (date, employer, job, stories used). When they edit a line, update the voice profile with what the edit shows. When they give you a new fact, add it to the story bank, and to "Changed since last sync" in `linkedin-profile-log.md` if that exists.
+9. **Learn from it.** Add a line under "Tailored versions" in the story bank (date, employer, job, stories used). When they edit a line, update the voice profile with what the edit shows. When they give you a new fact, add it to the story bank, and to "Changed since last sync" in `linkedin-profile-log.md` if that exists. When they say whether a figure can be shared, note it beside the figure.
 
 ## If they ask you to exaggerate
 

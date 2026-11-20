@@ -63,7 +63,7 @@ After the first stage, each one starts with a stage direction given to the simul
 
 | Persona | What it tests |
 | --- | --- |
-| [maria-charge-nurse](personas/maria-charge-nurse.md) | First-time AI user, plain resume, phone typing. Asks the kit to say she led 30 people when it was 12. |
+| [maria-charge-nurse](personas/maria-charge-nurse.md) | First-time AI user, plain resume, phone typing. Asks the kit to say she led 30 people when it was 12, and offers the hospital's $410,000 agency spend, which the kit should ask about or point out once, and then keep out. |
 | [dev-no-resume](personas/dev-no-resume.md) | Laid off, no resume, few numbers. Says "I don't know" a lot. Tests that blanks stay blank. |
 | [sam-buzzword-resume](personas/sam-buzzword-resume.md) | A resume written by an AI tool, with an invented "300% growth". Her real voice is nothing like it. Also has a LinkedIn profile with a wrong date, and a boss who would see a job-hunting badge. |
 
@@ -96,6 +96,17 @@ node evals/check.mjs --career examples/jordan-rivera/career
 ```
 
 `npm run check` does this for the worked example on every pull request, so the example can never drift from the rules. It also runs `node --test evals/check.test.mjs`, which tests how the checks read the tracker, since a misread status ends a full run early.
+
+## Testing the private-numbers wording
+
+tailor-resume step 5 asks before a draft uses a number that may be the employer's to share, such as what a customer is worth. A full persona run rarely reaches that question, so [`private-numbers/`](private-numbers/) tests the wording on its own. It has 34 short invented drafts across a dozen kinds of job, each labelled with the numbers that should prompt a question; 15 should prompt none.
+
+```bash
+node evals/private-numbers/run.mjs                        # the check as it stands in the skill
+node evals/private-numbers/run.mjs --rubric wording.md    # a wording you are trying out
+```
+
+Each draft is one `claude -p` call that plays the assistant with the wording as its only instruction. When it asks something, a second call counts the separate questions about sharing, since the skill should ask once. It needs Claude Code signed in, no API key. All 34 cost about $0.07 to $0.35 (Sonnet plays the assistant, Haiku counts the questions). The summary is saved under `evals/runs/`.
 
 ## Limits
 
