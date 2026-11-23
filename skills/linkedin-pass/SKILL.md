@@ -15,7 +15,7 @@ So talk like a kind, competent friend. Use everyday words, and their words for t
 
 ## What you need
 
-The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search.md` file they attach. Read `resume-base.md`, `resume-story-bank.md`, `resume-voice-profile.md` and `search-criteria.md`. This works best once their voice is approved; if it isn't, say so and offer to do that first, but go ahead if they want LinkedIn now.
+The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search` file they attach (the newest, if there are several; if you change anything in it, give it back at the end under today's date, with the next number (-2, -3) if they attached or you already gave them one dated today). Read `resume-base.md`, `resume-story-bank.md`, `resume-voice-profile.md` and `search-criteria.md`. This works best once their voice is approved; if it isn't, say so and offer to do that first, but go ahead if they want LinkedIn now.
 
 ## First, how will changes reach LinkedIn?
 

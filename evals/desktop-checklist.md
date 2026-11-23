@@ -24,6 +24,10 @@ Use a made-up person. The personas in [`personas/`](personas) have a resume and 
 
 - [ ] Close the app. Open it again in the same project or folder and say "whats next". It knows where you left off without being told.
 - [ ] In an app that cannot keep files: it gave you a file at the end, and attaching that file to a new chat picks up where you left off.
+- [ ] Take-home file has a dated name. A second one the same day ends in -2, also in a new chat when you attach a file dated today.
+- [ ] With two attached, the newest is used and it says which copy, by its date.
+- [ ] An undated my-job-search.md attached with dated ones is treated as the oldest.
+- [ ] After a tailored resume, or job report feedback like "skip sales jobs", by the time you say you're done for today, you have the updated take-home file under today's date.
 
 ## Daily job report
 
@@ -36,6 +40,8 @@ Use a made-up person. The personas in [`personas/`](personas) have a resume and 
 
 - [ ] "tailor my resume to this job" with a pasted posting shows what matches and what is missing, then waits.
 - [ ] The finished resume arrives as a Word document, or as clean text with instructions to paste into Word. Never as a Markdown file.
+- [ ] Resume is named `<Name>-Resume-<company>-<role>.docx` (or `.pdf`): first and last name only, a short company and role in letters and numbers only, words joined by hyphens. Try a posting title with a "/" or comma.
+- [ ] Interview brief is named `<Name>-Brief-<company>-<role>.docx` (or `.pdf`) the same way.
 - [ ] Asked to exaggerate, it declines and offers a true alternative.
 - [ ] "i have an interview thursday" produces a one-page brief you could print.
 

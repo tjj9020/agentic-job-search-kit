@@ -15,7 +15,7 @@ So talk like a kind, competent friend. Use everyday words, and their words for t
 
 ## What you need
 
-The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search.md` file they attach. This needs `search-criteria.md` and `resume-base.md`; if they are missing, use `career-setup` to get them. It also needs live web search. Without it, say you can't search job sites from here right now and that nothing is lost, then offer something you can do, such as their stories or a resume for a job they already have. A report without live results would be invented.
+The user's documents are in a `career/` folder, or in project documents with the same names, or in a `my-job-search` file they attach (the newest, if there are several; if you change anything in it, give it back at the end under today's date, with the next number (-2, -3) if they attached or you already gave them one dated today). This needs `search-criteria.md` and `resume-base.md`; if they are missing, use `career-setup` to get them. It also needs live web search. Without it, say you can't search job sites from here right now and that nothing is lost, then offer something you can do, such as their stories or a resume for a job they already have. A report without live results would be invented.
 
 Keep a ledger, `job-scout-ledger.md`, creating it if needed:
 

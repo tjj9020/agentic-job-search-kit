@@ -245,7 +245,7 @@ The skills share five documents in a `career/` folder (or the project's files):
 
 Each job the user applies to also gets a folder, `career/applications/<company>-<role>/`, holding `resume.md` (the version sent), `note.md` (the recruiter note or cover letter, if any) and `brief.md` (the interview brief). The tracker's resume column points at that `resume.md`.
 
-The skills work out where to keep documents in each app: a `career/` folder where they can write to disk, project documents where the app has them, or a single `my-job-search.md` file handed to the user where neither exists.
+The skills work out where to keep documents in each app: a `career/` folder where they can write to disk, project documents where the app has them, or a single dated `my-job-search` file handed to the user where neither exists.
 
 Each release attaches one ZIP per skill and a bundle, built by `scripts/build-downloads.sh`, for apps that install skills by upload. The bundle also holds a `gemini/` folder with the same six skills zipped with `SKILL.md` at the top level, which is what the Gemini app requires.
 
